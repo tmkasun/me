@@ -1,0 +1,54 @@
+.navi_box
+{
+	display: inline-block;
+    float:left;
+	height:20px;
+	overflow: hidden;
+	width:19.5%;
+
+	-webkit-transition: width 1s;
+	-moz-transition: width 1s;
+        transition: width 1s;
+}
+
+.navi_box.home      { background-color: #2d89ef; }
+.navi_box.about     { background-color: #00a300; }
+.navi_box.portfolio { background-color: #e3a21a; }
+.navi_box.services  { background-color: #9f00a7; }
+.navi_box.contact   { background-color: #ee1111; }
+
+.navi_box a
+{
+	color:#FFF;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	height:100%;
+	display:block;
+        padding-top: 3px;
+}
+
+.navi_box span
+{
+    display:block;
+    position:relative;
+    top:100%;
+    text-align: center;
+
+    -webkit-transition: top 1s;
+    -moz-transition: top 1s;
+    transition: top 1s;
+}
+
+.nav:hover .navi_box { width:11%; }
+
+.nav .navi_box:hover { width: 53%; }
+
+.navi_box:hover span{ top:25%; }
+
+.nav{
+    position:fixed;
+    width:104%;
+    bottom:0px;
+    height: 20px;
+}
