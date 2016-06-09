@@ -20,9 +20,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A portfolio template that uses Material Design Lite.">
+    <meta name="description" content="Kasun Thennakoon's tmkasun personal website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>MDL-Static Website</title>
+    <title>Kasun Thennakoon Web</title>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
@@ -63,12 +63,7 @@
                 <div class="mdl-card__title">
                     <h2 class="mdl-card__title-text">About</h2>
                 </div>
-                <div class="mdl-card__media">
-                    <img class="article-image" src="{% static 'about/images/about-header.jpg' %}" border="0" alt="">
-                </div>
-
                 <div class="mdl-grid portfolio-copy">
-                    <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
                     <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
                         <p>
                             A little about me: I write code, compete , enjoy life with tech :) ,Enjoyed building web
@@ -86,12 +81,32 @@
         </div>
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
-                <div class="mdl-logo">Simple portfolio website</div>
+                <div class="mdl-logo">© 2016 Kasun Thennakoon</div>
             </div>
-            <div class="mdl-mini-footer__right-section">
+            <div class="mdl-mini-footer__right-section footer__right-section-override">
                 <ul class="mdl-mini-footer__link-list">
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Privacy & Terms</a></li>
+                    <a>
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-square-o fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span>
                 </ul>
             </div>
         </footer>
@@ -101,6 +116,7 @@
 <!-- Loading assets via CDN -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+<script src="https://use.fontawesome.com/fa3cae60dc.js"></script>
 
 <!-- Loading assets from local location -->
 <script src="{% static 'jquery.nicescroll.min.js' %}"></script>
