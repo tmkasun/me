@@ -162,10 +162,43 @@ footer {
 }
 
 .footer__right-section-override {
-    width: 13%; /* TODO: No logical reson for this check and fix later*/
+    width: 13%; /* TODO: No logical reason for this check and fix later*/
+    margin-right: 20px;
 }
 
-/* TODO: add hover color accordingly https://www.materialui.co/socialcolors */
-.fa-twitter ::before :hover {
+.mdl-mini-footer__link-list .fa {
+    /* First we need to help some browsers along for this to work.
+    Just because a vendor prefix is there, doesn't mean it will
+    work in a browser made by that vendor either, it's just for
+    future-proofing purposes I guess. */
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    /* ...and now for the proper property */
+    transition: .5s;
+}
+
+.fa-twitter:hover {
     color: #55acee;
+}
+
+.fa-facebook:hover {
+    color: #3b5999;
+}
+
+.fa-google-plus:hover {
+    color: #dd4b39;
+}
+
+.fa-github:hover {
+    color: #131418;
+}
+
+.fa-linkedin:hover {
+    color: #0077B5;
+}
+
+.mdl-mini-footer__link-list .fa-stack {
+    cursor: pointer;
 }
