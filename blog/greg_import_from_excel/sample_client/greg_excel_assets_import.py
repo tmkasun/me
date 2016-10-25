@@ -9,7 +9,7 @@ def main():
     wb = openpyxl.load_workbook(conf['excel_file'])
     name = wb.get_sheet_names()[0]
     sheet = wb.get_sheet_by_name(name)
-    for row in range(2, sheet.max_row):  # from 2 (assuming first row contains headers) to end of the row
+    for row in range(2, sheet.max_row):  # from 2 (assuming first row contains headers) to end of the rows
         condition = sheet.cell(row=row, column=1).value
         color = sheet.cell(row=row, column=2).value
         year = sheet.cell(row=row, column=3).value
@@ -17,13 +17,13 @@ def main():
         description = sheet.cell(row=row, column=5).value
         body = sheet.cell(row=row, column=6).value
         notes = sheet.cell(row=row, column=7).value
-        temp = populate_template(condition, color, year, name, description, body, notes)
+        json_data = get_json(condition, color, year, name, description, body, notes)
         if name:
             asset_name = name.replace(" ", "_")
         else:
             break
 
-        create_asset(temp, asset_name)
+        create_asset(json_data, asset_name)
 
 
 def create_asset(metadata, file_name):
@@ -41,7 +41,7 @@ def create_asset(metadata, file_name):
         print("Response Content = {}\nStatus Code = {}".format(response.content, response.status_code))
 
 
-def populate_template(condition, color, year, name, description, body, notes):
+def get_json(condition, color, year, name, description, body, notes):
     data = {
         'name': name,
         'version': '1.0.0',  # Default asset version
