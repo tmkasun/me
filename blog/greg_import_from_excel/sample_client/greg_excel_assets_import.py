@@ -2,6 +2,7 @@ from base64 import b64encode  # To convert username:password to base64 encoded s
 import requests  # Python simple HTTP library
 import openpyxl  # Python Excel file reader library
 from configs import conf  # Loads configuration details of the tool
+import json
 
 
 def main():
@@ -17,7 +18,11 @@ def main():
         body = sheet.cell(row=row, column=6).value
         notes = sheet.cell(row=row, column=7).value
         temp = populate_template(condition, color, year, name, description, body, notes)
-        asset_name = name.replace(" ", "_")
+        if name:
+            asset_name = name.replace(" ", "_")
+        else:
+            break
+
         create_asset(temp, asset_name)
 
 
@@ -26,11 +31,10 @@ def create_asset(metadata, file_name):
     auth_value = b64encode(credentials.encode())
     headers = {
         'Authorization': '{type} {auth_value}'.format(type="Basic", auth_value=auth_value.decode()),
-        'Content-Type': conf['media-type'],
-        'Cache-Control': 'no-cache'
+        'Content-Type': 'application/json'
     }
-    request_url = conf['artifact_endpoint'] + conf['reg_path'] + file_name
-    response = requests.put(request_url, data=metadata, headers=headers, verify=False)
+    request_url = conf['artifact_endpoint']
+    response = requests.post(request_url, data=metadata, headers=headers, verify=False)
     if not response.ok:
         print("Error while creating the asset {}".format(file_name))
     else:
@@ -38,21 +42,18 @@ def create_asset(metadata, file_name):
 
 
 def populate_template(condition, color, year, name, description, body, notes):
-    template = """<?xml version="1.0"?>
-    <metadata xmlns="http://www.wso2.org/governance/metadata">
-      <overview>
-        <condition>{}</condition>
-        <color>{}</color>
-        <year>{}</year>
-        <name>{}</name>
-        <description>{}</description>
-        <body>{}</body>
-      </overview>
-      <notes>
-        <notes>{}</notes>
-      </notes>
-    </metadata>""".format(condition, color, year, name, description, body, notes)
-    return template
+    data = {
+        'name': name,
+        'version': '1.0.0',  # Default asset version
+        'type': conf['artifact_type'],
+        'condition': condition,
+        'color': color,
+        'year': year,
+        'description': description,
+        'body': body,
+        'notes': notes,
+    }
+    return json.dumps(data)
 
 
 if __name__ == '__main__':

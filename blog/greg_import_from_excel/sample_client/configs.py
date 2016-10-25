@@ -2,12 +2,15 @@ conf = {
     'host': "localhost",
     'port': 9443,
     'artifact_type': 'car',
-    'media-type': 'application/vnd.knnect-car+xml',
     'username': 'admin',
     'password': 'admin',
-    'excel_file': './sample_greg_import_cars_excel_sheet.xlsx' # sample file in https://goo.gl/iOjb9g
+    'excel_file': './sample_greg_import_cars_excel_sheet.xlsx'  # sample file in https://goo.gl/iOjb9g
 }
 
-conf['artifact_endpoint'] = "https://{host}:{port}/resource/1.0.0/artifact/".format(host=conf['host'],
-                                                                                    port=conf['port'])
-conf['reg_path'] = "_system/governance/trunk/{artifact_type}/".format(artifact_type=conf['artifact_type'])
+conf['artifact_endpoint'] = "https://{host}:{port}/governance/{artifact_type}s".format(host=conf['host'],
+                                                                                       # Note the s at the end of URL, It is there to make it plural of the word used in asset type
+                                                                                       # (well it's true that by putting s we can't make all the words plural) but that is How Its Made :)
+                                                                                       port=conf['port'],
+                                                                                       artifact_type=conf[
+                                                                                           'artifact_type']
+                                                                                       )
