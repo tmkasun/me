@@ -1,0 +1,57 @@
+<artifactType type="application/vnd.knnect-car+xml" shortName="car" singularLabel="Car" pluralLabel="Cars"
+              hasNamespace="false" iconSet="27">
+    <storagePath>/trunk/car/@{overview_name}</storagePath>
+    <nameAttribute>overview_name</nameAttribute>
+
+    <ui>
+        <list>
+            <column name="name">
+                <data type="text" value="overview_name"/>
+            </column>
+            <column name="ID">
+                <data type="text" value="overview_id"/>
+            </column>
+        </list>
+    </ui>
+    <content>
+        <table name="Overview">
+            <field type="text" required="true">
+                <name label="Model Name">name</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Make Year">year</name>
+            </field>
+            <field type="text" required="true">
+                <name label="Body Color">color</name>
+            </field>
+            <field type="text-area">
+                <name label="Description">description</name>
+            </field>
+            <field type="options">
+                <name label="Body Type">body</name>
+                <values>
+                    <value>City Car</value>
+                    <value>Superminis</value>
+                    <value>Hatchbacks</value>
+                    <value>MPVs</value>
+                    <value>Saloons</value>
+                    <value>Crossovers</value>
+                </values>
+            </field>
+            <field type="options">
+                <name label="Condition">condition</name>
+                <values>
+                    <value>New</value>
+                    <value>Recondition</value>
+                    <value>Used</value>
+                    <value>Damaged</value>
+                </values>
+            </field>
+        </table>
+        <table name="Notes">
+            <field type="text-area">
+                <name label="Notes">notes</name>
+            </field>
+        </table>
+    </content>
+</artifactType>
