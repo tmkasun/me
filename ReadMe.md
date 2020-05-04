@@ -4,5 +4,6 @@ This is my personal web site deployed in Netlify [![Netlify Status](https://api.
 
 # TODO
 
-- Add google analytics
+- Add google analytics [Done] add to blog as well
 - Add Helmet and SEO
+- blog about new blog/page

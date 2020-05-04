@@ -11,7 +11,7 @@ import Avatar from "@material-ui/core/Avatar"
 import Divider from "@material-ui/core/Divider"
 
 import logo from "../../static/avatar.jpeg"
-import myAvatar from "../../static/icons8-user-100.png"
+import myAvatar from "../../static/me.svg"
 import openSource from '../../static/open-source.svg'
 import blog from '../../static/blog.svg'
 import projects from '../../static/current_projects.svg'
