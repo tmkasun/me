@@ -48,5 +48,12 @@ module.exports = {
         icon: 'static/favicon.png'
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // Google Analytics Tracking ID for me.knnect.com
+        trackingId: "UA-34584055-3",
+      },
+    },
   ],
 }
