@@ -5,6 +5,7 @@
  * https://www.gatsbyjs.org/packages/gatsby-plugin-material-ui/#advanced
  */
 
+
 module.exports = {
   siteMetadata: {
     title: `My little corner in the Web`,

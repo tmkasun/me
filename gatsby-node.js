@@ -56,6 +56,6 @@ exports.onCreateWebpackConfig = ({
         poll: true,
         ignored: /node_modules/
       }
-    }
+    },
   })
 }
