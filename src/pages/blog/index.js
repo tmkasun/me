@@ -4,6 +4,7 @@ import Scenario from "../../components/landing/Scenario"
 // import Solutions from "../../components/landing/Solutions"
 import { graphql } from "gatsby"
 import Grid from "@material-ui/core/Grid"
+import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 
 export default props => {
