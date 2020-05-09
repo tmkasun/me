@@ -36,11 +36,7 @@ const useStyles = makeStyles(theme => ({
 }))
 export default props => {
   const classes = useStyles()
-<<<<<<< HEAD
   const [apps] = useState()
-=======
-  const [apps, setApps] = useState()
->>>>>>> c6af423f2786e8de1588d5dc702985a25d6a9887
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
