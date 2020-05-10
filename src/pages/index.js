@@ -44,7 +44,6 @@ export default props => {
   } = data
   const isXS = useMediaQuery('(min-width:600px)'); // when size become xs https://material-ui.com/customization/breakpoints/
   const classes = useStyles(!isXS)
-  const lnkedIn = "https://www.linkedin.com/in/tmkasun"
   return (
     <Base>
       <Grid container spacing={0} direction="row" justify="center" alignItems="center">
@@ -60,34 +59,33 @@ export default props => {
           <Divider />
           <ItemSection icon={myAvatar} title='Me' description={
             <>
-            My name is <Link href={`${lnkedIn}`}>Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
+              My name is <Link href="https://www.linkedin.com/in/tmkasun">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
             <Link href="https://www.lonelyplanet.com/sri-lanka">
-          Sri Lanka.
+                Sri Lanka.
           </Link>
           I love listening to music, watch documentries and do swimming, cycling, and many other silly things.
-          <br/>
+          <br />
           Here how it's looks like in a <Link href="https://tmkasun.github.io/">
-          Timeline
+                Timeline
           </Link>
-
             </>
           } />
 
           <ItemSection icon={projects} title='Current projects' description={
             <>
 
-          I have a strong interest in web technologies and currently I am orchestrating the Web Portal developments in WSO2 API Manager, Focusing on sleek & modern API Management experience for the users. We recently <Link href="https://medium.com/@tmkasun/wso2-api-manager-new-look-27a186bc83d5">revamped</Link> the Web UI of the product adopting the modern JS eco-system.
+              I have a strong interest in web technologies and currently I am orchestrating the Web Portal developments in WSO2 API Manager, Focusing on sleek & modern API Management experience for the users. We recently <Link href="https://medium.com/@tmkasun/wso2-api-manager-new-look-27a186bc83d5">revamped</Link> the Web UI of the product adopting the modern JS eco-system.
             </>
           } />
           <ItemSection icon={openSource} title='Open-Source' description={<>
-          All of my work is <Link href="https://github.com/tmkasun">Open Source and Free</Link> for anyone to copy, cut, paste, delete, share, steal, or any other verb you could possibly think of, 
-          <br/> But please be aware that, most of the <Link href="https://github.com/tmkasun">projects here</Link> are incomplete, 
+            All of my work is <Link href="https://github.com/tmkasun">Open Source and Free</Link> for anyone to copy, cut, paste, delete, share, steal, or any other verb you could possibly think of,
+          <br /> But please be aware that, most of the <Link href="https://github.com/tmkasun">projects here</Link> are incomplete,
           and should be seen as prototypes rather than practical implementations. In fact, some projects have been known to instantly crash my computer (due to overwhelming awesomeness), so I've temporarily taken them offline until I have the time to debug them.
           </>} />
           <ItemSection icon={blog} title='Blog' description={
             <>
-            I mostly like web technology stuffs, such as Web: development, performance, security and APIs, but I do not restrict myself to a single set of tools or a single operating system. I am always curious to learn more about the hidden details deep inside the technologies. Most of my <Link href="http://blog.knnect.com/">writings</Link> and <Link href="https://gist.github.com/tmkasun">notes</Link> are for my future references but I hope those will help others make use of them as well
-          <br/>
+              I mostly like web technology stuffs, such as Web: development, performance, security and APIs, but I do not restrict myself to a single set of tools or a single operating system. I am always curious to learn more about the hidden details deep inside the technologies. Most of my <Link href="http://blog.knnect.com/">writings</Link> and <Link href="https://gist.github.com/tmkasun">notes</Link> are for my future references but I hope those will help others make use of them as well
+          <br />
             </>
           } />
         </Grid>

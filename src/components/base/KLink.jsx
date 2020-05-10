@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
  */
 export default function KLink(props) {
     const { type, children, ...rest } = props;
+    console.log(children)
+    console.log(rest)
+    debugger;
     const classes = useStyles()
 
     return (
