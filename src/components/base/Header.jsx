@@ -72,49 +72,40 @@ export default function Header(props) {
             direction="row"
             justify="flex-end"
             alignItems="center"
+            spacing={2}
           >
             <Grid item>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                spacing={2}
-              >
-                <Grid item>
-                  <Link activeStyle={{ color: "read" }} to="/">
-                    <Button aria-label="Home" className={classes.links}>
-                      Home
+              <Link activeStyle={{ color: "read" }} to="/">
+                <Button aria-label="Home" className={classes.links}>
+                  Home
                     </Button>
-                  </Link>
-                </Grid>
+              </Link>
+            </Grid>
 
-                <Grid item>
-                  <Link activeStyle={{ color: "read" }} to="/blog">
-                    <Button aria-label="Blog" className={classes.links}>
-                      Blog
+            <Grid item>
+              <Link activeStyle={{ color: "read" }} to="/blog">
+                <Button aria-label="Blog" className={classes.links}>
+                  Blog
                     </Button>
-                  </Link>
-                </Grid>
+              </Link>
+            </Grid>
 
-                <Grid item>
-                  <Link activeStyle={{ color: "read" }} to="/myapps">
-                    <Button aria-label="Projects" className={classes.links}>
-                      Projects
+            <Grid item>
+              <Link activeStyle={{ color: "read" }} to="/myapps">
+                <Button aria-label="Projects" className={classes.links}>
+                  Projects
                     </Button>
-                  </Link>
-                </Grid>
+              </Link>
+            </Grid>
 
-                <Grid item>
-                  <IconButton aria-label="Dark & Light mode" onClick={oClick} size="small">
-                    {isDarkMode ? (
-                      <WbSunnyIcon className={classes.sunLight} fontSize="small" />
-                    ) : (
-                        <NightsStayIcon style={{ color: 'black' }} fontSize="small" />
-                      )}
-                  </IconButton>
-                </Grid>
-              </Grid>
+            <Grid item>
+              <IconButton aria-label="Dark & Light mode" onClick={oClick} size="small">
+                {isDarkMode ? (
+                  <WbSunnyIcon className={classes.sunLight} fontSize="small" />
+                ) : (
+                    <NightsStayIcon style={{ color: 'black' }} fontSize="small" />
+                  )}
+              </IconButton>
             </Grid>
           </Grid>
         </Toolbar>
