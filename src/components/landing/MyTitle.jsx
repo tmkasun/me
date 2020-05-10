@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
 
 export default props => {
     const theme = useTheme();
-    console.log(theme.palette.type)
     const classes = useStyles()
     return (
         <Box mb={4} mt={4}>
