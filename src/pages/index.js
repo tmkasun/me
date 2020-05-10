@@ -44,6 +44,7 @@ export default props => {
   } = data
   const isXS = useMediaQuery('(min-width:600px)'); // when size become xs https://material-ui.com/customization/breakpoints/
   const classes = useStyles(!isXS)
+  const lnkedIn = "https://www.linkedin.com/in/tmkasun"
   return (
     <Base>
       <Grid container spacing={0} direction="row" justify="center" alignItems="center">
@@ -59,7 +60,7 @@ export default props => {
           <Divider />
           <ItemSection icon={myAvatar} title='Me' description={
             <>
-            My name is <Link href="https://t.co/pgBt6OrBf9?amp=1">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
+            My name is <Link href={`${lnkedIn}`}>Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
             <Link href="https://www.lonelyplanet.com/sri-lanka">
           Sri Lanka.
           </Link>
