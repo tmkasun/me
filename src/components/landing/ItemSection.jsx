@@ -27,7 +27,7 @@ const ItemSection = props => {
                 <Grid item md={2} sm={2} xs={3}>
                     <Avatar className={classes.icons} alt="Kasun Thennakoon" src={icon} />
                 </Grid>
-                {isXS && <Grid md={0} sm={1} xs={0} />}
+                {isXS && <Grid item md={false} sm={1} xs={false} />}
                 <Grid item md={8} sm={9} xs={9}>
                     <Grid
                         container

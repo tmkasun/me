@@ -53,7 +53,7 @@ export default props => {
         </Grid>
         <Grid item md={5} sm={5} xs={5} />
 
-        <Grid item md={3} sm={1} xs={0} />
+        <Grid item md={3} sm={1} xs={false} />
         <Grid item md={6} sm={10} xs={12}>
           <MyTitle />
           <Divider />
@@ -90,7 +90,7 @@ export default props => {
             </>
           } />
         </Grid>
-        <Grid item md={3} sm={1} xs={0} />
+        <Grid item md={3} sm={1} xs={false} />
       </Grid>
     </Base>
   )

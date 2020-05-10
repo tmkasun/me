@@ -29,12 +29,12 @@ export default props => {
         <Box mb={4} mt={4}>
             <Typography align="center" variant="h3">
                 Kasun Thennakoon
+            </Typography>
             <Typography className={classes.subTitle} align="center" variant="subtitle1">
-                    Associate Technical Lead at <span className={classes.wso2}>WSO2</span> working on product {' '}
-                    <Tooltip placement="top-end" interactive TransitionComponent={Zoom} title="API Manager">
-                        <Box className={classes.apim} display="inline">API-M</Box>
-                    </Tooltip>
-                </Typography>
+                Associate Technical Lead at <span className={classes.wso2}>WSO2</span> working on product {' '}
+                <Tooltip placement="top-end" interactive TransitionComponent={Zoom} title="API Manager">
+                    <Box className={classes.apim} display="inline">API-M</Box>
+                </Tooltip>
             </Typography>
         </Box>
     )
