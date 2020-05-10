@@ -59,7 +59,7 @@ export default props => {
           <Divider />
           <ItemSection icon={myAvatar} title='Me' description={
             <>
-            My name is <Link href="https://www.google.com/in/tmkasun">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
+            My name is <Link href="https://www.linkedin.com/in/tmkasun">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
             <Link href="https://www.lonelyplanet.com/sri-lanka">
           Sri Lanka.
           </Link>
