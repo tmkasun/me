@@ -5,12 +5,13 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Grid from "@material-ui/core/Grid"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Button from '@material-ui/core/Button';
+import { Helmet } from "react-helmet";
 
 
 import IconButton from "@material-ui/core/IconButton"
 import NightsStayIcon from "@material-ui/icons/NightsStay"
 import WbSunnyIcon from "@material-ui/icons/WbSunny"
-import { amber, cyan,lightBlue } from "@material-ui/core/colors"
+import { amber, cyan, lightBlue } from "@material-ui/core/colors"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,9 +28,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+/**
+ * My web page specific Header component composed using Helmet and Material-UI Appbar
+ * For more information about configuring SEO in Gatsby: https://github.com/gatsbyjs/gatsby-starter-default/blob/master/src/components/seo.js#L15
+ * @param {Object} props 
+ */
 export default function Header(props) {
-  const { isDarkMode, setIsDarkMode } = props
-  const data = useStaticQuery(graphql`
+  const { isDarkMode, setIsDarkMode, description, lang, title } = props
+  const { site } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -45,6 +51,15 @@ export default function Header(props) {
   }
   return (
     <div className={classes.root}>
+      <Helmet
+        htmlAttributes={{
+          lang,
+        }}
+        title={title || site.siteMetadata.title}
+      >
+        <meta charSet="utf-8" />
+        <meta name="description" content={description || site.siteMetadata.description} />
+      </Helmet>
       <AppBar
         elevation={0}
         className={classes.appbarColor}
@@ -68,7 +83,7 @@ export default function Header(props) {
               >
                 <Grid item>
                   <Link activeStyle={{ color: "read" }} to="/">
-                    <Button className={classes.links}>
+                    <Button aria-label="Home" className={classes.links}>
                       Home
                     </Button>
                   </Link>
@@ -76,7 +91,7 @@ export default function Header(props) {
 
                 <Grid item>
                   <Link activeStyle={{ color: "read" }} to="/blog">
-                    <Button className={classes.links}>
+                    <Button aria-label="Blog" className={classes.links}>
                       Blog
                     </Button>
                   </Link>
@@ -84,15 +99,14 @@ export default function Header(props) {
 
                 <Grid item>
                   <Link activeStyle={{ color: "read" }} to="/docs">
-                    <Button className={classes.links}>
-
-                      Documentation
+                    <Button aria-label="Projects" className={classes.links}>
+                      Projects
                     </Button>
                   </Link>
                 </Grid>
 
                 <Grid item>
-                  <IconButton onClick={oClick} size="small">
+                  <IconButton aria-label="Dark & Light mode" onClick={oClick} size="small">
                     {isDarkMode ? (
                       <WbSunnyIcon className={classes.sunLight} fontSize="small" />
                     ) : (
@@ -107,4 +121,11 @@ export default function Header(props) {
       </AppBar>
     </div>
   )
+}
+
+Header.defaultProps = {
+  lang: `en`,
+  meta: [],
+  title: 'My Knnections',
+  description: "Kasun Thennakoon's Personal Website including blog post project and many of kasun thennakoon's work",
 }

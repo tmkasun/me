@@ -80,7 +80,7 @@ export default props => {
           } />
           <ItemSection icon={openSource} title='Open-Source' description={<>
           All of my work is <Link href="https://github.com/tmkasun">Open Source and Free</Link> for anyone to copy, cut, paste, delete, share, steal, or any other verb you could possibly think of, 
-          <br/> But please be aware that, most of the projects <Link href="https://github.com/tmkasun">here</Link> are incomplete, 
+          <br/> But please be aware that, most of the <Link href="https://github.com/tmkasun">projects here</Link> are incomplete, 
           and should be seen as prototypes rather than practical implementations. In fact, some projects have been known to instantly crash my computer (due to overwhelming awesomeness), so I've temporarily taken them offline until I have the time to debug them.
           </>} />
           <ItemSection icon={blog} title='Blog' description={

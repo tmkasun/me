@@ -54,6 +54,7 @@ export default props => {
   return (
     <Fragment>
       <Button
+        aria-label="User"
         ref={anchorRef}
         aria-controls={open ? "menu-list-grow" : undefined}
         aria-haspopup="true"

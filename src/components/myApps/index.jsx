@@ -1,4 +1,4 @@
-import React, {  useState } from "react"
+import React, { useState } from "react"
 import Grid from "@material-ui/core/Grid"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
@@ -87,7 +87,7 @@ export default props => {
                         </CardActionArea>
                         <CardActions>
                           <a href={`/devportal/applications/${app.applicationId}/edit/`}>
-                            <Button variant="outlined" color="primary">
+                            <Button aria-label="Edit" variant="outlined" color="primary">
                               Edit
                             </Button>
                           </a>
