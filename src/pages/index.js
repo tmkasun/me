@@ -9,6 +9,10 @@ import { graphql } from "gatsby"
 import Grid from "@material-ui/core/Grid"
 import Avatar from "@material-ui/core/Avatar"
 import Divider from "@material-ui/core/Divider"
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
+import Box from '@material-ui/core/Box';
+import blue from '@material-ui/core/colors/blue'
 
 import logo from "../../static/images/tmkasun.jpeg"
 import myAvatar from "../../static/images/me.svg"
@@ -32,7 +36,11 @@ const useStyles = makeStyles(theme => ({
     height: isXS => isXS ? '70px' : '100px',
   },
   wso2: {
-    color: theme.palette.type === 'light' ? 'green' : '#ff7300'
+    color: '#ff7300'
+  },
+  apim: {
+    color: theme.palette.type === 'light' ? blue[900] : blue[200]
+
   },
 }))
 
@@ -55,7 +63,12 @@ export default props => {
 
         <Grid item md={3} sm={1} xs={false} />
         <Grid item md={6} sm={10} xs={12}>
-          <MyTitle />
+          <MyTitle title="Kasun Thennakoon">
+            Associate Technical Lead at <span className={classes.wso2}>WSO2</span> working on product {' '}
+            <Tooltip placement="top-end" interactive TransitionComponent={Zoom} title="API Manager">
+              <Box className={classes.apim} display="inline">API-M</Box>
+            </Tooltip>
+          </MyTitle>
           <Divider />
           <ItemSection icon={myAvatar} title='Me' description={
             <>

@@ -1,11 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
-
 import Base from "../../components/base/index"
+
+
+const useStyles = makeStyles(theme => {
+  return ({
+    docRoot: {
+      '& p': {
+        fontSize: '22px',
+        fontFamily: 'serif'
+      },
+    },
+  })
+})
 
 export default ({ data }) => {
   const { markdownRemark } = data
@@ -14,15 +26,17 @@ export default ({ data }) => {
     html,
     timeToRead,
   } = markdownRemark
+  const classes = useStyles()
+
   return (
-    <Base>
+    <Base headerProps={{title}}>
       <Grid
         container
         direction="column"
         justify="flex-start"
         alignItems="stretch"
       >
-        <Grid item>
+        <Grid xs={12} item>
           <Box pt={3} />
         </Grid>
         <Grid
@@ -31,7 +45,7 @@ export default ({ data }) => {
           justify="center"
           alignItems="flex-start"
         >
-          <Grid item md={6}>
+          <Grid item md={7} sm={9} xs={11}>
             <Typography variant="h2" gutterBottom>
               {title}
               <Typography
@@ -54,8 +68,8 @@ export default ({ data }) => {
           justify="center"
           alignItems="flex-start"
         >
-          <Grid item md={6}>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Grid item  md={7} sm={9} xs={11}>
+            <div className={classes.docRoot} dangerouslySetInnerHTML={{ __html: html }} />
           </Grid>
         </Grid>
       </Grid>

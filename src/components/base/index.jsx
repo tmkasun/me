@@ -15,9 +15,11 @@ const useStyles = makeStyles(theme => {
   })
 })
 
-
+/** 
+ * title prop is there for backward compatibility, Use headerProps for populating SEO info
+*/
 export default props => {
-  const { children, title } = props
+  const { children, title, headerProps } = props
   const classes = useStyles()
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode)
@@ -67,6 +69,7 @@ export default props => {
               isDarkMode={isDarkMode}
               setIsDarkMode={setIsDarkMode}
               title={title}
+              {...headerProps}
             />
           </Grid>
           <Grid item md={12}>

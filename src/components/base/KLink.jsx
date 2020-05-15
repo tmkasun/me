@@ -17,12 +17,12 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props 
  */
 export default function KLink(props) {
-    const { type, children, href } = props;
+    const { type, children, href, target } = props;
     const classes = useStyles()
 
     return (
         <>{' '}
-            <Link className={classes.links} target="_blank" rel="noopener" rel="noreferrer" href={href}>
+            <Link className={classes.links} target={target} rel="noopener" rel="noreferrer" href={href}>
                 {children}
             </Link>
             {' '}
@@ -31,5 +31,6 @@ export default function KLink(props) {
 }
 
 KLink.defaultProps = {
-    type: 'link'
+    type: 'link',
+    target: '_blank' // counter act to the default '_self' value
 }

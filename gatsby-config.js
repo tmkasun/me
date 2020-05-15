@@ -14,18 +14,13 @@ module.exports = {
   },
   pathPrefix: `/`,
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "scenarios",
-        path: `${__dirname}/src/resources/markdown/scenarios/`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "landing",
-        path: `${__dirname}/src/resources/markdown/landing/`,
+        name: "blogs",
+        path: `${__dirname}/src/resources/blog/content/`,
       },
     },
     {
@@ -33,8 +28,21 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `static/copied/`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`],
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {},
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
           },
         ],
       },

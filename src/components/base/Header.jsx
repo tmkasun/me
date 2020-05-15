@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
   },
   links: {
     color: theme.palette.type === 'light' ? lightBlue[600] : cyan[200]
+  },
+  appBarPaperRoot: {
+    backgroundColor: theme.palette.background.default
   }
 }))
 
@@ -62,7 +65,7 @@ export default function Header(props) {
       </Helmet>
       <AppBar
         elevation={0}
-        className={classes.appbarColor}
+        classes={{ root: classes.appBarPaperRoot }}
         color="inherit"
         position="static"
       >
