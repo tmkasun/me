@@ -9,6 +9,10 @@ const useStyles = makeStyles(theme => {
     root: {
       flexGrow: 1,
     },
+    contentBody: {
+      width: '100%'
+
+    }
   })
 })
 
@@ -32,7 +36,7 @@ export default props => {
             {...headerProps}
           />
         </Grid>
-        <Grid item md={12}>
+        <Grid className={classes.contentBody} item md={12}>
           {children}
         </Grid>
       </Grid>
