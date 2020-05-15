@@ -1,12 +1,11 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Grid from "@material-ui/core/Grid"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Button from '@material-ui/core/Button';
 import { Helmet } from "react-helmet";
-
 
 import IconButton from "@material-ui/core/IconButton"
 import NightsStayIcon from "@material-ui/icons/NightsStay"
@@ -37,7 +36,7 @@ const useStyles = makeStyles(theme => ({
  * @param {Object} props 
  */
 export default function Header(props) {
-  const { isDarkMode, setIsDarkMode, description, lang, title } = props
+  const { description, lang, title } = props
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -49,8 +48,10 @@ export default function Header(props) {
     }
   `)
   const classes = useStyles()
+  const theme = useTheme()
+  const isDarkMode = theme.palette.type === 'dark'
   const oClick = event => {
-    setIsDarkMode(!isDarkMode)
+    theme.setIsDarkMode(!isDarkMode)
   }
   return (
     <div className={classes.root}>

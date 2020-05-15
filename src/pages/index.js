@@ -3,7 +3,7 @@ import Base from "../components/base/index"
 import Link from "../components/base/KLink"
 import MyTitle from "../components/landing/MyTitle"
 import ItemSection from "../components/landing/ItemSection"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles,useTheme } from "@material-ui/core/styles"
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { graphql } from "gatsby"
 import Grid from "@material-ui/core/Grid"
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     color: '#ff7300'
   },
   apim: {
-    color: theme.palette.type === 'light' ? blue[900] : 'red'
+    color: theme.palette.type === 'light' ? blue[900] : blue[200]
 
   },
 }))
@@ -73,9 +73,7 @@ export default props => {
           <ItemSection icon={myAvatar} title='Me' description={
             <>
               My name is <Link href="https://www.linkedin.com/in/tmkasun">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
-            <Link href="https://www.lonelyplanet.com/sri-lanka">
-                Sri Lanka.
-          </Link>
+            <Link href="https://www.lonelyplanet.com/sri-lanka">Sri Lanka.</Link>
           I love listening to music, watch documentries and do swimming, cycling, and many other silly things.
           <br />
           Here how it's looks like in a <Link href="https://tmkasun.github.io/">
