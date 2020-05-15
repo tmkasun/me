@@ -8,4 +8,5 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify [![Net
 - Add Helmet and SEO
 - blog about new blog/page
   - Blog search
-- Fix dark view reset when going to blog from home 
+- Fix dark view reset when going to blog from home
+- Fix blog pages dark theme issue 
