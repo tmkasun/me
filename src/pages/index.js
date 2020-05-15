@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     color: '#ff7300'
   },
   apim: {
-    color: theme.palette.type === 'light' ? blue[900] : blue[200]
+    color: theme.palette.type === 'light' ? blue[900] : 'red'
 
   },
 }))

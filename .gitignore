@@ -16,7 +16,7 @@ tests/report/
 me.iml
 production_static/*
 .ipynb_checkpoints
-package-lock.json
+# package-lock.json
 
 # Logs
 logs
