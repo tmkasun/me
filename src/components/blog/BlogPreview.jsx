@@ -7,9 +7,12 @@ import Box from "@material-ui/core/Box"
 import Tooltip from "@material-ui/core/Tooltip"
 import pink from '@material-ui/core/colors/pink';
 import Divider from "@material-ui/core/Divider"
-
-
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import Link from "../base/KLink"
+
+dayjs.extend(relativeTime);
+
 
 const useStyles = makeStyles(theme => ({
   icons: {
@@ -74,7 +77,7 @@ const BlogPreview = props => {
           <Box display="flex" justifyContent="flex-end">
             <Typography variant="caption">
               <Tooltip title={frontmatter.date} placement="top-start">
-                <i> {frontmatter.relativeDate}</i>
+                <i> {dayjs().to(dayjs(frontmatter.date, "MMMM DD, YYYY"))}</i>
               </Tooltip>
             </Typography>
           </Box>

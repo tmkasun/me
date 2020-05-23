@@ -11,6 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "deploy_locally": "npm run build;scp -rv public tmkasun@jetson.knnect.com:/home/tmkasun/projects/home_knnect/",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.9.0",
     "async-mutex": "^0.1.4",
+    "dayjs": "^1.8.27",
     "gatsby": "^2.19.7",
     "gatsby-plugin-emotion": "^4.1.22",
     "gatsby-plugin-google-analytics": "^2.3.0",

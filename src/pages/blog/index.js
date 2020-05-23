@@ -50,7 +50,6 @@ export const query = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            relativeDate: date(fromNow: true)
             draft
             summary
             title
