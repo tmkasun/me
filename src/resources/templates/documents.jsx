@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
+import { cyan, lightBlue } from "@material-ui/core/colors"
+
 import Base from "../../components/base/index"
 
 
@@ -15,6 +17,9 @@ const useStyles = makeStyles(theme => {
         fontSize: '22px',
         fontFamily: 'serif'
       },
+      '& a': {
+        color: theme.palette.type === 'light' ? lightBlue[600] : cyan[200]
+      }
     },
   })
 })
@@ -29,7 +34,7 @@ export default ({ data }) => {
   const classes = useStyles()
 
   return (
-    <Base headerProps={{title}}>
+    <Base headerProps={{ title }}>
       <Grid
         container
         direction="column"
@@ -68,7 +73,7 @@ export default ({ data }) => {
           justify="center"
           alignItems="flex-start"
         >
-          <Grid item  md={7} sm={9} xs={11}>
+          <Grid item md={7} sm={9} xs={11}>
             <div className={classes.docRoot} dangerouslySetInnerHTML={{ __html: html }} />
           </Grid>
         </Grid>
