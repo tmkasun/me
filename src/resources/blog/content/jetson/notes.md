@@ -8,7 +8,7 @@ draft: false
 # Introduction
 
 If someone dropped here by a search result, [Nvidia Jetson TK1](https://developer.nvidia.com/embedded/buy/jetson-devkit) is one of the oldest SOC (System on Chip) development board introduced by Nvidia.
-![TK1](jetson_tk1.jpg)
+![TK1](jetson_tk1.png)
 
 # Notes
 
