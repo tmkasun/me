@@ -9,7 +9,7 @@
 module.exports = {
   siteMetadata: {
     title: `My little corner in the Web`,
-    siteUrl: `https://www.gatsbyjs.org`,
+    siteUrl: `https://me.knnect.com`,
     description: `Kasun Thennakoon's personal web`,
   },
   pathPrefix: `/`,
@@ -65,5 +65,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 }

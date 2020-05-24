@@ -1,5 +1,7 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles"
+import Tooltip from '@material-ui/core/Tooltip'
+
 const commonStyles = {
     backgroundSize: "3px 3px",
     width: "15px",
@@ -40,10 +42,12 @@ const useStyles = makeStyles(theme => ({
 export default ({ status }) => {
     const classes = useStyles()
     return (
-        <>
+        <Tooltip title={status} placement="top-start">
+            <span>
             {status === 'offline' && <div className={classes.red}></div>}
             {status === 'unknown' && <div className={classes.yellow}></div>}
             {status === 'online' && <div className={classes.green}></div>}
-        </>
+            </span>
+        </Tooltip>
     )
 }

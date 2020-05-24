@@ -22,7 +22,7 @@ export default function KLink(props) {
 
     return (
         <>{' '}
-            <Link className={classes.links} target={target} rel="noopener" rel="noreferrer" href={href}>
+            <Link className={classes.links} target={target} rel="noopener" href={href}>
                 {children}
             </Link>
             {' '}
