@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important; /* TODO: Find and remove the !important override */
 }
 
 .gatsby-highlight-code-line {

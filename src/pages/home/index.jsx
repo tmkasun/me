@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Base from "../../components/base/index"
 import Grid from "@material-ui/core/Grid"
 import Divider from "@material-ui/core/Divider"
@@ -12,6 +12,7 @@ import Dell from '../../components/home/Dell';
 import Transmission from '../../components/home/Transmission';
 import Netdata from '../../components/home/Netdata';
 import WSO2 from '../../components/home/WSO2';
+import HomeTitle from '../../components/home/HomeTitle';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -21,12 +22,21 @@ const useStyles = makeStyles(theme => ({
 
 const Home = props => {
   const classes = useStyles()
+  const [isHomeLive, setIsHomeLive] = useState(null)
+  useEffect(() => {
+    fetch("https://api.home.knnect.com/apis/ping/me")
+      .then(response => response.json())
+      .then(setIsHomeLive)
+      .catch(error => {
+        setIsHomeLive(false);
+      });
+  }, [])
   return (
     <Base>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item md={6}>
-          <Typography align="center" variant="h5">
-            Knnect Home
+          <Typography align="center" variant="h4">
+            <HomeTitle/>
           </Typography>
           <Divider />
           <Grid
@@ -42,8 +52,8 @@ const Home = props => {
                 <Plex />
                 <Dell />
                 <Transmission />
-                <Netdata/>
-                <WSO2/>
+                <Netdata />
+                <WSO2 />
               </List>
             </Grid>
           </Grid>

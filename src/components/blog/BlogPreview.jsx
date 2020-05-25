@@ -13,18 +13,36 @@ import Link from "../base/KLink"
 
 dayjs.extend(relativeTime);
 
+const useStyles = makeStyles(theme => {
 
-const useStyles = makeStyles(theme => ({
-  icons: {
-    width: isXS => (isXS ? "70px" : "100px"),
-    height: isXS => (isXS ? "70px" : "100px"),
-  },
-  dividerRoot: {
-    width: '4px',
-    backgroundColor: theme.palette.type === "light" ? pink[200] : pink[100],
+  const underlineBackgroundColor = theme.palette.type === "light" ? '#fbff00ab' : '#907e01'
+  return {
+    icons: {
+      width: isXS => (isXS ? "70px" : "100px"),
+      height: isXS => (isXS ? "70px" : "100px"),
+    },
+    dividerRoot: {
+      width: '4px',
+      backgroundColor: theme.palette.type === "light" ? pink[200] : pink[100],
 
+    },
+    underline: {
+      flex: 1,
+      fontSize: '2em',
+      lineHeight: '1.2',
+      textDecoration: 'none',
+      backgroundImage: `linear-gradient(to right, ${underlineBackgroundColor} 0, ${underlineBackgroundColor} 100%)`,
+      backgroundPosition: '0 1.2em',
+      backgroundSize: '0 100%',
+      backgroundRepeat: 'no-repeat',
+      transition: 'background .5s',
+      backgroundPosition: '0 -0.1em',
+      '&:hover': {
+        backgroundSize: '100% 100%'
+      }
+    }
   }
-}))
+})
 
 const BlogPreview = props => {
   const {
@@ -56,7 +74,7 @@ const BlogPreview = props => {
           >
             <Grid item>
               <Link target='_self' href={`/blogs${fields.slug}`}>
-                <Typography variant="h5">{frontmatter.title}</Typography>
+                <Typography className={classes.underline} variant="h5">{frontmatter.title}</Typography>
               </Link>
             </Grid>
             <Grid item>
