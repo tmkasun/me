@@ -95,7 +95,7 @@ export default function Header(props) {
             </Grid>
 
             <Grid item>
-              <Link activeStyle={{ color: "read" }} to="/myapps">
+              <Link activeStyle={{ color: "read" }} to="/projects">
                 <Button aria-label="Projects" className={classes.links}>
                   Projects
                     </Button>

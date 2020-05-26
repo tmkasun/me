@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
 }))
 export default props => {
   const classes = useStyles()
-  const [apps] = useState()
+  const [apps] = useState([{name: 'Git Stats', description: 'Show PR status', url: 'https://wso2pr.netlify.app'}])
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
@@ -62,11 +62,11 @@ export default props => {
                 alignItems="center"
               >
                 {apps &&
-                  [...apps.values()].map(app => (
+                  apps.map(app => (
                     <Grid item xs={3}>
                       <Card className={classes.card}>
                         <CardActionArea>
-                          <a href={"/devportal/applications/" + app.applicationId}>
+                          <a href={app.url}>
                             <CardContent className={classes.media}>
                               <Typography
                                 gutterBottom
@@ -86,9 +86,9 @@ export default props => {
                           </a>
                         </CardActionArea>
                         <CardActions>
-                          <a href={`/devportal/applications/${app.applicationId}/edit/`}>
+                          <a href={app.url}>
                             <Button aria-label="Edit" variant="outlined" color="primary">
-                              Edit
+                              Link
                             </Button>
                           </a>
                         </CardActions>

@@ -1,11 +1,11 @@
 import React from "react"
 import Base from "../../components/base/index"
-import MyApps from "../../components/myApps/index"
+import Projects from "../../components/projects/index"
 
 export default props => {
   return (
     <Base>
-      <MyApps />
+      <Projects />
     </Base>
   )
 }

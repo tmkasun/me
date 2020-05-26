@@ -1,4 +1,5 @@
 import React from 'react'
+import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from "@material-ui/core/styles"
 
 const loadingDotCommon = {
@@ -68,11 +69,11 @@ const HomeTitle = (props) => {
     const classes = useStyles(isOnline !== null && isOnline !== false)
     const liveText = isOnline === null ? (
         <>
-                    <div className={classes.loadingDot1}>.</div>
-                    <div className={classes.loadingDot2}>.</div>
-                    <div className={classes.loadingDot3}>.</div>
-                </>
-    ) : isOnline ? 'Online' : 'Offline';
+            <div className={classes.loadingDot1}>.</div>
+            <div className={classes.loadingDot2}>.</div>
+            <div className={classes.loadingDot3}>.</div>
+        </>
+    ) : isOnline ? <Tooltip title={isOnline.status} placement="top-start"><span>Online</span></Tooltip> : 'Offline';
     return (
         <div className={classes.main}>
             <span className={classes.span}>K</span>
