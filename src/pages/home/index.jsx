@@ -28,6 +28,7 @@ const Home = props => {
       .then(response => response.json())
       .then(setIsHomeLive)
       .catch(error => {
+        console.error(error);
         setIsHomeLive(false);
       });
   }, [])
@@ -36,7 +37,7 @@ const Home = props => {
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item md={6}>
           <Typography align="center" variant="h4">
-            <HomeTitle/>
+            <HomeTitle isOnline={isHomeLive}/>
           </Typography>
           <Divider />
           <Grid
