@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react"
 import Base from "../../components/base/index"
 import Grid from "@material-ui/core/Grid"
+import Box from "@material-ui/core/Box"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
-import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
-import Plex from '../../components/home/Plex';
-import Dell from '../../components/home/Dell';
-import Transmission from '../../components/home/Transmission';
-import Netdata from '../../components/home/Netdata';
-import WSO2 from '../../components/home/WSO2';
+import Plex from '../../components/home/services/Plex';
+import Dell from '../../components/home/services/Dell';
+import Jetson from '../../components/home/services/Jetson';
+import Transmission from '../../components/home/services/Transmission';
+import Netdata from '../../components/home/services/Netdata';
+import WSO2 from '../../components/home/services/WSO2';
 import HomeTitle from '../../components/home/HomeTitle';
+
+import MeAPI from '../../data/api/meAPI'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -24,8 +26,7 @@ const Home = props => {
   const classes = useStyles()
   const [isHomeLive, setIsHomeLive] = useState(null)
   useEffect(() => {
-    fetch("https://api.home.knnect.com/apis/ping/me")
-      .then(response => response.json())
+    MeAPI.ping('me')
       .then(setIsHomeLive)
       .catch(error => {
         console.error(error);
@@ -37,27 +38,23 @@ const Home = props => {
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item md={6}>
           <Typography align="center" variant="h4">
-            <HomeTitle isOnline={isHomeLive}/>
+            <HomeTitle isOnline={isHomeLive} />
           </Typography>
           <Divider />
-          <Grid
-            container
-            spacing={4}
-            direction="column"
-            justify="center"
-            className={classes.container}
-
-          >
-            <Grid item md={12}>
-              <List subheader={<ListSubheader>Services</ListSubheader>} className={classes.root}>
-                <Plex />
-                <Dell />
-                <Transmission />
-                <Netdata />
-                <WSO2 />
-              </List>
+          <Box pt={3}>
+            <Grid
+              container
+              direction="row"
+              spacing={3}
+            >
+              <Jetson isHomeLive={isHomeLive} />
+              <Dell />
+              <Plex />
+              <Transmission />
+              <Netdata />
+              <WSO2 />
             </Grid>
-          </Grid>
+          </Box>
         </Grid>
       </Grid>
     </Base>

@@ -1,9 +1,6 @@
 import React from 'react'
 
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 
 import Status from '../../components/home/Status';
@@ -19,23 +16,39 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const HomeService = (props) => {
-    const { name, icon, status, url } = props;
+    const { name, icon, status, url, isSubMenu, children } = props;
     const classes = useStyles()
-    // const preventDefault = (event) => event.preventDefault();
-
 
     return (
-        <ListItem>
-            <ListItemIcon>
-                <Avatar alt={name} src={icon} className={classes.large} />
-            </ListItemIcon>
-            <Link href={url}>
-                <ListItemText id={`list-label-${name}`} primary={name} />
-            </Link>
-            <ListItemSecondaryAction>
-                <Status status={status} />
-            </ListItemSecondaryAction>
-        </ListItem>
+        <Grid item md={12}>
+            <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+                spacing={1}
+            >
+                <Grid item md={isSubMenu ? 1 : false} />
+                <Grid item md={1}>
+                    <Avatar alt={name} src={icon} className={classes.large} />
+                </Grid>
+                <Grid item md={isSubMenu ? 6 : 7}>
+                    <Link href={url}>
+                        {name}
+                    </Link>
+                </Grid>
+                <Grid item md={2}>
+                    {children}
+                </Grid>
+                <Grid style={{ paddingBottom: '24px' }} item md={1}>
+                    <Status status={status} />
+                </Grid>
+            </Grid>
+        </Grid>
     )
+}
+
+HomeService.defaultProps = {
+    isSubMenu: false
 }
 export default HomeService

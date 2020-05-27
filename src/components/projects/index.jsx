@@ -36,7 +36,10 @@ const useStyles = makeStyles(theme => ({
 }))
 export default props => {
   const classes = useStyles()
-  const [apps] = useState([{name: 'Git Stats', description: 'Show PR status', url: 'https://wso2pr.netlify.app'}])
+  const [apps] = useState([
+    {name: 'Git Stats', description: 'Show PR status', url: 'https://wso2pr.netlify.app'},
+    {name: 'Home Server', description: 'Knnect Home server', url: 'http://home.knnect.com'},
+  ])
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
