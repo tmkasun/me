@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const classes = useStyles()
   const [apps] = useState([
-    {name: 'Git Stats', description: 'Show PR status', url: 'https://wso2pr.netlify.app'},
+    {name: 'Git Stats', description: 'Show PR status', url: 'https://csb-vrskp.netlify.app/'},
     {name: 'Home Server', description: 'Knnect Home server', url: '/home'},
   ])
 
