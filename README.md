@@ -4,9 +4,12 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify [![Net
 
 # TODO
 
-- Add google analytics [Done] add to blog as well
-- Add Helmet and SEO
+- Add google analytics to blog
+- Add Helmet and SEO [Done]
 - blog about new blog/page
-  - Blog search
+  - Blog search Algolia
 - Fix dark view reset when going to blog from home
-- Fix blog pages dark theme issue 
+- Fix blog pages dark theme issue
+- Add command panel
+  - Example [Paco](https://github.com/pacocoursey/paco/tree/master/components/command)
+  - [Libraries](https://github.com/asabaylus/react-command-palette)

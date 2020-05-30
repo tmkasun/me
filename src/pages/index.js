@@ -73,7 +73,8 @@ export default props => {
           <ItemSection icon={myAvatar} title='Me' description={
             <>
               My name is <Link href="https://www.linkedin.com/in/tmkasun">Kasun Thennakoon</Link>, I am both a programmer and a web developer living in a beautiful island nation called
-            <Link href="https://www.lonelyplanet.com/sri-lanka">Sri Lanka.</Link>
+            Sri Lanka. 
+            {/* https://www.lonelyplanet.com/sri-lanka */}
           I love listening to music, watch documentries and do swimming, cycling, and many other silly things.
           <br />
           Here how it's looks like in a <Link href="https://tmkasun.github.io/">
