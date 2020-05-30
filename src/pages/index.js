@@ -77,7 +77,7 @@ export default props => {
             {/* https://www.lonelyplanet.com/sri-lanka */}
           I love listening to music, watch documentries and do swimming, cycling, and many other silly things.
           <br />
-          Here how it's looks like in a <Link href="https://tmkasun.github.io/">
+          Here is my <Link href="https://tmkasun.github.io/">
                 Timeline
           </Link>
             </>
