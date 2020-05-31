@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
-import { cyan, lightBlue } from "@material-ui/core/colors"
+import { cyan,lime, lightBlue } from "@material-ui/core/colors"
 
 import Base from "../../components/base/index"
 
@@ -18,7 +18,14 @@ const useStyles = makeStyles(theme => {
         fontFamily: 'serif'
       },
       '& a': {
-        color: theme.palette.type === 'light' ? lightBlue[600] : cyan[200]
+        color: theme.palette.type === 'light' ? lightBlue[500] : cyan['A200']
+      },
+      '& :not(pre) > code[class*="language-"]': {
+        background: theme.palette.type === 'light' ? '#2d2d2d' : lime[100],
+        color: theme.palette.type === 'light' ? null: 'rgba(0, 0, 0, 0.87)', 
+        padding: '.1em',
+        borderRadius: '.3em',
+        whiteSpace: 'normal'
       }
     },
   })
