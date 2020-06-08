@@ -37,8 +37,15 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const classes = useStyles()
   const [apps] = useState([
-    {name: 'Git Stats', description: 'Show PR status', url: 'https://csb-vrskp.netlify.app/'},
-    {name: 'Home Server', description: 'Knnect Home server', url: '/home'},
+    { name: 'Personal Web', description: 'This personal web portal was developed from the scratch inspired by `overreacted` `addyosmani` and many other great personal web portals', url: 'https://github.com/tmkasun/me' },
+    { name: 'Git Stats', description: 'Show PR status', url: 'https://csb-vrskp.netlify.app/' },
+    { name: 'Home Server', description: 'Knnect Home server', url: '/home' },
+    { name: 'C++ Basics', description: 'How C++ (AKA CPP) programs works', url: 'https://github.com/tmkasun/understanding_cpp' },
+    { name: 'Streaming Graph partitioning', description: 'Simulate how Graph partitioning works', url: 'https://github.com/tmkasun/streaming_graph_partitioning' },
+    { name: 'Mock servers for network testing', description: 'Contains mock server implementations for HTTP, HTTPS, JMS, TCP, WebSocket', url: 'https://github.com/tmkasun/apim_pyclient/tree/master/mock_servers' },
+    { name: 'IMD Weather Animator', description: 'Animate Indian meteorological department Satellite Images', url: 'https://github.com/tmkasun/imd_weather_animator' },
+    { name: 'Compiler theory basics', description: 'This repository contains components of a compiler in order to learn the basics of compilers', url: 'https://github.com/tmkasun/mini_compiler' },
+    { name: 'Geo Dashboard', description: 'Geo dashboard with object tracking geo fencing and some other geo spatial tacking features', url: 'https://github.com/tmkasun/geo_dashboard' },
   ])
 
   return (
