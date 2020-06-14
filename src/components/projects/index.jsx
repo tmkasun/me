@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   card: {
     minHeight: 250,
     paddingBottom: 20,
-    overflow: "scroll"
   },
   media: {
     height: 220,
