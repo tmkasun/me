@@ -7,7 +7,8 @@ import Box from "@material-ui/core/Box"
 import Tooltip from "@material-ui/core/Tooltip"
 import pink from '@material-ui/core/colors/pink';
 import Divider from "@material-ui/core/Divider"
-import dayjs from 'dayjs'
+import Chip from "@material-ui/core/Chip";
+import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Link from "../base/KLink"
 
@@ -62,7 +63,6 @@ const BlogPreview = props => {
         spacing={1}
       >
         <Divider classes={{ root: classes.dividerRoot }} orientation="vertical" flexItem />
-
         <Grid item md={1} sm={1} xs={false} />
         <Grid item md={7} sm={8} xs={9}>
           <Grid
@@ -83,8 +83,13 @@ const BlogPreview = props => {
                   {frontmatter.summary}
                 </Box>
                 <Typography variant="caption" display="block" gutterBottom>
-                  <Box fontFamily="Monospace" fontWeight="fontWeightBold" fontSize={13} color="text.secondary">
-                    {timeToRead} {`min${timeToRead > 1 ? 's' : ''}`} read
+                  <Box display="flex" flexDirection="row" justifyContent="space-between">
+                    <Box fontFamily="Monospace" fontWeight="fontWeightBold" fontSize={13} color="text.secondary">
+                      {timeToRead} {`min${timeToRead > 1 ? 's' : ''}`} read
+                    </Box>
+                    <Box>
+                      {frontmatter.draft && <Chip label="Draft" variant="outlined" color="secondary" size="small" />}
+                    </Box>
                   </Box>
                 </Typography>
               </Typography>

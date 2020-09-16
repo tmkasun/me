@@ -2,7 +2,7 @@
 title: "Testing New Site"
 date: "2020-05-11"
 summary: "Second blog for testing purpose, with a looooooooooooo oooooooo oooooooooooo oooooooooooo oooooooooooooooo oooooooooooooooo oooooooooooo oooooooooooooooooooooooooooooooo summary"
-draft: false
+draft: true
 ---
 
 # Testing continues

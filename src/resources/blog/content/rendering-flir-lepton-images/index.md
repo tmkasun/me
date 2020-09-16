@@ -1,7 +1,7 @@
 ---
 title: "Visualizing FLIR Lepton Thermal data for statistical analysis"
 date: "2017-04-19"
-draft: false
+draft: true
 ---
 
 <h2>Introduction</h2>

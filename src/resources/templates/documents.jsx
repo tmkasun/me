@@ -5,9 +5,13 @@ import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
-import { cyan,lime, lightBlue } from "@material-ui/core/colors"
+import { cyan, lime, lightBlue } from "@material-ui/core/colors"
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import Base from "../../components/base/index"
+import Link from "../../components/base/KLink"
 
 
 const useStyles = makeStyles(theme => {
@@ -22,7 +26,7 @@ const useStyles = makeStyles(theme => {
       },
       '& :not(pre) > code[class*="language-"]': {
         background: theme.palette.type === 'light' ? '#2d2d2d' : lime[100],
-        color: theme.palette.type === 'light' ? null: 'rgba(0, 0, 0, 0.87)', 
+        color: theme.palette.type === 'light' ? null : 'rgba(0, 0, 0, 0.87)',
         padding: '.1em',
         borderRadius: '.3em',
         whiteSpace: 'normal'
@@ -49,7 +53,16 @@ export default ({ data }) => {
         alignItems="stretch"
       >
         <Grid xs={12} item>
-          <Box pt={3} />
+          <Box position="fixed">
+            <Link target='_self' href={`/blog`}>
+              <Tooltip title="Back" placement="right">
+                <IconButton aria-label="back" size="small">
+                  <ArrowBackIcon style={{ fontSize: 40 }} fontSize="inherit" />
+                </IconButton>
+              </Tooltip>
+
+            </Link>
+          </Box>
         </Grid>
         <Grid
           container

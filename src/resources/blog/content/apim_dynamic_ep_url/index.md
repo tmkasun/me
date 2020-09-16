@@ -2,7 +2,7 @@
 title: "WSO2 APIM: Dynamic endpoint URLs"
 date: "2020-05-24"
 summary: "This is a personal note on useful links and document on tweaking/configuring Nvidia Jetson TK1 board"
-draft: false
+draft: true
 ---
 
 <h2>Introduction</h2>
