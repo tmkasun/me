@@ -11,6 +11,7 @@ module.exports = {
     title: `My little corner in the Web`,
     siteUrl: `https://me.knnect.com`,
     description: `Kasun Thennakoon's personal web`,
+    "google-site-verification": "HG175urvUYiOtY5xEr_C5Lr5wrvNywyYFO5QM0UJiR8"
   },
   pathPrefix: `/`,
   plugins: [
