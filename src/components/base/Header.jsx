@@ -79,6 +79,7 @@ export default function Header(props) {
         title={title || site.siteMetadata.title}
       >
         <meta charSet="utf-8" />
+        <meta name="google-site-verification" content="HG175urvUYiOtY5xEr_C5Lr5wrvNywyYFO5QM0UJiR8" />
         <meta name="description" content={description || site.siteMetadata.description} />
       </Helmet>
       <ElevationScroll {...props}>
