@@ -1,7 +1,7 @@
 ---
 title: "Notes on configuring Nvidia Jetson TK1"
 date: "2020-05-24"
-summary: "This is a personal note on useful links and document on tweaking/configuring Nvidia Jetson TK1 board"
+summary: "This is a personal note on useful links and documents on tweaking/configuring Nvidia Jetson TK1 board"
 draft: false
 ---
 

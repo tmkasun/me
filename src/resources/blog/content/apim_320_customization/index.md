@@ -70,7 +70,7 @@ This is the source code structure of the publisher portal. Out of these files an
 
     The rest of the files are runtime configurations for eslint, jest, webpack, npm. You would probably recognize them by their names.
 
-# First step
+# Getting started
 
 The first step for customizing the portal app is to take a copy of the portal packages into your development environment. If you take a look at unzipped/exploded API Manager 3.2.0 product distribution(pack), You can find all 3 UI portals inside the 
 
@@ -80,10 +80,16 @@ The first step for customizing the portal app is to take a copy of the portal pa
 
 API Manager server contains the portal source codes for bootstrapping the customization work. But it is not intended to do the customizations inside the server directory itself.
 So first, copy the entire **jaggeryapps** directory into a desired location. This action is important Because if you follow later steps (Download dependencies, Run production/development build) inside the server itself, it will cause a performance issue in web apps. This performance issue is mainly caused by the sheer number of files getting downloaded when installing the dependencies (because of the **node_modules**). So make sure to take a copy at the beginning of the development.
+
+![](images/blog_customization.png)
+
 Now let’s see how to begin the development work.
 
 # Dependency management
-API Manager portals use NPM for package management, Except for some of the internally shared components, Such as the API Test console. API Test console React component has shared between the developer portal and Publisher portal So, We have used Lerna for managing those local sharing or intra dependencies. Lerna helps to manage both internal and external public library dependencies by wiring up local dependencies with symbolic links and downloading the external dependencies through the npm public registry. Before integrating the Lerna, we used to run 
+API Manager portals use NPM for package management, Except for some of the internally shared components, Such as the API Test console. API Test console React component has shared between the developer portal and Publisher portal So, We have used Lerna for managing those local sharing or intra dependencies.
+> **_NOTE:_**  Lerna packages were introduced in WSO2 API Manager 3.2.0, If you are customizing a 3.x version below 3.2.0 (3.0.0 or 3.1.0), You don't need to run below lerna commands
+
+Lerna helps to manage both internal and external public library dependencies by wiring up local dependencies with symbolic links and downloading the external dependencies through the npm public registry. Before integrating the Lerna, we used to run 
 ```bash
 npm ci
 ```
@@ -151,19 +157,44 @@ It’s recommended to take a copy of the portal project to a different location 
 
 Let’s see how this build process and source structure links in the customization process.
 
-# How customization works
+# Customizing React Components
 
-Before beginning the customization work, We recommend you take a copy of the portals source or portal’s project from the pack (wso2-xxx.zip) to a convenient location.
-
-I will use a sample scenario to explain how the customization works. Let’s assume you want to add a new optional input parameter when creating an API. In this case, API developers can provide a repository URL in Github as a reference for API consumers. So that API consumers or application developers who are interested in this API can explore the code in the Github repository and bootstrap their work.
-Let’s see how the Publisher **API\’s create** page UI looks like after making the customization.
+ I will use a simple scenario to explain how the customization works. Let’s assume you want to add a new input parameter to API create page.Where API developers can provide a Github repository URL as a reference for API consumers. So that API consumers or application developers who are interested in this API can explore the code in the Github repository and bootstrap their work.
+Let’s see how the Publisher **API create** page UI looks like after making the customization.
 
 
 ![](images/Publisher-WSO2-APIM-create-api.png)
 
-We are going to add the input field that is highlighted in the red rectangle.
+We are going to add the input field that is marked with the red rectangle.
 
-First, you need to locate the file or React component that is rendering this part of the UI. The easiest way to find the React component is to use the React dev tools for the browser. To work with the React developer tools you should have a development build of the application.
+### 1. Locating React component
+
+First, you need to locate the file or React component that is rendering the segment that you want to customize. 
+
+- The easiest way to find the React component is to use the [React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). This is a tool developed by React team to help React developers to debug and profile react applications.You can install the extortion/plugin to the browser and use it.
+![](images/react_dev_tools.png)
+- Another method is to use network trace, If the Interactions  with your target component triggers any network calls , You can use the stack trace in the Browser's network inspector to locate the source component
+![](images/nt_trace.png)
+- Or the other option is to set **Event Listener Breakpoints** from browser Source panel(in Chrome) or Debugger panel (in FireFox). You most probably need to black-box some irrelevant handlers multiple times, But you will get to the original source component at some point, So have some patient when following this method
+![](images/source_debug.png)
+
+### 2. Creating the custom React component
+
+Now you know what are/is the component(s) that you want to modify. In this sample scenario, We have identified that we need to customize the 
+```
+<PROJECT_ROOT>/publisher/source/src/app/components/Apis/Create/Default/APICreateDefault.jsx
+```
+
+| | |
+|-|-|
+|`NOTE` | In here **<PROJECT_ROOT>** refers to the **jaggeryapps** directory that you have copied in early step |
+
+
+![](images/blog_customization-Page-2.png)
+
+You might find that there are more that one React components involved your customization, So 
+
+
 
 
 [1]: https://github.com/wso2/product-apim/releases/tag/v3.0.0
