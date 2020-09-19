@@ -107,7 +107,15 @@ First, run
 ```bash
 npm install
 ```
-from the root directory of your project where the lerna.config XXXXX and package.json is located
+from the root directory of your project where the lerna.config and package.json files are located
+```
+<PROJECT_ROOT>/
+```
+
+| | |
+|-|-|
+|`NOTE` | In here **<PROJECT_ROOT>** refers to the **jaggeryapps/** directory that you have copied in one of the early steps |
+
 Then run 
 ```bash
 npm run bootstrap
@@ -180,25 +188,58 @@ First, you need to locate the file or React component that is rendering the segm
 
 ### 2. Creating the custom React component
 
-Now you know what are/is the component(s) that you want to modify. In this sample scenario, We have identified that we need to customize the 
+Now you know what are/is the component(s) that you want to modify.So in this sample scenario, We have identified that we need to customize the 
 ```
 <PROJECT_ROOT>/publisher/source/src/app/components/Apis/Create/Default/APICreateDefault.jsx
 ```
 
 | | |
 |-|-|
-|`NOTE` | In here **<PROJECT_ROOT>** refers to the **jaggeryapps** directory that you have copied in early step |
+|`NOTE` | In here **<PROJECT_ROOT>** refers to the **jaggeryapps/publisher** directory that you have copied in one of the early steps |
 
+Next step is to implement the custom component in override directory, First create the source file that you want to customize with exact name and relative path (relative to <PROJECT_ROOT>/source ) inside the **<PROJECT_ROOT>/override** directory.
+Following diagram shows the source code placement in the original source directory and the override directory.
 
 ![](images/blog_customization-Page-2.png)
 
-You might find that there are more that one React components involved your customization, So 
+To begin with you can copy the original implementation from **<PROJECT_ROOT>/source/** directory and do the modifications accordingly, Only downside of this is , When you taking WUM updates, In the WUM updates WSO2 will ship the updated source code, so you will have to manually merge the bug fixes or changes that are done to the original source code.
+
+After working on the customization in override directory, You can run the webpack build to build the portal applications with your customizations. As mentioned earlier you can use
+
+```bash
+npm run build:dev
+```
+for building the portals in development mode, This command will not exit after the initial build until you press Ctrl/Command + C (This is the standard *nix way of signaling a process to abort). So if you create a symbolic link to public directory in WSO2 API manager server's publisher portal
+
+i:e 
+```bash
+ln -s <PROJECT_ROOT>/site/public/ <API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/publisher/site/public/
+```
+Then you can just refresh the page in the browser and see the changes, When a development build is running.
 
 
+When you finish customizing the portal, You can run following command to trigger a webpack production build
+```bash
+npm run build:prod
+```
+This will generate minified and optimized JS bundles in 
 
+```
+<PROJECT_ROOT>/site/public/
+```
+directory, and these bundles will contains the customizations you have put in **override** directory. Now you can copy and replace the 
 
-[1]: https://github.com/wso2/product-apim/releases/tag/v3.0.0
-[2]: https://medium.com/@tmkasun/wso2-api-manager-new-look-27a186bc83d5
-[3]: https://medium.com/@tmkasun/what-is-new-in-wso2-api-manager-3-1-0-5d37cea741cc
-[4]: https://github.com/wso2/product-apim/releases/tag/v3.2.0
-[5]: https://wso2.com/resources/analyst-reports/the-forrester-wave-api-management-solutions-q3-2020
+```
+<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/publisher/site/public/
+```
+in WSO2 API Manager server with the newly build artifacts to apply the customizations.
+
+| | |
+|-|-|
+|`NOTE` | Make sure to copy the entire **<PROJECT_ROOT>/site/public/** directory. Because we are appending a hash value to bundle filenames to avoid stale [cache bundles](https://webpack.js.org/guides/caching/) |
+
+and that's it actually, It very simple process, Isn't it :)
+
+# Summary
+
+In summary, WSO2 API Manager has ReactJS based web portals, and you can customize the UI by overriding the original component implementations. We have implemented a webpack loader to integrate the external customizations into the app bundles when building the portals. Users can provide their customizations in override directory and build the application to integrate customizations into the portal bundles.
