@@ -217,6 +217,7 @@ ln -s <PROJECT_ROOT>/site/public/ <API_MANAGER_ROOT>/repository/deployment/serve
 ```
 Then you can just refresh the page in the browser and see the changes, When a development build is running.
 
+TODO: Add/attach diff override vs original source here 
 
 When you finish customizing the portal, You can run following command to trigger a webpack production build
 ```bash
