@@ -2,7 +2,7 @@
 title: "How to customize WSO2 API Manager 3.x portals"
 date: "2020-09-15"
 summary: "This is still a draft document"
-draft: true
+draft: false
 ---
 
 # Preface
