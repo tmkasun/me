@@ -31,8 +31,8 @@ You can find the item description using the [HS finder](http://www.customs.gov.l
 
 ## Why all this hassle
 
-![Narcotics](images/example.png)
-> Source : [Ada Derana](http://sinhala.adaderana.lk/news/146710/%E0%B6%B1%E0%B6%BA%E0%B7%92%E0%B6%A2%E0%B7%93%E0%B6%BB%E0%B7%92%E0%B6%BA%E0%B7%8F%E0%B7%80%E0%B7%9A-%E0%B7%83%E0%B7%92%E0%B6%A7-%E0%B6%85%E0%B6%9A%E0%B7%94%E0%B6%BB%E0%B6%AB%E0%B6%A7-%E0%B6%91%E0%B7%80%E0%B7%94-%E0%B6%B4%E0%B7%8F%E0%B6%BB%E0%B7%8A%E0%B7%83%E0%B6%BD%E0%B6%BA)
+![Narcotics](images/Customs-seizes-narcotics-hidden-as-dried-leaves-Newsradio.png)
+> Source : [News Radio](https://www.newsradio.lk/local/customs-seizes-narcotics-hidden-as-dried-leaves/)
 
 All these regulatory bodies and authorities are there to protect the civilians and ensure the well being of all the people in the country(Sri Lanka), So it's our responsibility to adhere to these guidelines and laws and support.
 But at the same time there is a lot to improve on these process to make it smooth for actual buyers.
