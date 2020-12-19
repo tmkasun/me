@@ -29,6 +29,18 @@ Linksys WRT 1900 HS code
 and you will probably find the HS code used in US exports. Then you can find the relevant taxes and tariff applies to the HS codes using the Sri Lanka customs website.
 You can find the item description using the [HS finder](http://www.customs.gov.lk/business/hsfinder) and locate the relevant tariff information from [this page](http://www.customs.gov.lk/classification/tarrif) 
 
+## Why all this hassle
+
+![Narcotics](images/example.png)
+> Source : [Ada Derana](http://sinhala.adaderana.lk/news/146710/%E0%B6%B1%E0%B6%BA%E0%B7%92%E0%B6%A2%E0%B7%93%E0%B6%BB%E0%B7%92%E0%B6%BA%E0%B7%8F%E0%B7%80%E0%B7%9A-%E0%B7%83%E0%B7%92%E0%B6%A7-%E0%B6%85%E0%B6%9A%E0%B7%94%E0%B6%BB%E0%B6%AB%E0%B6%A7-%E0%B6%91%E0%B7%80%E0%B7%94-%E0%B6%B4%E0%B7%8F%E0%B6%BB%E0%B7%8A%E0%B7%83%E0%B6%BD%E0%B6%BA)
+
+All these regulatory bodies and authorities are there to protect the civilians and ensure the well being of all the people in the country(Sri Lanka), So it's our responsibility to adhere to these guidelines and laws and support.
+But at the same time there is a lot to improve on these process to make it smooth for actual buyers.
+
+![Johnny-FD](images/Johnny-FD-Posts-Facebook.png)
+
+> Source : [Facebook](https://www.facebook.com/JohnnyFDK/posts/2902701656625133)
+
 ## Reference
 
 - [Drawing](https://excalidraw.com/#room=27703d66db1f97033a51,jKOLhWHyhhqd683XlJeo4Q)
