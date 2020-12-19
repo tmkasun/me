@@ -8,7 +8,11 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 */
 const Wrapper = props => {
     const { element } = props
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+    // Note: If want to automatically set the system/OS theme preference,
+    // Use the `useMediaQuery` hook to get the os preference and set it to initial prefersDarkMode
+    // variable, Simply remove = false and set to = useMediaQuery('(prefers-color-scheme: dark)')
+    // :) 
+    const prefersDarkMode = false;//useMediaQuery('(prefers-color-scheme: dark)')
     const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode)
     useEffect(() => {
         setIsDarkMode(prefersDarkMode)

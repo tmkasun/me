@@ -29,12 +29,27 @@ Linksys WRT 1900 HS code
 and you will probably find the HS code used in US exports. Then you can find the relevant taxes and tariff applies to the HS codes using the Sri Lanka customs website.
 You can find the item description using the [HS finder](http://www.customs.gov.lk/business/hsfinder) and locate the relevant tariff information from [this page](http://www.customs.gov.lk/classification/tarrif) 
 
+## Obtaining a TRC licence
+
+## Import control licence
+
+Thanks to the pandemic, Now you can apply for ICL via email, You have to fill the information and submit the application form to xxxxx email.
+
+Download the [APPLICATION FOR AN IMPORT CONTROL LICENSE](https://srilankatradeportal.gov.lk/kcfinder/upload/files/DoIEC7AL.pdf)
+
+> **_NOTE:_**  I accidentally tries to access `https://srilankatradeportal.gov.lk/kcfinder/upload` and it redirected me to Bangladesh Trade Portal :D, seems like we have taken a clone of their portal and has forgot to change the 302 :D 
+
+
+For more information call `0112326774`,This is the general number of the [Department of Imports and Exports control](imexport.gov.lk) and ask for unit 4 or extension 119.
+
+[This page](http://www.imexport.gov.lk/index.php/en/notices/112-instructions-to-the-applicants-who-personally-importing-phones.html) is also a good source to understand the process of obtaining a license for privately imported hand phones.
+
 ## Why all this hassle
 
 ![Narcotics](images/Customs-seizes-narcotics-hidden-as-dried-leaves-Newsradio.png)
 > Source : [News Radio](https://www.newsradio.lk/local/customs-seizes-narcotics-hidden-as-dried-leaves/)
 
-All these regulatory bodies and authorities are there to protect the civilians and ensure the well being of all the people in the country(Sri Lanka), So it's our responsibility to adhere to these guidelines and laws and support.
+All these regulatory bodies and authorities are there to protect the civilian's rights and ensure the well being of all the people in the society, So it's our responsibility to adhere to these guidelines and laws and support.
 But at the same time there is a lot to improve on these process to make it smooth for actual buyers.
 
 ![Johnny-FD](images/Johnny-FD-Posts-Facebook.png)
