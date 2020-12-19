@@ -21,7 +21,13 @@ It's important to know the HS code of the good that you planing to import before
 
 You can find more information about HS codes from [here](https://www.trade.gov/harmonized-system-hs-codes)
 
-
+To find the HS code for your item, You can just google search with the manufacturer name and the model name/number
+i:e
+```
+Linksys WRT 1900 HS code
+```
+and you will probably find the HS code used in US exports. Then you can find the relevant taxes and tariff applies to the HS codes using the Sri Lanka customs website.
+You can find the item description using the [HS finder](http://www.customs.gov.lk/business/hsfinder) and locate the relevant tariff information from [this page](http://www.customs.gov.lk/classification/tarrif) 
 
 ## Reference
 
