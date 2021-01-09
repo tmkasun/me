@@ -29,7 +29,21 @@ Linksys WRT 1900 HS code
 and you will probably find the HS code used in US exports. Then you can find the relevant taxes and tariff applies to the HS codes using the Sri Lanka customs website.
 You can find the item description using the [HS finder](http://www.customs.gov.lk/business/hsfinder) and locate the relevant tariff information from [this page](http://www.customs.gov.lk/classification/tarrif) 
 
-## Obtaining a TRC licence
+## Obtaining a Telecommunications Regulatory Commission (TRC) licence
+
+TRC will mainly look at the technical specification of the device, And validate whether it's conform to the Telecommunications regulations in the country. It has a wide spread scope of regulating various devices(RTT), Vendors and more, So what I have experienced is taking a licence for personal use WiFi devices. Obviously the procedure and fess will be differ from the licence type.
+
+I have seen different set of required documents, that needs to be submitted for the licence.But mainly you need submit your NIC copy, and device technical specification, proforma invoice, Application form and etc included in a request letter(email).
+
+Documents required to be submitted in order to issue Custom clearance letters ([source](http://www.trc.gov.lk/images/stories/spectrum/LPspectrumAllocantion1.pdf))
+1. Request letter
+2. [Application Form](http://www.trc.gov.lk/images/stories/spectrum/LowPowerApplication.pdf) ([Download](http://www.trc.gov.lk/low-power-device.html))
+3. Copy of proforma/commercial invoice
+4. Technical Specifications
+5. Vendor’s Licence where applicable 
+
+For technical specification which has the frequency ranges, maximum gain value(s), RF Exposure Information, ect can be found in the product manual most of the time, If not you can search for the device's Federal Communications Commission ID (FCC ID) from the internet and provide those information along with the application.
+For example , FCC ID of the Linksys WRT 1900AC V2 router is `Q87-WRT1900ACV2` and you can search for the FCC ID in [fccid.io](https://fccid.io/Q87-WRT1900ACV2) or [fcc.gov](https://www.fcc.gov/oet/ea/fccid)
 
 ## Import control licence
 
