@@ -115,6 +115,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     Note here: 
     In my case default `dnsmasq` tool coming with the OpenWRT installation does not worked and I had to uninstall the pre-installed `dnsmasq` and install `dnsmasq-full` to get this work!
 3.  Now IP sets are ready, So final thing is to configure the `mwan3`
+    ![image](https://user-images.githubusercontent.com/3313885/104094061-aa51a380-52b4-11eb-9398-05873438e384.png)
     If you are new to `mwan3` there is a really good [documentation in OpenWRT](https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3) docs,covering all the aspects.
 
     At this point, better to restart the router, and ping to those host name that you have configured above i:e
@@ -149,49 +150,38 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     option sticky: Is important to set true in UI or '1' in the config
     option ipset: Is the IP set name created with `ipset -N {name}` and the `ipset={domain}/{name}` in the config file
     option use_policy: is the policy name which have the WAN as a member that you want to forward the request match with the above ipset (i:e facebook.com requests go to Dialog 4G WAN)
+    Change the above config accordingly and put it in the `mwan3` config at the top (will get the priority from configs in top to bottom)
+    ![image](https://user-images.githubusercontent.com/3313885/104094133-00bee200-52b5-11eb-899c-3fde4c536c22.png)
     Finally restart the `mwan3` service
     ```
     mwan3 restart
     ```
+    and check the `mwan3` status
+    ```
+    mwan3 status
+    ```
+    or check the status from the web UI
+    ![image](https://user-images.githubusercontent.com/3313885/104094114-e97ff480-52b4-11eb-8d10-3272954cc601.png)
+    it should show the above added new rul in `Active ipv4 user rules:` section
 
 # Monitoring traffic
 
-https://openwrt.org/docs/guide-user/luci/luci_app_statistics
+    This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
 
-https://lnms.learn.ac.lk/traffic/int.php
+![image](https://user-images.githubusercontent.com/3313885/104094182-44195080-52b5-11eb-9109-637adb49a087.png)
 
+I have used [`luci_app_statistics`](https://openwrt.org/docs/guide-user/luci/luci_app_statistics) package in OpenWRT, It provide good coverage of parameters, from Network interfaces, to memory & CPU usages and there are lot more supported in `collectd`. This package  gives more similar graph outputs this is available in [LERAN traffic graphs](https://lnms.learn.ac.lk/traffic/int.php). So i believe this `luci_app_statistics` package give more professional looking stats in OpenWRT routers.
+
+The default `rrd` configuration store the monitoring data in the temporary directory (`/tmp/`) hence the graph data get cleared when router is  restarted. In the above doc , they have pointed to some scripts and docs which explains how to backup the data to an external device plugged into router's USB interface. Only thing lacking there is how to use existing vFat/Fat32 formatted pen drive to backup the data. So I had to google and collect the information from various sources, and though of organizing them here.
+To get [vFat/FAT32 partition](https://openwrt.org/docs/guide-user/storage/filesystems-and-partitions) mounted you need following package in the router 
 ```
 opkg install dosfstools
 ```
-https://openwrt.org/docs/guide-user/base-system/cron
-https://openwrt.org/docs/guide-user/storage/usb-installing
-https://openwrt.org/docs/guide-user/storage/usb-drives
-https://openwrt.org/docs/guide-user/storage/filesystems-and-partitions
+And then simply follow the instruction in [usb-installing](https://openwrt.org/docs/guide-user/storage/usb-installing) and [usb-drives](
+https://openwrt.org/docs/guide-user/storage/usb-drives)
+To take a backup every X (i:e 6 hours) interval, You can use [this script](https://gist.github.com/squarewf/a2347fe44e217a19998eb2b6b1b16c59) This sheduling is done using [the corntabs](https://openwrt.org/docs/guide-user/base-system/cron)
 
 # References
 -   This [Openwrt forum thread](https://forum.openwrt.org/t/mwan3-rules-with-ipset/52577/23) healped me a lot to figure out this path.
 -   And this [StackOverflow answer](https://stackoverflow.com/questions/48592840/applying-ipset-in-lede) helps to find out about ipset list command and important of restarting and setting up the order for startup script (set ips before 19)  
 - This [blog post in nicedoc.io](https://nicedoc.io/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/dns/domain-name-based-routing.md) was also helpful.
-- 
-![image](https://user-images.githubusercontent.com/3313885/104094182-44195080-52b5-11eb-9109-637adb49a087.png)
-
-
-https://lnms.learn.ac.lk/traffic/int.php
-
-
-
-
-![image](https://user-images.githubusercontent.com/3313885/104094061-aa51a380-52b4-11eb-9398-05873438e384.png)
-
-<hr/>
-
-![image](https://user-images.githubusercontent.com/3313885/104094114-e97ff480-52b4-11eb-8d10-3272954cc601.png)
-
-<hr/>
-
-![image](https://user-images.githubusercontent.com/3313885/104094133-00bee200-52b5-11eb-899c-3fde4c536c22.png)
-
-
-
-
-
