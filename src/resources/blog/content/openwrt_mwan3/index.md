@@ -185,3 +185,4 @@ To take a backup every X (i:e 6 hours) interval, You can use [this script](https
 -   This [Openwrt forum thread](https://forum.openwrt.org/t/mwan3-rules-with-ipset/52577/23) healped me a lot to figure out this path.
 -   And this [StackOverflow answer](https://stackoverflow.com/questions/48592840/applying-ipset-in-lede) helps to find out about ipset list command and important of restarting and setting up the order for startup script (set ips before 19)  
 - This [blog post in nicedoc.io](https://nicedoc.io/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/dns/domain-name-based-routing.md) was also helpful.
+- I created this [github repo](https://github.com/tmkasun/openwrt_configs) with all the configuration files and script for reference
