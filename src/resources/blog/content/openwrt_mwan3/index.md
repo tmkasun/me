@@ -29,7 +29,7 @@ OpenWRT has a `mwan3` package which allows you to configure various rules and po
 
 To [install](https://openwrt.org/docs/guide-user/additional-software/managing_packages) the `mwan3` package use
 
-```
+```bash
 opkg update
 opkg install mwan3
 ```
@@ -38,16 +38,16 @@ After installing `mwan3` keep it aside and configure the [IPSet](https://wiki.ar
 To configure dynamic hostname base WAN routing you need to do 3 things
 
 1.  create a ipset
-    ```
+    ```shell
     ipset -N twitter hash:ip
     ```
     in the above `twitter` is the name of ipset `hash:ip` is a template kind of thing, When router get it's first ping request.
     Following command will list all the ip sets
-    ```
+    ```shell
     ipset list
     ```
     To get information about a specific ip set
-    ```
+    ```shell
     ipset -L twitter
     ```
     Where `twitter` is the IP set name,
@@ -90,7 +90,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     ipset=/.twitter.com/twitter
     ```
     here, AFAIK `twitter` after the last slash is the ipset name, Following is a sample `dnsmasq.conf` configuration content
-    ```
+    ```shell
     # /etc/dnsmasq.conf
     # Change the following lines if you want dnsmasq to serve SRV
     # records.
@@ -108,7 +108,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     ipset=/.twimg.com/twimg
     ```
     after updating the config file run 
-    ```
+    ```shell
     service dnsmasq restart
     ```
     to refresh the `dnsmasq`
@@ -120,23 +120,23 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     If you are new to `mwan3` there is a really good [documentation in OpenWRT](https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3) docs,covering all the aspects.
 
     At this point, better to restart the router, and ping to those host name that you have configured above i:e
-    ```
+    ```shell
         ping twitter.com
     ```
     If you are curious about IPs and DNS, When you ping you will get one of following IPs at the time you execute the ping command
-    ```
+    ```shell
     whois -h whois.radb.net -- '-i origin AS13414' | grep ^route
     ```
     If you wonder how it resolve all the IPs , Google search about [ASN Lookup](https://www.ultratools.com/tools/asnInfoResult?domainName=twitter), I also initially though that how to [find all the IPs belongs to a particular](https://stackoverflow.com/questions/11164672/list-of-ip-space-used-by-facebook) domain and i might need to add them to routing table or something like that, But it's not required here.
     ok that is for your information about AS codes and IPs , now run the 
-    ```
+    ```shell
         ipset -L twitter
     ```
     command and check whether the member IP have resolved
     Configuring the `mwan3` can be done via the UI too. But i will put the configuration elements here for convenient.
     I assume that you are somewhat familiar with OpenWRT and `mwan3` configurations, Hence will directly jump into mwan3 config.
     `mwan3` config is located in
-    ```
+    ```shell
     /etc/config/mwan3
     ```
     and following is a sample configuration
@@ -154,11 +154,11 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     Change the above config accordingly and put it in the `mwan3` config at the top (will get the priority from configs in top to bottom)
     ![image](images/mwan3state.png)
     Finally restart the `mwan3` service
-    ```
+    ```shell
     mwan3 restart
     ```
     and check the `mwan3` status
-    ```
+    ```shell
     mwan3 status
     ```
     or check the status from the web UI
@@ -173,7 +173,7 @@ Login to the router via ssh and check the following outputs
 
 - IPset members
 
-```
+```shell
 ipset -L {name}
 ```
 run the above command and check whether any member IPs have resolved
@@ -187,14 +187,14 @@ run above command and check whether the newly added rule is listed in the active
 
 ## External device (Laptop)
 
-```
+```shell
 traceroute facebook.com
 ```
 
 execute the above command and check from which WAN connection or hope the request been routed, Is it routing via the expected WAN connection
 # Monitoring traffic
 
-    This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
+This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
 
 ![image](images/statsgraph.png)
 
@@ -202,7 +202,7 @@ I have used [luci_app_statistics](https://openwrt.org/docs/guide-user/luci/luci_
 
 The default `rrd` configuration store the monitoring data in the temporary directory (`/tmp/`) hence the graph data get cleared when router is  restarted. In the above doc , they have pointed to some scripts and docs which explains how to backup the data to an external device plugged into router's USB interface. Only thing lacking there is how to use existing vFat/Fat32 formatted pen drive to backup the data. So I had to google and collect the information from various sources, and though of organizing them here.
 To get [vFat/FAT32 partition](https://openwrt.org/docs/guide-user/storage/filesystems-and-partitions) mounted you need following package in the router 
-```
+```shell
 opkg install dosfstools
 ```
 And then simply follow the instruction in [usb-installing](https://openwrt.org/docs/guide-user/storage/usb-installing) and [usb-drives](

@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => {
         color: theme.palette.type === 'light' ? 'black' : 'rgba(0, 0, 0, 0.87)',
         whiteSpace: 'normal',
         'font-size': 'initial'
+      },
+      '& pre[class*="language-"]': {
+        background: '#003767',
       }
     },
   })
