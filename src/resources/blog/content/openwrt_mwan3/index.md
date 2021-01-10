@@ -152,7 +152,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     option ipset: Is the IP set name created with `ipset -N {name}` and the `ipset={domain}/{name}` in the config file
     option use_policy: is the policy name which have the WAN as a member that you want to forward the request match with the above ipset (i:e facebook.com requests go to Dialog 4G WAN)
     Change the above config accordingly and put it in the `mwan3` config at the top (will get the priority from configs in top to bottom)
-    ![image](images/mwan3state.png)
+    ![image](images/rules.png)
     Finally restart the `mwan3` service
     ```shell
     mwan3 restart
@@ -162,7 +162,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     mwan3 status
     ```
     or check the status from the web UI
-    ![image](images/rules.png)
+    ![image](images/mwan3state.png)
     it should show the above added new rul in `Active ipv4 user rules:` section
 
 # Verifying the changes
