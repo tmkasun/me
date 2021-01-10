@@ -165,6 +165,33 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     ![image](images/rules.png)
     it should show the above added new rul in `Active ipv4 user rules:` section
 
+# Verifying the changes
+
+## Router
+
+Login to the router via ssh and check the following outputs
+
+- IPset members
+
+```
+ipset -L {name}
+```
+run the above command and check whether any member IPs have resolved
+
+- mwan3 configs
+
+```
+mwan3 status
+```
+run above command and check whether the newly added rule is listed in the active ipv4 user rules section
+
+## External device (Laptop)
+
+```
+traceroute facebook.com
+```
+
+execute the above command and check from which WAN connection or hope the request been routed, Is it routing via the expected WAN connection
 # Monitoring traffic
 
     This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
