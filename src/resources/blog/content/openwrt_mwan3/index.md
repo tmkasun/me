@@ -17,7 +17,7 @@ Below is my network setup:
 
 ![Network Setup](images/network_draw.png)
 
-I'm using [`Linksys WRT 1900AC V2 (Cobra)`](https://www.linksys.com/us/support-product?pid=01t80000003KdJ7AAK) router with [OpenWRT](https://openwrt.org/) latest firmware(v19.07.5).
+I'm using [Linksys WRT 1900AC V2 (Cobra)](https://www.linksys.com/us/support-product?pid=01t80000003KdJ7AAK) router with [OpenWRT](https://openwrt.org/) latest firmware(v19.07.5).
 
 Diagram sources: [lucid](https://lucid.app/lucidchart/invitations/accept/98104790-f585-4b6c-8e90-58e513880562) & [excalidraw](https://excalidraw.com/#room=587b683f2467ed94de73,rXcfIg77oPYxdlxKc32nvw)
 
@@ -198,7 +198,7 @@ execute the above command and check from which WAN connection or hope the reques
 
 ![image](images/statsgraph.png)
 
-I have used [`luci_app_statistics`](https://openwrt.org/docs/guide-user/luci/luci_app_statistics) package in OpenWRT, It provide good coverage of parameters, from Network interfaces, to memory & CPU usages and there are lot more supported in `collectd`. This package  gives more similar graph outputs this is available in [LERAN traffic graphs](https://lnms.learn.ac.lk/traffic/int.php). So i believe this `luci_app_statistics` package give more professional looking stats in OpenWRT routers.
+I have used [luci_app_statistics](https://openwrt.org/docs/guide-user/luci/luci_app_statistics) package in OpenWRT, It provide good coverage of parameters, from Network interfaces, to memory & CPU usages and there are lot more supported in `collectd`. This package  gives more similar graph outputs this is available in [LERAN traffic graphs](https://lnms.learn.ac.lk/traffic/int.php). So i believe this `luci_app_statistics` package give more professional looking stats in OpenWRT routers.
 
 The default `rrd` configuration store the monitoring data in the temporary directory (`/tmp/`) hence the graph data get cleared when router is  restarted. In the above doc , they have pointed to some scripts and docs which explains how to backup the data to an external device plugged into router's USB interface. Only thing lacking there is how to use existing vFat/Fat32 formatted pen drive to backup the data. So I had to google and collect the information from various sources, and though of organizing them here.
 To get [vFat/FAT32 partition](https://openwrt.org/docs/guide-user/storage/filesystems-and-partitions) mounted you need following package in the router 

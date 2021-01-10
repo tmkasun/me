@@ -25,11 +25,10 @@ const useStyles = makeStyles(theme => {
         color: theme.palette.type === 'light' ? lightBlue[500] : cyan['A200']
       },
       '& :not(pre) > code[class*="language-"]': {
-        background: theme.palette.type === 'light' ? '#2d2d2d' : lime[100],
-        color: theme.palette.type === 'light' ? null : 'rgba(0, 0, 0, 0.87)',
-        padding: '.1em',
-        borderRadius: '.3em',
-        whiteSpace: 'normal'
+        background: lime[100],
+        color: theme.palette.type === 'light' ? 'black' : 'rgba(0, 0, 0, 0.87)',
+        whiteSpace: 'normal',
+        'font-size': 'initial'
       }
     },
   })
