@@ -115,7 +115,8 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     Note here: 
     In my case default `dnsmasq` tool coming with the OpenWRT installation does not worked and I had to uninstall the pre-installed `dnsmasq` and install `dnsmasq-full` to get this work!
 3.  Now IP sets are ready, So final thing is to configure the `mwan3`
-    ![image](https://user-images.githubusercontent.com/3313885/104094061-aa51a380-52b4-11eb-9398-05873438e384.png)
+    ![image](images/mwan3.png)
+    
     If you are new to `mwan3` there is a really good [documentation in OpenWRT](https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3) docs,covering all the aspects.
 
     At this point, better to restart the router, and ping to those host name that you have configured above i:e
@@ -151,7 +152,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     option ipset: Is the IP set name created with `ipset -N {name}` and the `ipset={domain}/{name}` in the config file
     option use_policy: is the policy name which have the WAN as a member that you want to forward the request match with the above ipset (i:e facebook.com requests go to Dialog 4G WAN)
     Change the above config accordingly and put it in the `mwan3` config at the top (will get the priority from configs in top to bottom)
-    ![image](https://user-images.githubusercontent.com/3313885/104094133-00bee200-52b5-11eb-899c-3fde4c536c22.png)
+    ![image](images/mwan3state.png)
     Finally restart the `mwan3` service
     ```
     mwan3 restart
@@ -161,14 +162,14 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     mwan3 status
     ```
     or check the status from the web UI
-    ![image](https://user-images.githubusercontent.com/3313885/104094114-e97ff480-52b4-11eb-8d10-3272954cc601.png)
+    ![image](images/rules.png)
     it should show the above added new rul in `Active ipv4 user rules:` section
 
 # Monitoring traffic
 
     This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
 
-![image](https://user-images.githubusercontent.com/3313885/104094182-44195080-52b5-11eb-9109-637adb49a087.png)
+![image](images/statsgraph.png)
 
 I have used [`luci_app_statistics`](https://openwrt.org/docs/guide-user/luci/luci_app_statistics) package in OpenWRT, It provide good coverage of parameters, from Network interfaces, to memory & CPU usages and there are lot more supported in `collectd`. This package  gives more similar graph outputs this is available in [LERAN traffic graphs](https://lnms.learn.ac.lk/traffic/int.php). So i believe this `luci_app_statistics` package give more professional looking stats in OpenWRT routers.
 
