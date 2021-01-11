@@ -185,6 +185,12 @@ mwan3 status
 ```
 run above command and check whether the newly added rule is listed in the active ipv4 user rules section
 
+- Check dnsmasq configuration syntax using below command
+
+```shell
+dnsmasq --test
+```
+
 ## External device (Laptop)
 
 ```shell
