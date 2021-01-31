@@ -9,7 +9,7 @@ draft: false
 
 # Network plan
 
-My main requirement was to route the internet traffic to specific WAN connection conditionally depending on it's hostname. For example, If someone try to access `facebook.com`, `twitter.com` or `youtube.com` etc. I wanted those requests to be routed via a specific WAN (or internet router) and all the other request goes through 2nd internet connection (WAN).
+My main requirement is to route the internet traffic to specific WAN connection conditionally depending on it's hostname. For example, If someone try to access `facebook.com`, `twitter.com` or `youtube.com` etc. I want those requests to be routed via a specific WAN (or internet router) and all the other request should routed through 2nd internet connection (WAN).
 
 Second requirement was to monitor and collect stats about my home local network usage and persist them for later analysis. One of the motivational factor for collecting usage data was,there are rumors in our country that some Internet Service Providers(ISPs) charge for more data than what the user has actually consumed :)
 
@@ -17,9 +17,12 @@ Below is my network setup:
 
 ![Network Setup](images/network_draw.png)
 
-I'm using [Linksys WRT 1900AC V2 (Cobra)](https://www.linksys.com/us/support-product?pid=01t80000003KdJ7AAK) router with [OpenWRT](https://openwrt.org/) latest firmware(v19.07.5).
 
 Diagram sources: [lucid](https://lucid.app/lucidchart/invitations/accept/98104790-f585-4b6c-8e90-58e513880562) & [excalidraw](https://excalidraw.com/#room=587b683f2467ed94de73,rXcfIg77oPYxdlxKc32nvw)
+
+# Hardware
+
+I'm using [Linksys WRT 1900AC V2 (Cobra)](https://www.linksys.com/us/support-product?pid=01t80000003KdJ7AAK) router with [OpenWRT](https://openwrt.org/) latest firmware(v19.07.5). But you can use any OpenWRT compatible device to configure this. There are some OpenWRT like firmwares i:e [dd-wrt](https://dd-wrt.com/) & [🍅 tomato](https://advancedtomato.com/) 
 
 # OpenWRT Multiple WAN configuration
 
