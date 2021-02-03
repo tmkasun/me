@@ -19,3 +19,4 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify [![Net
 - Add command panel
   - Example [Paco](https://github.com/pacocoursey/paco/tree/master/components/command)
   - [Libraries](https://github.com/asabaylus/react-command-palette)
+- Write integration test using Testcaffe or Cypress
