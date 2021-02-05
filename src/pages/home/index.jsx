@@ -13,6 +13,7 @@ import Transmission from '../../components/home/services/Transmission';
 import Netdata from '../../components/home/services/Netdata';
 import WSO2 from '../../components/home/services/WSO2';
 import HomeTitle from '../../components/home/HomeTitle';
+import BbUsage from '../../components/home/services/BbUsage';
 
 import MeAPI from '../../data/api/meAPI'
 
@@ -53,6 +54,13 @@ const Home = props => {
               <Transmission />
               <Netdata />
               <WSO2 />
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              spacing={3}
+            >
+              <BbUsage />
             </Grid>
           </Box>
         </Grid>
