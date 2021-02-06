@@ -31,6 +31,10 @@ export default class MeAPI {
             .then(response => response.json())
 
     }
+
+    static geUsage(provider = "slt") {
+        return fetch(`${MeAPI.SERVICE_ENDPOINT}/${provider}/0771226262`).then(res => res.json())
+    }
 }
 
-MeAPI.SERVICE_ENDPOINT = "https://api.home.knnect.com/apis"
+MeAPI.SERVICE_ENDPOINT = "https://home.knnect.com/apis"

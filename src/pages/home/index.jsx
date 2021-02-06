@@ -58,7 +58,8 @@ const Home = props => {
             <Grid
               container
               direction="row"
-              spacing={3}
+              justify="center"
+              spacing={8}
             >
               <BbUsage />
             </Grid>
