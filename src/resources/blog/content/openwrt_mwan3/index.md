@@ -146,6 +146,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     ```
         config rule 'facebook'
             option proto 'all'
+            option family 'ipv4'
             option sticky '1'
             option ipset 'facebook'
             option use_policy 'testp'
@@ -218,6 +219,22 @@ And then simply follow the instruction in [usb-installing](https://openwrt.org/d
 https://openwrt.org/docs/guide-user/storage/usb-drives)
 To take a backup every X (i:e 6 hours) interval, You can use [this script](https://gist.github.com/squarewf/a2347fe44e217a19998eb2b6b1b16c59) This sheduling is done using [the corntabs](https://openwrt.org/docs/guide-user/base-system/cron)
 
+# Schedule WiFi and switch WAN usages timely
+
+To edit the `crontab` type
+```shell
+crontab -e
+```
+and following scheduled commands will switch off the wifi radios at mid night and switch on at 5AM morning.
+And also it will switch the MWAN3 policies at mid night and restore back at 8AM morning(That's where peak time start for SLT connections)
+
+```crontab
+0 */6 * * * /etc/init.d/rrdbackup backup
+0 8 * * * uci set mwan3.all.use_policy='Dialog4G_Only'; uci commit; mwan3 restart
+0 0 * * * uci set mwan3.all.use_policy='SLT_Only'; uci commit; mwan3 restart
+0 0 * * * /sbin/wifi down
+0 5 * * * /sbin/wifi up
+```
 # References
 -   This [Openwrt forum thread](https://forum.openwrt.org/t/mwan3-rules-with-ipset/52577/23) healped me a lot to figure out this path.
 -   And this [StackOverflow answer](https://stackoverflow.com/questions/48592840/applying-ipset-in-lede) helps to find out about ipset list command and important of restarting and setting up the order for startup script (set ips before 19)  
