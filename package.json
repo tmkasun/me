@@ -21,6 +21,7 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.9.0",
     "async-mutex": "^0.1.4",
+    "canvas-gauges": "^2.1.7",
     "dayjs": "^1.8.27",
     "fsevents": "^2.1.3",
     "gatsby": "^2.19.7",

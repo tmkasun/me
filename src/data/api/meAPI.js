@@ -5,6 +5,11 @@ export default class MeAPI {
             .then(response => response.json())
     }
 
+    static getDevice(name) {
+        return fetch(`${MeAPI.SERVICE_ENDPOINT}/devices/${name}`)
+            .then(response => response.json())
+    }
+
     static wakeOnLan(server) {
         return fetch(`${MeAPI.SERVICE_ENDPOINT}/operations/${server}`, {
             method: 'post',
