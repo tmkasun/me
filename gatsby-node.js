@@ -50,6 +50,18 @@ exports.onCreateWebpackConfig = ({
   plugins,
   actions,
 }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({ // https://www.gatsbyjs.com/docs/debugging-html-builds/
+      module: {
+        rules: [
+          {
+            test: /canvas-gauges/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
   actions.setWebpackConfig({
     devServer: {
       watchOptions: {

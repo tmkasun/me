@@ -1,7 +1,4 @@
-if (typeof window !== `undefined`) { // https://www.gatsbyjs.com/docs/debugging-html-builds/
-    const LinearGauge = require('canvas-gauges').LinearGauge;
-    const RadialGauge = require('canvas-gauges').RadialGauge;
-}
+import { LinearGauge, RadialGauge } from 'canvas-gauges'
 import React, { useEffect, useRef } from 'react'
 
 export default (props) => {
