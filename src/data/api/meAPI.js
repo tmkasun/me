@@ -37,6 +37,17 @@ export default class MeAPI {
 
     }
 
+    static updateDevice(device, operation) {
+        return fetch(`${MeAPI.SERVICE_ENDPOINT}/devices/${device}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(operation)
+        })
+            .then(response => response.json())
+    }
+
     static geUsage(provider = "slt") {
         return fetch(`${MeAPI.SERVICE_ENDPOINT}/${provider}/0771226262`).then(res => res.json())
     }

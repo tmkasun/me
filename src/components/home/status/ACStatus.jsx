@@ -10,7 +10,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Switch from '@material-ui/core/Switch';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
-import BluetoothIcon from '@material-ui/icons/Bluetooth';
+
+import MeAPI from '../../../data/api/meAPI'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,21 +22,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SwitchListSecondary(props) {
     const classes = useStyles();
-    const {data} = props;
-    const {MANUFACTURER,PROCESSOR,RAM,TYPE,isLow} = data || {};
-    const [checked, setChecked] = React.useState(['wifi']);
-
-    const handleToggle = (value) => () => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-
-        setChecked(newChecked);
+    const { data } = props;
+    const { MANUFACTURER, PROCESSOR, RAM, TYPE, isLow } = data || {};
+    const [isPowerLow, setIsPowerLow] = React.useState(isLow);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const handleToggle = (powerState) => () => {
+        setIsLoading(true);
+        const operation = { "power": { "isLow": powerState } }
+        MeAPI.updateDevice('ac', operation).then(response => {
+            debugger;
+            setIsPowerLow(powerState);
+        }).finally(() => {
+            setIsLoading(false);
+        })
     };
 
     return (
@@ -45,34 +44,34 @@ export default function SwitchListSecondary(props) {
                     <ListItemIcon>
                         <FiberManualRecordIcon />
                     </ListItemIcon>
-                    <ListItemText id="switch-list-label-wifi" secondary="Manufacturer" primary={MANUFACTURER} />
+                    <ListItemText id="man-id" secondary="Manufacturer" primary={MANUFACTURER} />
                 </ListItem>
 
                 <ListItem>
                     <ListItemIcon>
                         <FiberManualRecordIcon />
                     </ListItemIcon>
-                    <ListItemText id="switch-list-label-wifi" secondary="Processor" primary={PROCESSOR} />
+                    <ListItemText id="pros-id" secondary="Processor" primary={PROCESSOR} />
                 </ListItem>
-                
+
                 <ListItem>
                     <ListItemIcon>
                         <FiberManualRecordIcon />
                     </ListItemIcon>
-                    <ListItemText id="switch-list-label-wifi" secondary="Memory" primary={RAM} />
+                    <ListItemText id="mem-id" secondary="Memory" primary={RAM} />
                 </ListItem>
-                
+
                 <ListItem>
                     <ListItemIcon>
                         <PowerSettingsNewIcon />
                     </ListItemIcon>
-                    <ListItemText id="switch-list-label-bluetooth" primary="Power On" />
+                    <ListItemText id="power-id" primary="Power On" />
                     <ListItemSecondaryAction>
                         <Switch
                             edge="end"
-                            onChange={handleToggle('bluetooth')}
-                            checked={!isLow}
-                            inputProps={{ 'aria-labelledby': 'switch-list-label-bluetooth' }}
+                            onChange={handleToggle(!isPowerLow)}
+                            checked={!isPowerLow}
+                            inputProps={{ 'aria-labelledby': 'power-id' }}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
