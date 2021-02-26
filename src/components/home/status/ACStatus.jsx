@@ -10,6 +10,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Switch from '@material-ui/core/Switch';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Box from '@material-ui/core/Box';
 
 import MeAPI from '../../../data/api/meAPI'
 
@@ -30,15 +32,20 @@ export default function SwitchListSecondary(props) {
         setIsLoading(true);
         const operation = { "power": { "isLow": powerState } }
         MeAPI.updateDevice('ac', operation).then(response => {
-            debugger;
-            setIsPowerLow(powerState);
+            setIsPowerLow(response.isLow);
         }).finally(() => {
             setIsLoading(false);
         })
     };
 
     return (
-        <Paper>
+        <Box
+            boxShadow={isPowerLow ? 0 : 1}
+            border={1}
+            m={1}
+            bgcolor="background.paper"
+            borderColor={isPowerLow ? "grey.500" : "error.main"}
+        >
             <List subheader={<ListSubheader>{TYPE}</ListSubheader>} className={classes.root}>
                 <ListItem>
                     <ListItemIcon>
@@ -67,7 +74,10 @@ export default function SwitchListSecondary(props) {
                     </ListItemIcon>
                     <ListItemText id="power-id" primary="Power On" />
                     <ListItemSecondaryAction>
+                        {isLoading && <CircularProgress thickness={2} size={20} disableShrink />}
                         <Switch
+                            disabled={isLoading}
+                            size='small'
                             edge="end"
                             onChange={handleToggle(!isPowerLow)}
                             checked={!isPowerLow}
@@ -76,6 +86,6 @@ export default function SwitchListSecondary(props) {
                     </ListItemSecondaryAction>
                 </ListItem>
             </List>
-        </Paper>
+        </Box>
     );
 }
