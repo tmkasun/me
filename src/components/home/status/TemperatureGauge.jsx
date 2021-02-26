@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@material-ui/core/Box';
 
-import LinearGauge from '../../common/Gauge'
+import Gauge from '../../common/Gauge'
 
 export default (props) => {
     const { name } = props;
@@ -58,15 +58,17 @@ export default (props) => {
         <Box
             border={1}
             borderRadius={16}
+            boxShadow={1}
             borderColor="grey.500"
             fontFamily="h6.fontFamily"
             fontSize={{ xs: 'h6.fontSize', sm: 'h4.fontSize', md: 'h3.fontSize' }}
-            p={{ xs: 2, sm: 3, md: 4 }}
+            p={{ xs: 0.5, sm: 1, md: 2 }}
             m={1}
         >
-            <Box textAlign="left">
+            <Box
+                textAlign="left">
                 {name}
             </Box>
-            <LinearGauge {...{ ...gOptions, ...props }} />
+            <Gauge {...{ ...gOptions, ...props }} />
         </Box>)
 }
