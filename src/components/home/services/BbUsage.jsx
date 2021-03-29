@@ -31,9 +31,9 @@ export default (props) => {
             <Grid item md={5}>
                 <Typography variant="h6">
                     SLT Usage <Typography variant="caption">
-                        <Tooltip title={expire_date} placement="top-start">
+                        <Tooltip title={dayjs().endOf('month').toString()} placement="top-start">
                             <span>
-                                Expire {dayjs().to(dayjs().startOf('M').month(2))}
+                                Expire {dayjs().to(dayjs().startOf('M').month(dayjs().get('month')+1))}
                             </span>
                         </Tooltip>
                     </Typography>

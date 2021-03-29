@@ -12,7 +12,7 @@
     "serve": "gatsby serve",
     "cy:run": "cypress run",
     "clean": "gatsby clean",
-    "deploy_locally": "npm run build;scp -rv public kasun@jetson.knnect.com:/home/kasun/testing/me/",
+    "deploy_locally": "npm run build;scp -rv public kasun@home.knnect.com:/home/kasun/testing/me/",
     "test": "start-server-and-test start http://localhost:8000 cy:run"
   },
   "dependencies": {
