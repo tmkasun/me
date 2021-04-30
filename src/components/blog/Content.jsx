@@ -109,7 +109,7 @@ export default ({ data, path, pathContext: { slug } }) => {
                     /* Replace PAGE_URL with your post's canonical URL variable */
                     url: `https://me.knnect.com${path}`,
                     /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-                    identifier: btoa(slug),
+                    identifier: Buffer.from(slug).toString('base64'),
                     /* Replace PAGE_TITLE with the title of the page */
                     title,
                   }
