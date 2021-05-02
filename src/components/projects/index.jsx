@@ -43,7 +43,7 @@ export default props => {
       {apps &&
         apps.map(app => (
           <Grid item xs={12} sm={6} md={4} lg={4}>
-            <Card raised elevation={3} className={classes.card}>
+            <Card raised elevation={1} className={classes.card}>
               <Link href={app.url}>
                 <CardContent className={classes.media}>
                   <Typography
