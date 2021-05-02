@@ -10,8 +10,8 @@ const useStyles = makeStyles(theme => {
       flexGrow: 1,
     },
     contentBody: {
-      width: '100%'
-
+      width: '100%',
+      marginBottom: theme.spacing(15),
     }
   })
 })
