@@ -1,8 +1,17 @@
 # What is this ?
 
-This is my [personal web site](https://me.knnect.com) deployed in Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/20d82071-18b9-4ed5-a309-f1bd223c6296/deploy-status)](https://app.netlify.com/sites/knnect/deploys) and testing using [![CircleCI](https://circleci.com/gh/tmkasun/me.svg?style=shield)](https://app.circleci.com/pipelines/github/tmkasun/me)
+This is my [personal web site](https://me.knnect.com) deployed in Netlify and testing using CircleCI
 
 - REST API implementation for Smart 🏠  Operations : [Link](https://github.com/tmkasun/me_api)
+
+# Deployments
+
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/20d82071-18b9-4ed5-a309-f1bd223c6296/deploy-status)](https://app.netlify.com/sites/knnect/deploys) (Primary)
+- [![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=me-weld)](https://me-weld.vercel.app/)
+
+# Integration Tests
+
+- [![CircleCI](https://circleci.com/gh/tmkasun/me.svg?style=shield)](https://app.circleci.com/pipelines/github/tmkasun/me)
 
 # TODO
 
