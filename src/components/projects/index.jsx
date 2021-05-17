@@ -11,6 +11,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     minHeight: 250,
     paddingBottom: 20,
+    transition: "transform 0.25s ease-in-out",
+    "&:hover": { transform: "scale3d(1.04, 1.04, 1)" },
   },
   media: {
     height: 220,
@@ -19,6 +21,18 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const classes = useStyles()
   const [apps] = useState([
+    {
+      name: 'WSO2 APIM 4.0.0', description: (
+        <div>
+          <h3>DEMO</h3>
+          <ul>
+            <li>username: <b>demo</b></li>
+            <li>password: <b>password</b></li>
+          </ul>
+        </div>
+      ), url: 'https://apim.knnect.com:9443/publisher'
+    },
+    { name: 'Micro frontends', description: 'Demo on Micro-FE using webpack module federation.', url: 'https://knnect-mf-app1.netlify.app/' },
     { name: 'Personal Web', description: 'I have developed this personal web portal to match with my custom requirements and was inspired by `overreacted` `addyosmani` and many other great personal web portals', url: 'https://github.com/tmkasun/me' },
     { name: 'Git Stats', description: 'Show PR status of pre-defined github filtering query using Github REST APIs', url: 'https://csb-vrskp.netlify.app/' },
     { name: 'API Portal', description: 'Extensible and customizable API portal React application using GatsbyJS', url: 'https://github.com/tmkasun/api-portal' },
@@ -29,6 +43,7 @@ export default props => {
     { name: 'IMD Weather Animator', description: 'Animate Indian meteorological department Satellite Images', url: 'https://github.com/tmkasun/imd_weather_animator' },
     { name: 'Compiler theory basics', description: 'This repository contains components of a compiler in order to learn the basics of compilers', url: 'https://github.com/tmkasun/mini_compiler' },
     { name: 'Geo Dashboard', description: 'Geo dashboard with object tracking geo fencing and some other geo spatial tacking features', url: 'https://github.com/tmkasun/geo_dashboard' },
+
   ])
 
   return (
