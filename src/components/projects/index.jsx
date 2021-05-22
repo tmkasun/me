@@ -30,7 +30,7 @@ export default props => {
             <li>password: <b>password</b></li>
           </ul>
         </div>
-      ), url: 'https://apim.knnect.com:9443/publisher'
+      ), url: 'https://apim.knnect.com/publisher'
     },
     { name: 'Micro frontends', description: 'Demo on Micro-FE using webpack module federation.', url: 'https://knnect-mf-app1.netlify.app/' },
     { name: 'Personal Web', description: 'I have developed this personal web portal to match with my custom requirements and was inspired by `overreacted` `addyosmani` and many other great personal web portals', url: 'https://github.com/tmkasun/me' },
