@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     height: isXS => isXS ? '70px' : '100px',
   },
   wso2: {
-    color: '#ff7300'
+    color: '#ad5900'
   },
   apim: {
     color: theme.palette.type === 'light' ? blue[900] : blue[200]

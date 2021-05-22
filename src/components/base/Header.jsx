@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     color: amber[200]
   },
   links: {
-    color: theme.palette.type === 'light' ? lightBlue[600] : cyan[200]
+    color: theme.palette.type === 'light' ? lightBlue[900] : cyan[200]
   },
   appBarPaperRoot: {
     backdropFilter: 'blur(4px)',

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Box from '@material-ui/core/Box';
@@ -17,13 +17,12 @@ export default props => {
     const classes = useStyles();
     return (
         <Box mb={4} mt={4}>
-            <Typography align="center" variant="h3">
+            <Box textAlign="center" fontSize="h3.fontSize">
                 {title}
-            </Typography>
-            <Typography className={classes.subTitle} align="center" variant="subtitle1">
+            </Box>
+            <Box className={classes.subTitle} textAlign="center" fontSize="subtitle1.fontSize">
                 {children}
-            </Typography>
-            
+            </Box>
         </Box>
     )
 }

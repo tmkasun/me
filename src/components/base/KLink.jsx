@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
     links: {
-        color: theme.palette.type === 'light' ? lightBlue[600] : cyan[200]
+        color: theme.palette.type === 'light' ? lightBlue[900] : cyan[200]
     }
 }))
 
