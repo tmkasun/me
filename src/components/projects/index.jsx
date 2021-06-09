@@ -33,6 +33,16 @@ export default props => {
       ), url: 'https://apim.knnect.com/publisher'
     },
     { name: 'Micro frontends', description: 'Demo on Micro-FE using webpack module federation.', url: 'https://knnect-mf-app1.netlify.app/' },
+    {
+      name: 'PKCE Demo',
+      description: 'Interactive demo on how OAuth2 PKCE grant flow works',
+      url: 'https://pkce.knnect.com/'
+    },
+    {
+      name: 'Service Monitoring',
+      description: 'Uptimerobot status page for some of my services',
+      url: 'https://stats.uptimerobot.com/AWWE3f9vPQ'
+    },
     { name: 'Personal Web', description: 'I have developed this personal web portal to match with my custom requirements and was inspired by `overreacted` `addyosmani` and many other great personal web portals', url: 'https://github.com/tmkasun/me' },
     { name: 'Git Stats', description: 'Show PR status of pre-defined github filtering query using Github REST APIs', url: 'https://csb-vrskp.netlify.app/' },
     { name: 'API Portal', description: 'Extensible and customizable API portal React application using GatsbyJS', url: 'https://github.com/tmkasun/api-portal' },
