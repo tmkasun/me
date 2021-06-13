@@ -15,17 +15,18 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
 
 # TODO
 
-- ~Add google analytics to blog~ [Done]
-- ~Add Helmet and SEO~ [Done]
-- Add bottom gutter
+- ~~Add google analytics to blog~~ [Done]
+- ~~Add Helmet and SEO~~ [Done]
+- ~~Add bottom gutter [Done]~~
 - blog about new blog/page
   - Blog search Algolia
 - Fix dark view reset when going to blog from home
 - Fix blog pages dark theme issue
-- ~Add commenting support~ (Added disqus)
+- ~~Add commenting support~~ (Added disqus)
   - ~[Facebook comments plugin](https://developers.facebook.com/docs/plugins/comments/#)~
   - ~[Gatsby guide](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-comments/)~
 - Add command panel
   - Example [Paco](https://github.com/pacocoursey/paco/tree/master/components/command)
   - [Libraries](https://github.com/asabaylus/react-command-palette)
-- Write integration test using Testcaffe or Cypress
+- Write integration test using ~~Testcaffe or~~ Cypress
+- Add contact me using [emailjs](https://www.emailjs.com/docs/user-guide/adding-captcha-verification/)
