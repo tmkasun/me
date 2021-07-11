@@ -33,3 +33,5 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
 - Add home automation dashboard
   - Ideas from https://madewithreact.com/tag/dashboards/
   - Illustrations https://iradesign.io/illustrations/backgrounds
+  - IP REST API http://ip-api.com/json
+  - 
