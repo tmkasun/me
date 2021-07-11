@@ -30,3 +30,6 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
   - [Libraries](https://github.com/asabaylus/react-command-palette)
 - Write integration test using ~~Testcaffe or~~ Cypress
 - Add contact me using [emailjs](https://www.emailjs.com/docs/user-guide/adding-captcha-verification/)
+- Add home automation dashboard
+  - Ideas from https://madewithreact.com/tag/dashboards/
+  - Illustrations https://iradesign.io/illustrations/backgrounds
