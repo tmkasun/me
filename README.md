@@ -36,4 +36,4 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
   - IP REST API http://ip-api.com/json
   - 
 
-sample edit
+sample edit 2
