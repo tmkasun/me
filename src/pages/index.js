@@ -64,7 +64,7 @@ export default props => {
         <Grid item md={3} sm={1} xs={false} />
         <Grid item md={6} sm={10} xs={12}>
           <MyTitle title="Kasun Thennakoon">
-            Associate Technical Lead at <span className={classes.wso2}>WSO2</span> working on product {' '}
+            Technical Lead at <span className={classes.wso2}>WSO2</span> working on product {' '}
             <Tooltip placement="top-end" interactive TransitionComponent={Zoom} title="API Manager">
               <Box className={classes.apim} display="inline">API-M</Box>
             </Tooltip>
