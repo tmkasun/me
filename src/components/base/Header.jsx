@@ -78,6 +78,19 @@ export default function Header(props) {
         }}
         title={title || site.siteMetadata.title}
       >
+        <script type='text/javascript'>
+          {`window._vwo_code = window._vwo_code || (function(){
+var account_id=600076,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+is_spa=1,
+hide_element='body',
+
+/* DO NOT EDIT BELOW THIS LINE */
+f=false,d=document,code={use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){
+window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());`}
+        </script>
         <meta charSet="utf-8" />
         <meta name="google-site-verification" content="HG175urvUYiOtY5xEr_C5Lr5wrvNywyYFO5QM0UJiR8" />
         <meta name="description" content={description || site.siteMetadata.description} />
@@ -100,7 +113,7 @@ export default function Header(props) {
                 <Link activeStyle={{ color: "read" }} to="/">
                   <Button aria-label="Home" className={classes.links}>
                     Home
-                    </Button>
+                  </Button>
                 </Link>
               </Grid>
 
@@ -108,7 +121,7 @@ export default function Header(props) {
                 <Link activeStyle={{ color: "read" }} to="/blog">
                   <Button aria-label="Blog" className={classes.links}>
                     Blog
-                    </Button>
+                  </Button>
                 </Link>
               </Grid>
 
@@ -116,7 +129,7 @@ export default function Header(props) {
                 <Link activeStyle={{ color: "read" }} to="/projects">
                   <Button aria-label="Projects" className={classes.links}>
                     Projects
-                    </Button>
+                  </Button>
                 </Link>
               </Grid>
 
@@ -125,8 +138,8 @@ export default function Header(props) {
                   {isDarkMode ? (
                     <WbSunnyIcon className={classes.sunLight} fontSize="small" />
                   ) : (
-                      <NightsStayIcon style={{ color: 'black' }} fontSize="small" />
-                    )}
+                    <NightsStayIcon style={{ color: 'black' }} fontSize="small" />
+                  )}
                 </IconButton>
               </Grid>
             </Grid>
