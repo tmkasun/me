@@ -22,7 +22,7 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
   - Blog search Algolia
 - Fix dark view reset when going to blog from home
 - Fix blog pages dark theme issue
-- ~Add commenting support~ (Added disqus)
+- ~~Add commenting support~~ (Added giscus)
   - ~[Facebook comments plugin](https://developers.facebook.com/docs/plugins/comments/#)~
   - ~[Gatsby guide](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-comments/)~
 - Add command panel
