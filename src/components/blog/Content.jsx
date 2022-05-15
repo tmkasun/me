@@ -9,6 +9,7 @@ import { cyan, lime, lightBlue } from "@material-ui/core/colors"
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Giscus from '@giscus/react';
 
 import Base from "../../components/base/index"
 import Link from "../../components/base/KLink"
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => {
   })
 })
 
-export default ({ data, path, pathContext: { slug } }) => {
+export default ({ data, path, pageContext: { slug } }) => {
   const { markdownRemark } = data
   const {
     frontmatter: { date, title },
@@ -99,6 +100,25 @@ export default ({ data, path, pathContext: { slug } }) => {
             <div className={classes.docRoot} dangerouslySetInnerHTML={{ __html: html }} />
           </Grid>
           <Grid item md={7} sm={9} xs={11}>
+
+            <Box mb={3} mt={4}>
+              <Divider />
+              <Giscus
+                id="my-comments"
+                repo="tmkasun/me"
+                repoId="MDEwOlJlcG9zaXRvcnkxNTMzODY1MQ=="
+                category="General"
+                categoryId="DIC_kwDOAOoMm84CPHXb"
+                mapping="pathname"
+                term="Welcome to @giscus/react component!"
+                reactionsEnabled="1"
+                emitMetadata="0"
+                inputPosition="top"
+                theme="light"
+                lang="en"
+                loading="lazy"
+              />
+            </Box>
           </Grid>
         </Grid>
 
