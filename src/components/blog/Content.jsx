@@ -9,7 +9,6 @@ import { cyan, lime, lightBlue } from "@material-ui/core/colors"
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { Disqus } from 'gatsby-plugin-disqus';
 
 import Base from "../../components/base/index"
 import Link from "../../components/base/KLink"
@@ -100,22 +99,6 @@ export default ({ data, path, pathContext: { slug } }) => {
             <div className={classes.docRoot} dangerouslySetInnerHTML={{ __html: html }} />
           </Grid>
           <Grid item md={7} sm={9} xs={11}>
-
-            <Box mb={3} mt={4}>
-              <Divider />
-              <Disqus
-                config={
-                  {
-                    /* Replace PAGE_URL with your post's canonical URL variable */
-                    url: `https://me.knnect.com${path}`,
-                    /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-                    identifier: Buffer.from(slug).toString('base64'),
-                    /* Replace PAGE_TITLE with the title of the page */
-                    title,
-                  }
-                }
-              />
-            </Box>
           </Grid>
         </Grid>
 
