@@ -27,7 +27,6 @@ const LandingPage: React.FC = () => {
   return (
     <Grid
       container
-      spacing={0}
       direction="row"
       justifyContent="center"
       alignItems="center"

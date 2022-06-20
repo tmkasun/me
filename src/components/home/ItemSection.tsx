@@ -24,14 +24,20 @@ const ItemSection: React.FC<ItemSectionProps> = (props) => {
         spacing={1}
       >
         <Grid item md={2} sm={2} xs={3}>
-          <Avatar
-            sx={{
-              width: isXS ? "70px" : "100px",
-              height: isXS ? "70px" : "100px",
-            }}
-            alt="Kasun Thennakoon"
-            src={icon}
-          />
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Avatar
+              sx={{
+                width: !isXS ? "70px" : "100px",
+                height: !isXS ? "70px" : "100px",
+              }}
+              alt="Kasun Thennakoon"
+              src={icon}
+            />
+          </Box>
         </Grid>
         {isXS && <Grid item md={false} sm={1} xs={false} />}
         <Grid item md={8} sm={9} xs={9}>

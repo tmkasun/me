@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import NightsStayIcon from "@mui/icons-material/NightsStay";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Head from "next/head";
-import { styled, useTheme } from "@mui/material";
+import { Box, styled, useTheme } from "@mui/material";
 import Link from "../../Link";
 import { amber, cyan, lightBlue } from "@mui/material/colors";
 
@@ -29,7 +29,7 @@ function ElevationScroll(props: {
     elevation: trigger ? 2 : 0,
   });
 }
-const RootDiv = styled("div")({ flexGrow: 1 });
+const span = styled("div")({ flexGrow: 1 });
 type BaseHeaderProps = {
   isDarkMode: boolean;
   setIsDarkMode: (isDarkMode: boolean) => void;
@@ -48,12 +48,13 @@ export default function Header({
     color: theme.palette.mode === "light" ? lightBlue[900] : cyan[200],
   };
   return (
-    <RootDiv>
+    <>
       <Head>
         <title key="main-title">Kasun Thennakoon</title>
       </Head>
       <ElevationScroll>
         <AppBar
+          position="fixed"
           elevation={0}
           sx={(theme) => ({
             backdropFilter: "blur(4px)",
@@ -122,6 +123,6 @@ export default function Header({
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-    </RootDiv>
+    </>
   );
 }

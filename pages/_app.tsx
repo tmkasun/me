@@ -7,7 +7,8 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 import Header from "../src/components/layouts/Header";
-import { createTheme, useMediaQuery } from "@mui/material";
+import { Box, createTheme, Toolbar, useMediaQuery } from "@mui/material";
+import Footer from "../src/components/layouts/Footer";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -35,8 +36,13 @@ export default function MyRoot(props: MyRootProps) {
       <ThemeProvider theme={modeAwareTheme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
-          <Component {...pageProps} />
+        <Box display="flex" minHeight="100vh" flexDirection="column">
+          <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+          <Box display="flex" flexGrow={1}>
+            <Component {...pageProps} />
+          </Box>
+          <Footer />
+        </Box>
       </ThemeProvider>
     </CacheProvider>
   );
