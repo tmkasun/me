@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
         name: `Kasun Thennakoon's Personal Web`,
         short_name: `KnnectMe`,
         display: `standalone`,
-        icon: 'static/images/favicon.png'
+        icon: 'src/static/images/favicon.png'
       },
     },
     "gatsby-plugin-mdx",
@@ -42,7 +42,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: "./src/static/images/",
       },
       __key: "images",
     },
