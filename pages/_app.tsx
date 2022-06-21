@@ -31,7 +31,10 @@ export default function MyRoot(props: MyRootProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
       </Head>
       <ThemeProvider theme={modeAwareTheme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
