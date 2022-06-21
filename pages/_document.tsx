@@ -19,13 +19,13 @@ export default class MyDocument extends Document {
           <meta name="keywords" content="personal,web" />
           <link rel="manifest" href="/manifest.json" />
           <link
-            href="/icons/favicon-16x16.png"
+            href="/images/icons/favicon-16x16.png"
             rel="icon"
             type="image/png"
             sizes="16x16"
           />
           <link
-            href="/icons/favicon-32x32.png"
+            href="/images/icons/favicon-32x32.png"
             rel="icon"
             type="image/png"
             sizes="32x32"
@@ -34,6 +34,8 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+        <link rel="apple-touch-icon" href="/images/favicon.png"></link>
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
