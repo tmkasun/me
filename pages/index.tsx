@@ -20,7 +20,7 @@ import MyTitle from "../src/components/home/MyTitle";
 import Link from "../src/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
-const WSO2Text = styled("span")({ color: "#ad5900" });
+const WSO2Text = styled("span")({ color: "#ff8300" });
 
 const LandingPage: React.FC = () => {
   const isXS = useMediaQuery("(min-width:600px)"); // when size become xs https://material-ui.com/customization/breakpoints/
