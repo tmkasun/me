@@ -16,6 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import dayjs from "dayjs";
 import AvatarGroup from "@mui/material/AvatarGroup";
+import Tooltip from "@mui/material/Tooltip/Tooltip";
 
 export interface Project {
   name: string;
@@ -93,11 +94,47 @@ export default function ProjectCard({ project }: { project: Project }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <AvatarGroup total={24}>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-            <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+          <Typography variant="body2" color="text.secondary">
+            Technologies
+          </Typography>
+          <AvatarGroup spacing={5} max={10} total={24}>
+            <Tooltip title="Material UI">
+              <Avatar
+                sx={{ width: 24, height: 24 }}
+                alt="Material UI"
+                src="https://mui.com/favicon.ico"
+              />
+            </Tooltip>
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="ReactJS"
+              src="https://reactjs.org/favicon.ico"
+            />
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="Vercel"
+              src="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/favicon.ico"
+            />
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="AWS"
+              src="https://aws.amazon.com/favicon.ico"
+            />
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="Azure"
+              src="https://portal.azure.com/Content/favicon.ico"
+            />
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="React Query"
+              src="https://react-query.tanstack.com/_next/static/images/favicon-eed8346421218b24d8fd0fd55c2f9e35.png"
+            />
+            <Avatar
+              sx={{ width: 24, height: 24 }}
+              alt="Python"
+              src="https://www.python.org/favicon.ico"
+            />
           </AvatarGroup>
         </CardContent>
       </Collapse>
