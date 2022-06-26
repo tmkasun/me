@@ -15,6 +15,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import dayjs from "dayjs";
+import AvatarGroup from "@mui/material/AvatarGroup";
 
 export interface Project {
   name: string;
@@ -57,7 +58,12 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       <CardHeader
         avatar={
-          <Avatar sx={(theme) => ({ bgcolor: theme.palette.mode === 'light' ? blue[700] : blue[200] })} aria-label="recipe">
+          <Avatar
+            sx={(theme) => ({
+              bgcolor: theme.palette.mode === "light" ? blue[700] : blue[200],
+            })}
+            aria-label="recipe"
+          >
             {name.charAt(0).toUpperCase()}
           </Avatar>
         }
@@ -87,10 +93,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
-          </Typography>
+          <AvatarGroup total={24}>
+            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+            <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+            <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+          </AvatarGroup>
         </CardContent>
       </Collapse>
     </Card>
