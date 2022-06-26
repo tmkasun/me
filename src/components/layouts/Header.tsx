@@ -16,6 +16,7 @@ import Head from "next/head";
 import { Box, styled, useTheme } from "@mui/material";
 import Link from "../../Link";
 import { amber, cyan, lightBlue } from "@mui/material/colors";
+import { useThemeContext } from "./ThemeProvider";
 
 function ElevationScroll(props: {
   children: ReactElement<any, string | JSXElementConstructor<any>>;
@@ -30,18 +31,11 @@ function ElevationScroll(props: {
   });
 }
 const span = styled("div")({ flexGrow: 1 });
-type BaseHeaderProps = {
-  isDarkMode: boolean;
-  setIsDarkMode: (isDarkMode: boolean) => void;
-};
 
-export default function Header({
-  isDarkMode,
-  setIsDarkMode,
-}: PropsWithChildren<BaseHeaderProps>) {
-  //   const isDarkMode = theme.palette.type === "dark";
+export default function Header() {
+  const { themeMode, toggleTheme } = useThemeContext();
   const toggleModeHandler: React.MouseEventHandler = (event) => {
-    setIsDarkMode(!isDarkMode);
+    toggleTheme();
   };
   const theme = useTheme();
   const linkStyle = {
@@ -101,7 +95,7 @@ export default function Header({
                   onClick={toggleModeHandler}
                   size="small"
                 >
-                  {isDarkMode ? (
+                  {themeMode === "dark" ? (
                     <WbSunnyIcon
                       sx={{
                         color: amber[200],
