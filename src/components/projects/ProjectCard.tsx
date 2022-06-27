@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -17,6 +17,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import dayjs from "dayjs";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Tooltip from "@mui/material/Tooltip";
+import techMap from "./technologiesMap";
+import TechnologyIcon from "./TechnologyIcon";
 
 export interface Project {
   name: string;
@@ -47,7 +49,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export default function ProjectCard({ project }: { project: Project }) {
   const { name, description, createdDate } = project;
   const [expanded, setExpanded] = React.useState(false);
-
+  const theme = useTheme();
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -97,44 +99,19 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Typography variant="body2" color="text.secondary">
             Technologies
           </Typography>
-          <AvatarGroup spacing={5} max={10} total={24}>
-            <Tooltip title="Material UI">
-              <Avatar
-                sx={{ width: 24, height: 24 }}
-                alt="Material UI"
-                src="https://mui.com/favicon.ico"
+          <AvatarGroup spacing={2} max={100}>
+            {Object.entries(techMap).map(([key, value]) => (
+              <TechnologyIcon
+                key={key}
+                name={key}
+                title={value.name}
+                src={
+                  key === "aws" && theme.palette.mode === "dark"
+                    ? value.lightIcon?.src
+                    : value.icon.src
+                }
               />
-            </Tooltip>
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="ReactJS"
-              src="https://reactjs.org/favicon.ico"
-            />
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="Vercel"
-              src="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/favicon.ico"
-            />
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="AWS"
-              src="https://aws.amazon.com/favicon.ico"
-            />
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="Azure"
-              src="https://portal.azure.com/Content/favicon.ico"
-            />
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="React Query"
-              src="https://react-query.tanstack.com/_next/static/images/favicon-eed8346421218b24d8fd0fd55c2f9e35.png"
-            />
-            <Avatar
-              sx={{ width: 24, height: 24 }}
-              alt="Python"
-              src="https://www.python.org/favicon.ico"
-            />
+            ))}
           </AvatarGroup>
         </CardContent>
       </Collapse>
