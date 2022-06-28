@@ -1,46 +1,38 @@
-# Next.js with TypeScript example
+# What is `me` ?
 
-touch
-## How to use
+This is my [personal web site](https://me.knnect.com) deployed in Netlify and testing using CircleCI
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+- REST API implementation for Smart 🏠  Operations : [Link](https://github.com/tmkasun/me_api)
 
-<!-- #default-branch-switch -->
+# Deployments
 
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs-with-typescript
-cd nextjs-with-typescript
-```
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/20d82071-18b9-4ed5-a309-f1bd223c6296/deploy-status)](https://app.netlify.com/sites/knnect/deploys) (Primary)
+- [![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=me-weld)](https://me-weld.vercel.app/)
 
-Install it and run:
+# Integration Tests
 
-```sh
-npm install
-npm run dev
-```
+- [![CircleCI](https://circleci.com/gh/tmkasun/me.svg?style=shield)](https://app.circleci.com/pipelines/github/tmkasun/me)
 
-or:
+# TODO
 
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/nextjs-with-typescript)
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/nextjs-with-typescript)
-
-## The idea behind the example
-
-The project uses [Next.js](https://github.com/vercel/next.js), which is a framework for server-rendered React apps.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5. If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
-
-## The link component
-
-Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
-The example folder provides adapters for usage with MUI.
-More information [in the documentation](https://mui.com/material-ui/guides/routing/#next-js).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+- ~~Add google analytics to blog~~ [Done]
+- ~~Add Helmet and SEO~~ [Done]
+- ~~Add bottom gutter [Done]~~
+- blog about new blog/page
+  - Blog search Algolia
+- Fix dark view reset when going to blog from home
+- Fix blog pages dark theme issue
+- ~~Add commenting support~~ (Added giscus)
+  - ~[Facebook comments plugin](https://developers.facebook.com/docs/plugins/comments/#)~
+  - ~[Gatsby guide](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-comments/)~
+- Add command panel
+  - Example [Paco](https://github.com/pacocoursey/paco/tree/master/components/command)
+  - [Libraries](https://github.com/asabaylus/react-command-palette)
+- Write integration test using ~~Testcaffe or~~ Cypress
+- Add contact me using [emailjs](https://www.emailjs.com/docs/user-guide/adding-captcha-verification/)
+- Add home automation dashboard
+  - Ideas from https://madewithreact.com/tag/dashboards/
+  - Illustrations https://iradesign.io/illustrations/backgrounds
+  - IP REST API http://ip-api.com/json
+- Add tag cloud
+  - https://madox2.github.io/react-tagcloud/
