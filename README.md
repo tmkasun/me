@@ -28,6 +28,7 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
 - Add command panel
   - Example [Paco](https://github.com/pacocoursey/paco/tree/master/components/command)
   - [Libraries](https://github.com/asabaylus/react-command-palette)
+  - kbar: https://github.com/timc1/kbar
 - Write integration test using ~~Testcaffe or~~ Cypress
 - Add contact me using [emailjs](https://www.emailjs.com/docs/user-guide/adding-captcha-verification/)
 - Add home automation dashboard
