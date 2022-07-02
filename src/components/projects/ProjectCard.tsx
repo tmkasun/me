@@ -12,109 +12,144 @@ import Typography from "@mui/material/Typography";
 import { blue, red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import dayjs from "dayjs";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Tooltip from "@mui/material/Tooltip";
 import techMap from "./technologiesMap";
 import TechnologyIcon from "./TechnologyIcon";
+import Box from "@mui/material/Box";
 
 export interface Project {
-  name: string;
-  description: string;
-  technologies: Array<string>;
-  githubURL?: string;
-  websiteURL?: string;
-  imageURL?: string;
-  tags?: string[];
-  createdDate: string;
+    name: string;
+    description: string;
+    technologies: Array<string>;
+    githubURL?: string;
+    websiteURL?: string;
+    imageURL?: string;
+    tags?: string[];
+    createdDate: string;
 }
 
 interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
+    expand: boolean;
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
+    transform: expand ? "rotate(0deg)" : "rotate(180deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+        duration: theme.transitions.duration.shortest,
+    }),
 }));
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const { name, description, createdDate } = project;
-  const [expanded, setExpanded] = React.useState(false);
-  const theme = useTheme();
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    const { name, description, createdDate } = project;
+    const [expanded, setExpanded] = React.useState(false);
 
-  return (
-    <Card
-      elevation={9}
-      sx={{ width: 260, height: 345, display: "flex", flexDirection: "column" }}
-    >
-      <CardHeader
-        avatar={
-          <Avatar
-            sx={(theme) => ({
-              bgcolor: theme.palette.mode === "light" ? blue[700] : blue[200],
-            })}
-            aria-label="recipe"
-          >
-            {name.charAt(0).toUpperCase()}
-          </Avatar>
-        }
-        title={name}
-        subheader={dayjs(createdDate).format("MMMM DD, YYYY")}
-      />
-      <CardContent sx={{ flexGrow: 1, overflow: "auto" }}>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <GitHubIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+    const theme = useTheme();
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+    return (
+        <Card
+            elevation={9}
+            sx={{
+                width: 260,
+                display: "flex",
+                flexDirection: "column",
+            }}
         >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            Technologies
-          </Typography>
-          <AvatarGroup spacing={2} max={100}>
-            {Object.entries(techMap).map(([key, value]) => (
-              <TechnologyIcon
-                key={key}
-                name={key}
-                title={value.name}
-                src={
-                  key === "aws" && theme.palette.mode === "dark"
-                    ? value.lightIcon?.src
-                    : value.icon.src
+            <CardHeader
+                avatar={
+                    <Avatar
+                        sx={(theme) => ({
+                            bgcolor:
+                                theme.palette.mode === "light"
+                                    ? blue[700]
+                                    : blue[200],
+                        })}
+                        aria-label="recipe"
+                    >
+                        {name.charAt(0).toUpperCase()}
+                    </Avatar>
                 }
-              />
-            ))}
-          </AvatarGroup>
-        </CardContent>
-      </Collapse>
-    </Card>
-  );
+                title={name}
+                subheader={dayjs(createdDate).format("MMMM DD, YYYY")}
+            />
+            <CardContent
+                sx={{
+                    flexGrow: 1,
+                    height: 245,
+                    overflow: "auto",
+                }}
+            >
+                <Typography variant="body2" color="text.secondary">
+                    {description}
+                </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                    <GitHubIcon />
+                </IconButton>
+                <IconButton aria-label="share">
+                    <ShareIcon />
+                </IconButton>
+                <Box display="flex" flexGrow={1} justifyContent="flex-end">
+                    <Tooltip title="Technologies">
+                        <Box display="flex">
+                            <ExpandMore
+                                expand={expanded}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="Technologies"
+                            >
+                                <ExpandLessIcon />
+                            </ExpandMore>
+                        </Box>
+                    </Tooltip>
+                </Box>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardContent sx={{ pt: 0 }}>
+                    <Typography
+                        gutterBottom
+                        variant="body2"
+                        color="text.secondary"
+                    >
+                        Technologies
+                    </Typography>
+                    <Box
+                        display="flex"
+                        sx={{
+                            flexDirection: "row",
+                            flexWrap: "wrap",
+                            justifyContent: "space-around",
+                            rowGap: "0.3em",
+                            columnGap: "0.4em",
+                        }}
+                    >
+                        {Object.entries(techMap).map(([key, value]) => (
+                            <TechnologyIcon
+                                key={key}
+                                name={key}
+                                title={value.name}
+                                src={
+                                    key === "aws" &&
+                                    theme.palette.mode === "dark"
+                                        ? value.lightIcon?.src
+                                        : value.icon.src
+                                }
+                            />
+                        ))}
+                    </Box>
+                </CardContent>
+            </Collapse>
+        </Card>
+    );
 }
