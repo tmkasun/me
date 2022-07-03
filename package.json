@@ -17,10 +17,14 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "dayjs": "^1.11.3",
+    "gray-matter": "^4.0.3",
     "next": "latest",
     "next-pwa": "^5.5.4",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "reading-time": "^1.5.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1"
   },
   "devDependencies": {
     "@types/node": "latest",

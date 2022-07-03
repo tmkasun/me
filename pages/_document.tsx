@@ -1,12 +1,12 @@
 import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
-import theme from "../src/theme";
+import lightTheme from "../src/themes";
 import createEmotionCache from "../src/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
-    const primaryColor = theme.palette?.primary as any;
+    const primaryColor = lightTheme.palette?.primary as any;
     return (
       <Html lang="en">
         <Head>

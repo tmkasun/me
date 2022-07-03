@@ -16,8 +16,8 @@ import myAvatar from "../public/images/me.svg";
 import openSource from "../public/images/open_source.svg";
 import blog from "../public/images/blog.svg";
 import projects from "../public/images/current_projects.svg";
-import MyTitle from "../src/components/home/MyTitle";
-import Link from "../src/Link";
+import MyTitle from "../src/components/atomic/MyTitle";
+import Link from "../src/components/atomic/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
 const WSO2Text = styled("span")({ color: "#ff8300" });

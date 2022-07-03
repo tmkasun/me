@@ -14,7 +14,7 @@ import NightsStayIcon from "@mui/icons-material/NightsStay";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Head from "next/head";
 import { Box, styled, useTheme } from "@mui/material";
-import Link from "../../Link";
+import Link from "../atomic/Link";
 import { amber, cyan, lightBlue } from "@mui/material/colors";
 import { useThemeContext } from "./ThemeProvider";
 

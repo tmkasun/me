@@ -1,23 +1,37 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Divider, Grid } from "@mui/material";
 import React from "react";
+import MyTitle from "../../src/components/atomic/MyTitle";
+import BlogPreview from "../../src/components/blog/BlogPreview";
+import { getAllPosts } from "../../src/data/localMarkdown";
+import { BlogPost } from "../../src/types/blog";
 
-type ProjectsPageProps = { projects: any[] };
-const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
+type ProjectsPageProps = { allPosts: BlogPost[] };
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ allPosts }) => {
     return (
         <Grid
             container
-            direction="column"
+            spacing={2}
+            direction="row"
             justifyContent="center"
             alignItems="center"
         >
-            <Grid
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                container
-                item
-            >
-                fooo
+            <Grid item md={8} sm={10} xs={12}>
+                <Box mb={4}>
+                    <MyTitle>Kasun Thennakoon's personal Blog</MyTitle>
+                    <Divider />
+                </Box>
+                <Grid
+                    container
+                    item
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                    spacing={6}
+                >
+                    {allPosts.map((post) => (
+                        <BlogPreview key={post.slug} post={post} />
+                    ))}
+                </Grid>
             </Grid>
         </Grid>
     );
@@ -26,9 +40,8 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
 export default ProjectsPage;
 
 export const getStaticProps = async () => {
+    const allPosts = getAllPosts();
     return {
-        props: {
-            projects: [],
-        },
+        props: { allPosts },
     };
 };

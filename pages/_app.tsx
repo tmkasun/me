@@ -1,12 +1,10 @@
-import * as React from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 import Header from "../src/components/layouts/Header";
-import { Box, createTheme, Toolbar, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import Footer from "../src/components/layouts/Footer";
 import ThemeProvider from "../src/components/layouts/ThemeProvider";
 
