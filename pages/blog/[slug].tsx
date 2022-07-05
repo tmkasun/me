@@ -9,20 +9,54 @@ import Link from "../../src/components/atomic/Link";
 import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import dynamic from "next/dynamic";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
+import { ComponentType, useEffect } from "react";
+import React from "react";
 
-interface ExtendedBlogPostType extends BlogPost {
-    htmlContent: string;
-}
-type Props = {
-    post: ExtendedBlogPostType;
-    preview?: boolean;
+const ResponsiveImage = (props: any) => {
+    const [imgSrc, setImgSrc] = React.useState<ComponentType<{}> | null>(null);
+    useEffect(() => {
+        (async () => {
+            const fpp = await dynamic(() => import(props.src));
+            setImgSrc(fpp);
+        })();
+    }, [props.src]);
+    return imgSrc ? (
+        <Image
+            alt={imgSrc}
+            width="200px"
+            height="300px"
+            layout="responsive"
+            {...props}
+        />
+    ) : (
+        "Loadinng"
+    );
 };
 
-const Post = ({ post }: Props) => {
-    const { htmlContent, title, timeToRead } = post;
+const components = {
+    a: Link,
+    img: ResponsiveImage,
+    // It also works with dynamically-imported components, which is especially
+    // useful for conditionally loading components for certain routes.
+    // See the notes in README.md for more details.
+    TestComponent: dynamic(() => import("../../src/components/blog/SandPack")),
+    Head,
+};
+
+type Props = {
+    post: BlogPost;
+    mdxSource: MDXRemoteSerializeResult<Record<string, unknown>>;
+};
+
+const Post = ({ mdxSource, post }: Props) => {
+    const { content, title, timeToRead } = post;
     const router = useRouter();
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />;
@@ -60,13 +94,13 @@ const Post = ({ post }: Props) => {
                 <Grid item md={7} sm={9} xs={11}>
                     <Typography variant="h2" gutterBottom>
                         {title}
-                        <Typography
-                            color="textSecondary"
-                            variant="subtitle2"
-                            gutterBottom
-                        >
-                            {timeToRead}
-                        </Typography>
+                    </Typography>
+                    <Typography
+                        color="textSecondary"
+                        variant="subtitle2"
+                        gutterBottom
+                    >
+                        {timeToRead}
                     </Typography>
                     <Divider />
                 </Grid>
@@ -81,10 +115,12 @@ const Post = ({ post }: Props) => {
                 alignItems="flex-start"
             >
                 <Grid item md={7} sm={9} xs={11}>
-                    <div
+                    {/* <div
                         className={"classes.docRoot"}
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
-                    />
+                    /> */}
+                    {/* <ReactMarkdown children={content} components={renderers} /> */}
+                    <MDXRemote {...mdxSource} components={components} />
                 </Grid>
                 <Grid item md={7} sm={9} xs={11}>
                     <Box mb={3} mt={4}>
@@ -121,14 +157,18 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
     const post = getPostBySlug(params.slug);
-    const htmlContent = await markdownToHtml(post.content || "");
+    const mdxSource = await serialize(post.content, {
+        // Optionally pass remark/rehype plugins
+        mdxOptions: {
+            remarkPlugins: [],
+            rehypePlugins: [],
+        },
+    });
 
     return {
         props: {
-            post: {
-                ...post,
-                htmlContent,
-            },
+            mdxSource,
+            post,
         },
     };
 }

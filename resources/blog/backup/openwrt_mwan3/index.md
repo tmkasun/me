@@ -5,7 +5,7 @@ excerpt: "This article will describe multiple OpenWRT configurations that i have
 draft: false
 ---
 
-![Linksys WRT 1900 AC V2](images/linksys_wrt1900AC_v2.jpg)
+![Linksys WRT 1900 AC V2](/images/linksys_wrt1900AC_v2.jpg)
 
 # Network plan
 
