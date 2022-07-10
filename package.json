@@ -10,11 +10,11 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
-    "@code-hike/mdx": "^0.7.0-next.0",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
+    "@giscus/react": "^2.0.6",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "dayjs": "^1.11.3",

@@ -15,7 +15,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { styled } from "@mui/material";
-
+import Giscus from "@giscus/react";
 
 const StyledImage = styled("span")({
     width: "100%",
@@ -124,7 +124,7 @@ const Post = ({ mdxSource, post }: Props) => {
                 <Grid item md={7} sm={9} xs={11}>
                     <Box mb={3} mt={4}>
                         <Divider />
-                        {/* <Giscus
+                        <Giscus
                             id="my-comments"
                             repo="tmkasun/me"
                             repoId="MDEwOlJlcG9zaXRvcnkxNTMzODY1MQ=="
@@ -138,7 +138,7 @@ const Post = ({ mdxSource, post }: Props) => {
                             theme="light"
                             lang="en"
                             loading="lazy"
-                        /> */}
+                        />
                     </Box>
                 </Grid>
             </Grid>
