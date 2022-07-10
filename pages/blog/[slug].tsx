@@ -25,7 +25,7 @@ const StyledImage = styled("span")({
 });
 
 const components = {
-    a: Link,
+    a: Link as any,
     img: ({ src, height, width, ...rest }: any) => (
         // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
         <StyledImage>
