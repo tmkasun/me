@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { getAllPosts, getPostBySlug } from "../../src/data/localMarkdown";
-import markdownToHtml from "../../src/markdownToHtml";
 import { BlogPost } from "../../src/types/blog";
 import Grid from "@mui/material/Grid";
 import Link from "../../src/components/atomic/Link";
@@ -15,38 +14,28 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Image from "next/image";
-import { ComponentType, useEffect } from "react";
-import React from "react";
+import { styled } from "@mui/material";
 
-const ResponsiveImage = (props: any) => {
-    const [imgSrc, setImgSrc] = React.useState<ComponentType<{}> | null>(null);
-    useEffect(() => {
-        (async () => {
-            const fpp = await dynamic(() => import(props.src));
-            setImgSrc(fpp);
-        })();
-    }, [props.src]);
-    return imgSrc ? (
-        <Image
-            alt={imgSrc}
-            width="200px"
-            height="300px"
-            layout="responsive"
-            {...props}
-        />
-    ) : (
-        "Loadinng"
-    );
-};
+
+const StyledImage = styled("span")({
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+});
 
 const components = {
     a: Link,
-    img: ResponsiveImage,
+    img: ({ src, height, width, ...rest }: any) => (
+        // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
+        <StyledImage>
+            <img width="90%" src={src} {...rest} />
+        </StyledImage>
+    ),
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
-    TestComponent: dynamic(() => import("../../src/components/blog/SandPack")),
+    TestComponent: dynamic(import("../../src/components/blog/SandPack")),
     Head,
 };
 
@@ -114,7 +103,17 @@ const Post = ({ mdxSource, post }: Props) => {
                 justifyContent="center"
                 alignItems="flex-start"
             >
-                <Grid item md={7} sm={9} xs={11}>
+                <Grid
+                    item
+                    md={7}
+                    sm={9}
+                    xs={11}
+                    sx={{
+                        fontFamily: "Roboto",
+                        fontSize: "1.5em",
+                        fontWeight: "100",
+                    }}
+                >
                     {/* <div
                         className={"classes.docRoot"}
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
