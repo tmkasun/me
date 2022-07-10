@@ -13,6 +13,7 @@ import tsIcon from "../../../resources/projects/icons/ts.ico";
 import nextjsIcon from "../../../resources/projects/icons/nextjs.ico";
 import pwaIcon from "../../../resources/projects/icons/pwa.svg";
 import flaskIcon from "../../../resources/projects/icons/flask.png";
+import sql from "../../../resources/projects/icons/sql.png";
 
 import { StaticImageData } from "next/image";
 
@@ -99,5 +100,10 @@ const techMap: {
         icon: flaskIcon,
         description: "Flask is a microframework for Python",
     },
+    sql: {
+        name: "SQL",
+        icon: sql,
+        description: "SQL is a relational database management system",
+    }
 };
 export default techMap;

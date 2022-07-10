@@ -3,23 +3,22 @@ import { styled, useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LanguageIcon from "@mui/icons-material/Language";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { blue, red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import { blue } from "@mui/material/colors";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import dayjs from "dayjs";
-import AvatarGroup from "@mui/material/AvatarGroup";
 import Tooltip from "@mui/material/Tooltip";
 import techMap from "./technologiesMap";
 import TechnologyIcon from "./TechnologyIcon";
 import Box from "@mui/material/Box";
+import Link from "../atomic/Link";
 
 export interface Project {
     name: string;
@@ -48,7 +47,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function ProjectCard({ project }: { project: Project }) {
-    const { name, description, createdDate } = project;
+    const {
+        name,
+        description,
+        createdDate,
+        technologies,
+        githubURL,
+        websiteURL,
+    } = project;
     const [expanded, setExpanded] = React.useState(false);
 
     const theme = useTheme();
@@ -60,7 +66,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <Card
             elevation={9}
             sx={{
-                width: 260,
+                width: 300,
                 display: "flex",
                 flexDirection: "column",
             }}
@@ -74,32 +80,50 @@ export default function ProjectCard({ project }: { project: Project }) {
                                     ? blue[700]
                                     : blue[200],
                         })}
-                        aria-label="recipe"
+                        aria-label="Project title"
                     >
                         {name.charAt(0).toUpperCase()}
                     </Avatar>
                 }
-                title={name}
+                title={
+                    <Typography variant="h6">
+                        {name}
+                    </Typography>
+                }
                 subheader={dayjs(createdDate).format("MMMM DD, YYYY")}
             />
             <CardContent
                 sx={{
                     flexGrow: 1,
-                    height: 245,
+                    height: 150,
                     overflow: "auto",
                 }}
             >
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body1" color="text.secondary">
                     {description}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <GitHubIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
+                {githubURL && (
+                    <Link href={githubURL} target="_blank">
+                        <Tooltip title="Github repository">
+                            <IconButton aria-label="Github Link">
+                                <GitHubIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Link>
+                )}
+
+                {websiteURL && (
+                    <Link href={websiteURL} target="_blank">
+                        <Tooltip title="Website/Demo">
+                            <IconButton aria-label="Website Link">
+                                <LanguageIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Link>
+                )}
+
                 <Box display="flex" flexGrow={1} justifyContent="flex-end">
                     <Tooltip title="Technologies">
                         <Box display="flex">
@@ -134,19 +158,27 @@ export default function ProjectCard({ project }: { project: Project }) {
                             columnGap: "0.4em",
                         }}
                     >
-                        {Object.entries(techMap).map(([key, value]) => (
-                            <TechnologyIcon
-                                key={key}
-                                name={key}
-                                title={value.name}
-                                src={
-                                    key === "aws" &&
-                                    theme.palette.mode === "dark"
-                                        ? value.lightIcon?.src
-                                        : value.icon.src
-                                }
-                            />
-                        ))}
+                        {technologies.map((technologyKey) => {
+                            const technology = techMap[technologyKey];
+                            if (!technology) {
+                                throw new Error(
+                                    `Technology ${technologyKey} not found`
+                                );
+                            }
+                            return (
+                                <TechnologyIcon
+                                    key={technology.name}
+                                    name={technology.name}
+                                    title={technology.name}
+                                    src={
+                                        technology.name === "aws" &&
+                                        theme.palette.mode === "dark"
+                                            ? technology.lightIcon?.src
+                                            : technology.icon.src
+                                    }
+                                />
+                            );
+                        })}
                     </Box>
                 </CardContent>
             </Collapse>

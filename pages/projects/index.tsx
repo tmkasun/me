@@ -10,9 +10,10 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
     return (
         <Grid
             container
-            direction="column"
+            spacing={2}
+            direction="row"
             justifyContent="center"
-            alignItems="center"
+            alignItems="flex-start"
         >
             <Grid
                 direction="row"
@@ -20,6 +21,9 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
                 alignItems="center"
                 container
                 item
+                sx={{
+                    width: "70%",
+                }}
             >
                 {projects.map((project) => (
                     <Box key={project.name} display="flex" m={3}>

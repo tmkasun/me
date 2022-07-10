@@ -13,7 +13,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ allPosts }) => {
             spacing={2}
             direction="row"
             justifyContent="center"
-            alignItems="center"
+            alignItems="flex-start"
         >
             <Grid item md={8} sm={10} xs={12}>
                 <Box mb={4}>
