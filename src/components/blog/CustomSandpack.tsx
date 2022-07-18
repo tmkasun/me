@@ -8,13 +8,13 @@ type CustomSandpackProps = {
 };
 const CustomSandpack = (props: CustomSandpackProps) => {
     const theme = useTheme();
-    const { children } = props;
+    const { children, filename } = props;
     return (
         <Sandpack
             template="react-ts"
             theme={theme.palette.mode}
             files={{
-                "index.tsx": { code: children, active: true },
+               [filename]: { code: children, active: true },
             }}
             options={{
                 showLineNumbers: true,

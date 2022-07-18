@@ -14,10 +14,12 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import { styled } from "@mui/material";
+import { styled, useTheme } from "@mui/material";
 import Giscus from "@giscus/react";
-import CustomSandpack from "../../src/components/blog/CustomSandpack";
-import rehypeMetaAsAttributes from '../../src/data/rehypeCodeMetaExtractor';
+import { remarkCodeHike } from "@code-hike/mdx";
+import { CH } from "@code-hike/mdx/components";
+import "@code-hike/mdx/dist/index.css";
+import theme from "shiki/themes/solarized-dark.json";
 
 const StyledImage = styled("span")({
     width: "100%",
@@ -28,6 +30,7 @@ const StyledImage = styled("span")({
 
 const components: any = {
     a: Link as any,
+    CH,
     img: ({ src, height, width, ...rest }: any) => (
         // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
         <StyledImage>
@@ -37,7 +40,7 @@ const components: any = {
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
-    // code: dynamic(import("../../src/components/blog/CustomSandpack")),
+    Spack: dynamic(import("../../src/components/blog/CustomSandpack")),
     Head,
 };
 
@@ -48,6 +51,7 @@ type Props = {
 
 const Post = ({ mdxSource, post }: Props) => {
     const { content, title, timeToRead } = post;
+    const theme = useTheme();
     const router = useRouter();
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />;
@@ -137,7 +141,7 @@ const Post = ({ mdxSource, post }: Props) => {
                             reactionsEnabled="1"
                             emitMetadata="0"
                             inputPosition="top"
-                            theme="light"
+                            theme={theme.palette.mode}
                             lang="en"
                             loading="lazy"
                         />
@@ -160,9 +164,16 @@ export async function getStaticProps({ params }: Params) {
     const post = getPostBySlug(params.slug);
     const mdxSource = await serialize(post.content, {
         // Optionally pass remark/rehype plugins
+        // https://codehike.org/docs/configuration
         mdxOptions: {
-            remarkPlugins: [],
-            rehypePlugins: [rehypeMetaAsAttributes],
+            remarkPlugins: [
+                [
+                    remarkCodeHike,
+                    { showCopyButton: true, autoImport: false, theme },
+                ],
+            ],
+            rehypePlugins: [],
+            useDynamicImport: true,
         },
     });
 

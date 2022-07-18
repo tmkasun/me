@@ -10,6 +10,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
+    "@code-hike/mdx": "^0.6.2",
     "@codesandbox/sandpack-react": "^1.2.4",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
@@ -27,7 +28,8 @@
     "react-dom": "latest",
     "reading-time": "^1.5.0",
     "remark": "^14.0.2",
-    "remark-html": "^15.0.1"
+    "remark-html": "^15.0.1",
+    "shiki": "^0.10.1"
   },
   "devDependencies": {
     "@types/node": "latest",
