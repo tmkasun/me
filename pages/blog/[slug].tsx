@@ -17,6 +17,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { styled } from "@mui/material";
 import Giscus from "@giscus/react";
 import CustomSandpack from "../../src/components/blog/CustomSandpack";
+import rehypeMetaAsAttributes from '../../src/data/rehypeCodeMetaExtractor';
 
 const StyledImage = styled("span")({
     width: "100%",
@@ -36,7 +37,7 @@ const components: any = {
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
-    code: dynamic(import("../../src/components/blog/CustomSandpack")),
+    // code: dynamic(import("../../src/components/blog/CustomSandpack")),
     Head,
 };
 
@@ -161,7 +162,7 @@ export async function getStaticProps({ params }: Params) {
         // Optionally pass remark/rehype plugins
         mdxOptions: {
             remarkPlugins: [],
-            rehypePlugins: [],
+            rehypePlugins: [rehypeMetaAsAttributes],
         },
     });
 

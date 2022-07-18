@@ -6,8 +6,9 @@ type CustomSandpackProps = {
     filename: string;
     children: string;
 };
-const CustomSandpack = ({ children }: CustomSandpackProps) => {
+const CustomSandpack = (props: CustomSandpackProps) => {
     const theme = useTheme();
+    const { children } = props;
     return (
         <Sandpack
             template="react-ts"

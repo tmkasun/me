@@ -20,5 +20,21 @@
             "raspberry"
         ],
         "createdDate": "2018-01-01"
+    },
+    {
+        "name": "PKCE Demo",
+        "description": "A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset",
+        "technologies": [
+            "python",
+            "sql"
+        ],
+        "githubURL": "",
+        "websiteURL": "pkce.netlify.app",
+        "imageURL": "",
+        "tags": [
+            "sample",
+            "dataset"
+        ],
+        "createdDate": "2018-01-01"
     }
 ]
