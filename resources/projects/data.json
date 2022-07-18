@@ -20,21 +20,5 @@
             "raspberry"
         ],
         "createdDate": "2018-01-01"
-    },
-    {
-        "name": "sample",
-        "description": "A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset",
-        "technologies": [
-            "python",
-            "sql"
-        ],
-        "githubURL": "",
-        "websiteURL": "",
-        "imageURL": "",
-        "tags": [
-            "sample",
-            "dataset"
-        ],
-        "createdDate": "2018-01-01"
     }
 ]
