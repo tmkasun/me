@@ -16,6 +16,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { styled } from "@mui/material";
 import Giscus from "@giscus/react";
+import CustomSandpack from "../../src/components/blog/CustomSandpack";
 
 const StyledImage = styled("span")({
     width: "100%",
@@ -35,7 +36,7 @@ const components = {
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
-    TestComponent: dynamic(import("../../src/components/blog/SandPack")),
+    code: dynamic(import("../../src/components/blog/CustomSandpack")),
     Head,
 };
 
