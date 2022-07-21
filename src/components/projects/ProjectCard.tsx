@@ -85,11 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                         {name.charAt(0).toUpperCase()}
                     </Avatar>
                 }
-                title={
-                    <Typography variant="h6">
-                        {name}
-                    </Typography>
-                }
+                title={<Typography variant="h6">{name}</Typography>}
                 subheader={dayjs(createdDate).format("MMMM DD, YYYY")}
             />
             <CardContent
@@ -162,7 +158,9 @@ export default function ProjectCard({ project }: { project: Project }) {
                             const technology = techMap[technologyKey];
                             if (!technology) {
                                 throw new Error(
-                                    `Technology ${technologyKey} not found`
+                                    `Technology ${technologyKey} not found!\nit must be one of the following: ${Object.keys(
+                                        techMap
+                                    ).join("\n")}`
                                 );
                             }
                             return (

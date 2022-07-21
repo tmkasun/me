@@ -23,17 +23,35 @@
     },
     {
         "name": "PKCE Demo",
-        "description": "A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample datasetA sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset.A sample dataset",
+        "description": "Web application for demonstrating the PKCE flow.",
         "technologies": [
             "python",
             "sql"
         ],
         "githubURL": "",
-        "websiteURL": "pkce.netlify.app",
+        "websiteURL": "https://pkce.netlify.app",
         "imageURL": "",
         "tags": [
             "sample",
             "dataset"
+        ],
+        "createdDate": "2018-01-01"
+    },
+    {
+        "name": "Old Personal Website",
+        "description": "My old personal website. Putting it here for reference.",
+        "technologies": [
+            "pwa",
+            "ts",
+            "mui",
+            "react"
+        ],
+        "githubURL": "",
+        "websiteURL": "https://oldme.knnect.com/",
+        "imageURL": "",
+        "tags": [
+            "javascript",
+            "vercel"
         ],
         "createdDate": "2018-01-01"
     }

@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
-import projectsData from "../../resources/projects/data.json";
+import projectsData from "../../resources/projects/projectsData.json";
 import ProjectCard, {
     Project,
 } from "../../src/components/projects/ProjectCard";
