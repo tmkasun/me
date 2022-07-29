@@ -13,19 +13,25 @@ const lightTheme: ThemeOptions = {
         error: {
             main: red.A400,
         },
+        background: {
+            default: "#f1f1f9e8",
+        },
     },
 };
 
 const darkTheme: ThemeOptions = {
     palette: {
         primary: {
-            main: '#00ffbe',
+            main: "#00ffbe",
         },
         secondary: {
             main: "#19857b",
         },
         error: {
             main: red.A400,
+        },
+        background: {
+            default: "#252631",
         },
     },
 };

@@ -56,8 +56,8 @@ export default function Header() {
                         backdropFilter: "blur(4px)",
                         backgroundColor:
                             theme.palette.mode === "light"
-                                ? "#ffffff54"
-                                : "#121212a6",
+                                ? "#f1f1f94a"
+                                : `${theme.palette.background.default}cf`,
                     })}
                     color="inherit"
                 >
@@ -79,16 +79,15 @@ export default function Header() {
 
                             <Grid item>
                                 <Link underline="none" href="/blog">
-                                    <Button aria-label="Blog" 
-                                    sx={{
-                                      ...linkStyle,
-                                      backgroundColor:
-                                          router.asPath.includes(
-                                              "/blog"
-                                          )
-                                              ? "rgb(160 212 255 / 27%)"
-                                              : undefined,
-                                  }}
+                                    <Button
+                                        aria-label="Blog"
+                                        sx={{
+                                            ...linkStyle,
+                                            backgroundColor:
+                                                router.asPath.includes("/blog")
+                                                    ? "rgb(160 212 255 / 27%)"
+                                                    : undefined,
+                                        }}
                                     >
                                         Blog
                                     </Button>
