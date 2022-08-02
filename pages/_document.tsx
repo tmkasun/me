@@ -3,6 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import lightTheme from "../src/themes";
 import createEmotionCache from "../src/createEmotionCache";
+declare var dataLayer: any //This is for google analytics
 
 export default class MyDocument extends Document {
   render() {
