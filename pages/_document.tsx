@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import lightTheme from "../src/themes";
 import createEmotionCache from "../src/createEmotionCache";
-declare var dataLayer: any //This is for google analytics
+import Script from 'next/script'
 
 export default class MyDocument extends Document {
   render() {
@@ -41,14 +41,16 @@ export default class MyDocument extends Document {
           {(this.props as any).emotionStyleTags}
 
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"></script>
-          <script>
+          <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"/>
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)}
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'UA-34584055-3');
-          </script>
+            `}
+          </Script>
 
         </Head>
         <body>
