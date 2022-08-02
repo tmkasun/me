@@ -34,10 +34,21 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-        <link rel="apple-touch-icon" href="/images/favicon.png"></link>
+          <link rel="apple-touch-icon" href="/images/favicon.png"></link>
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-34584055-3');
+          </script>
+
         </Head>
         <body>
           <Main />
