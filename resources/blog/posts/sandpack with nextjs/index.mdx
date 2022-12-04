@@ -1,12 +1,101 @@
 ---
 title: "Sandpack with NextJS"
 date: "2022-07-18"
-excerpt: "Show nice interactive code samples in blog posts"
+excerpt: "Embed vscode into NextJS blogs"
 draft: false
 ---
 
-## Sandpack in MDX content
+## About
 
-This is a simple example of how to use the Sandpack in MDX content.
+In this post, I will explain how to use the Sandpack editor with MDX files in NextJS app.
 
-<Spack/>
+## Prepare
+
+I'm using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to render `MDX` files and [@codesandbox/sandpack-react](https://github.com/codesandbox/sandpack) package to add `Sandpack` editor.
+To install them run
+```
+npm i next-mdx-remote @codesandbox/sandpack-react
+```
+
+## Configurations
+
+Custom MDX component to render `Sandpack` editor
+Write a custom Sandpack component with the pre-configured theme, Sandpack options etc,
+Following is the `CustomSandpack` component I built to use in MDX content
+
+```jsx
+import { Sandpack } from "@codesandbox/sandpack-react";
+import { useTheme } from "@mui/material";
+
+type CustomSandpackProps = {
+  template: any;
+  filename: string;
+  children: string;
+};
+const CustomSandpack = (props: CustomSandpackProps) => {
+  const theme = useTheme();
+  const { children, filename } = props;
+  return (
+    <Sandpack
+      template="react-ts"
+      theme={theme.palette.mode}
+      files={{
+        [filename]: { code: children, active: true },
+      }}
+      options={{
+        showLineNumbers: true,
+        showInlineErrors: true,
+        showTabs: false,
+        closableTabs: false,
+      }}
+    />
+  );
+};
+
+export default CustomSandpack;
+```
+
+Inject the `CustomSandpack` component to the MDX context
+Next, import the `CustomSandpack` component to the `[slug].tsx` where the NextJS dynamic routing happens and pass the `CustomSandpack` component to the `MDXRemote` via the `components` prop.
+
+```jsx
+
+const components: any = {
+    // It also works with dynamically-imported components, which is especially
+    // useful for conditionally loading components for certain routes.
+    // See the notes in README.md for more details.
+    Spack: dynamic(import("../../src/components/blog/CustomSandpack")),
+};
+.
+.
+.
+                    <MDXRemote {...mdxSource} components={components} />
+```
+
+Use the `<Sandpack>` element in MDX
+
+Finally, You can use the `Sandpack` custom component in MDX content as below
+
+```mdx
+
+<Spack filename="/App.js">
+    {
+    `export default function App() {
+        return <h1>Hello Sandpack from Knnect</h1>
+        }`
+    }
+</Spack>
+
+```
+
+## Result
+
+> Try to edit the code below and see the result
+
+<Spack filename="/App.js">
+  {
+`export default function App() {
+  return <h1>Hello Sandpack from Knnect</h1>
+}
+`}
+</Spack>

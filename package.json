@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@code-hike/mdx": "^0.6.2",
-    "@codesandbox/sandpack-react": "^1.2.4",
+    "@codesandbox/sandpack-react": "^1.17.1",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",
