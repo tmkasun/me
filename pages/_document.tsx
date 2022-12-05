@@ -3,7 +3,6 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import lightTheme from "../src/themes";
 import createEmotionCache from "../src/createEmotionCache";
-import Script from 'next/script'
 
 export default class MyDocument extends Document {
   render() {
@@ -39,19 +38,6 @@ export default class MyDocument extends Document {
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
-
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"/>
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-34584055-3');
-            `}
-          </Script>
-
         </Head>
         <body>
           <Main />

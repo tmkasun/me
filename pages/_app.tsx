@@ -5,6 +5,8 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../src/createEmotionCache";
 import Header from "../src/components/layouts/Header";
 import { Box } from "@mui/material";
+import Script from 'next/script'
+
 import Footer from "../src/components/layouts/Footer";
 import ThemeProvider from "../src/components/layouts/ThemeProvider";
 
@@ -24,6 +26,20 @@ export default function MyRoot(props: MyRootProps) {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=6"
         />
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-34584055-3');
+            `}
+        </Script>
       </Head>
       <ThemeProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
