@@ -15,9 +15,6 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
 
 # TODO
 
-- ~~Add google analytics to blog~~ [Done]
-- ~~Add Helmet and SEO~~ [Done]
-- ~~Add bottom gutter [Done]~~
 - blog about new blog/page
   - Blog search Algolia
 - Fix dark view reset when going to blog from home
