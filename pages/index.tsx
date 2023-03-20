@@ -58,8 +58,9 @@ const LandingPage: React.FC = () => {
       <Grid item md={3} sm={1} xs={false} />
       <Grid item md={6} sm={10} xs={12}>
         <MyTitle title="Kasun Thennakoon">
-          Technical Lead at <WSO2Text>WSO2</WSO2Text> working on product{" "}
-          <Tooltip
+          Front-end Engineer at <WSO2Text>Amazon Web Services</WSO2Text>
+          {/* <br/>Ex-<WSO2Text>WSO2</WSO2Text> */}
+          {/* <Tooltip
             placement="top-end"
             TransitionComponent={Zoom}
             title="API Manager"
@@ -72,7 +73,7 @@ const LandingPage: React.FC = () => {
             >
               API-M
             </Box>
-          </Tooltip>
+          </Tooltip> */}
         </MyTitle>
         <Divider />
         <ItemSection icon={myAvatar.src} title="Me">
