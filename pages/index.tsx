@@ -12,6 +12,7 @@ import {
 import { blue } from "@mui/material/colors";
 
 import logo from "../public/images/tmkasun.jpeg";
+import amazon from "../public/images/amazon.png";
 import myAvatar from "../public/images/me.svg";
 import openSource from "../public/images/open_source.svg";
 import blog from "../public/images/blog.svg";
@@ -21,6 +22,12 @@ import Link from "../src/components/atomic/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
 const WSO2Text = styled("span")({ color: "#ff8300" });
+const AmazonText = styled("span")({ color: "#ff9900" });
+const StyledAWS = styled("img")`
+position: absolute;
+bottom: -7px;
+left: 0px;
+width: 33px;`
 
 const LandingPage: React.FC = () => {
   const isXS = useMediaQuery("(min-width:600px)"); // when size become xs https://material-ui.com/customization/breakpoints/
@@ -58,7 +65,17 @@ const LandingPage: React.FC = () => {
       <Grid item md={3} sm={1} xs={false} />
       <Grid item md={6} sm={10} xs={12}>
         <MyTitle title="Kasun Thennakoon">
-          Front-end Engineer at <WSO2Text>Amazon Web Services</WSO2Text>
+          Front-end Engineer at
+          <Tooltip
+            placement="bottom-end"
+            TransitionComponent={Zoom}
+            title="Amazon Web Services"
+          >
+            <Box ml={0.7} display='inline' position='relative'>
+              <AmazonText>AWS</AmazonText>
+              <StyledAWS src={amazon.src} />
+            </Box>
+          </Tooltip>
           {/* <br/>Ex-<WSO2Text>WSO2</WSO2Text> */}
           {/* <Tooltip
             placement="top-end"
