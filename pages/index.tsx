@@ -94,34 +94,23 @@ const LandingPage: React.FC = () => {
         </MyTitle>
         <Divider />
         <ItemSection icon={myAvatar.src} title="Me">
-          My name is{" "}
-          <Link target="_blank" href="https://www.linkedin.com/in/tmkasun">
-            Kasun Thennakoon
-          </Link>
-          , I am both a programmer and a web developer living in a beautiful
-          island nation called Sri Lanka.
-          {/* https://www.lonelyplanet.com/sri-lanka */}
-          I love listening to music, watch documentries and do swimming,
-          cycling, and many other silly things.
-          <br />
+          I'm <Link target="_blank" href="https://www.linkedin.com/in/tmkasun">Kasun Thennakoon</Link>,
+          a passionate programmer and web developer residing in the vibrant city of Toronto, Canada.
+          Originally from the stunning island nation of <Link target="_blank" href="https://www.lonelyplanet.com/sri-lanka">Sri Lanka</Link>,
+          I bring a unique perspective to my work. In addition to my technical pursuits,
+          I find joy in various hobbies, including indulging in music, immersing myself in documentaries,
+          and partaking in activities like swimming, cycling, and many other silly things.
           Here is my{" "}
           <Link target="_blank" href="https://tmkasun.github.io/">
             Timeline
           </Link>
         </ItemSection>
 
-        <ItemSection icon={projects.src} title="Current projects">
-          I have a strong interest in web technologies and currently I am
-          orchestrating the Web Portal developments in WSO2 API Manager,
-          Focusing on sleek & modern API Management experience for the users. We
-          recently{" "}
-          <Link
-            target="_blank"
-            href="https://medium.com/@tmkasun/wso2-api-manager-new-look-27a186bc83d5"
-          >
-            revamped
-          </Link>{" "}
-          the Web UI of the product adopting the modern JS eco-system.
+        <ItemSection icon={projects.src} title="Experience">
+          I have a strong interest in web technologies, and currently, I am focused on learning the ins and outs of the
+          <Link target="_blank" href="https://aws.amazon.com/sns/"> AWS SNS console</Link>.
+          In my previous role, I had the opportunity to lead the development of web portals within the <Link target="_blank" href="https://wso2.com/api-manager/"> WSO2 API Manager</Link> product.
+          My main objective was to create a sleek and modern API management experience for users.
         </ItemSection>
         <ItemSection icon={openSource.src} title="Open-Source">
           All of my work is{" "}
@@ -140,20 +129,10 @@ const LandingPage: React.FC = () => {
           temporarily taken them offline until I have the time to debug them.
         </ItemSection>
         <ItemSection icon={blog.src} title="Blog">
-          I mostly like web technology stuffs, such as Web: development,
-          performance, security and APIs, but I do not restrict myself to a
-          single set of tools or a single operating system. I am always curious
-          to learn more about the hidden details deep inside the technologies.
-          Most of my{" "}
-          <Link target="_blank" href="http://blog.knnect.com/">
-            writings
-          </Link>{" "}
-          and{" "}
-          <Link target="_blank" href="https://gist.github.com/tmkasun">
-            notes
-          </Link>{" "}
-          are for my future references but I hope those will help others make
-          use of them as well
+          My primary area of interest lies in web technologies, encompassing web development, performance, security, and APIs.
+          However, I do not limit myself to a particular set of tools, as I always strive to expand my knowledge base.
+          I have a strong desire to dig deeper into the inner workings of these technologies and often take <Link target="_blank" href="http://me.knnect.com/blog">detailed notes</Link> for my own future reference.
+          I also hope that <Link target="_blank" href="https://gist.github.com/tmkasun">these notes</Link> can be helpful to others who want to learn more about these topics.
           <br />
         </ItemSection>
       </Grid>
