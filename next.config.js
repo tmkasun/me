@@ -12,7 +12,7 @@ module.exports = withPWA({
   async rewrites() {
     return [
       {
-        source: '/resume',
+        source: '/(resume|cv)',
         destination: '/cv/Kasun_Thennakoon.pdf',
       },
     ]
