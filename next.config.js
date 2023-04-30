@@ -9,4 +9,12 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/resume',
+        destination: '/cv/Kasun_Thennakoon.pdf',
+      },
+    ]
+  },
 })
