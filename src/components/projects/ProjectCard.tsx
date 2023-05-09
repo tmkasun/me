@@ -171,8 +171,8 @@ export default function ProjectCard({ project }: { project: Project }) {
                                     src={
                                         technology.name === "aws" &&
                                         theme.palette.mode === "dark"
-                                            ? technology.lightIcon?.src
-                                            : technology.icon.src
+                                            ? technology.lightIcon
+                                            : technology.icon
                                     }
                                 />
                             );

@@ -1,28 +1,28 @@
-import muiIcon from "../../../resources/projects/icons/mui.ico";
-import reactIcon from "../../../resources/projects/icons/react.ico";
-import vercelIcon from "../../../resources/projects/icons/vercel.ico";
-import awsIcon from "../../../resources/projects/icons/aws.webp";
-import aws2Icon from "../../../resources/projects/icons/aws2.ico";
-import azureIcon from "../../../resources/projects/icons/azure.ico";
-import reactqIcon from "../../../resources/projects/icons/reactq.png";
-import pythonIcon from "../../../resources/projects/icons/python.ico";
-import rtlIcon from "../../../resources/projects/icons/rtl.png";
-import cypressIcon from "../../../resources/projects/icons/cypress.png";
-import cppIcon from "../../../resources/projects/icons/cpp.png";
-import tsIcon from "../../../resources/projects/icons/ts.ico";
-import nextjsIcon from "../../../resources/projects/icons/nextjs.ico";
-import pwaIcon from "../../../resources/projects/icons/pwa.svg";
-import flaskIcon from "../../../resources/projects/icons/flask.png";
-import sql from "../../../resources/projects/icons/sql.png";
+const muiIcon = "/images/projects/icons/mui.ico";
+const reactIcon = "/images/projects/icons/react.ico";
+const vercelIcon = "/images/projects/icons/vercel.ico";
+const aws2Icon = "/images/projects/icons/aws2.ico";
+const azureIcon = "/images/projects/icons/azure.ico";
+const reactqIcon = "/images/projects/icons/reactq.png";
+const pythonIcon = "/images/projects/icons/python.ico";
+const rtlIcon = "/images/projects/icons/rtl.png";
+const cypressIcon = "/images/projects/icons/cypress.png";
+const cppIcon = "/images/projects/icons/cpp.png";
+const tsIcon = "/images/projects/icons/ts.ico";
+const nextjsIcon = "/images/projects/icons/nextjs.ico";
+const pwaIcon = "/images/projects/icons/pwa.svg";
+const flaskIcon = "/images/projects/icons/flask.png";
+const sql = "/images/projects/icons/sql.png";
+const awsIcon = "/images/projects/icons/aws.webp";
 
-import { StaticImageData } from "next/image";
+import  { StaticImageData } from "next/image";
 
 const techMap: {
     [key: string]: {
         name: string;
-        icon: StaticImageData;
+        icon: string;
         description: string;
-        lightIcon?: StaticImageData;
+        lightIcon?: string;
     };
 } = {
     mui: {

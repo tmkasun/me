@@ -1,0 +1,134 @@
+---
+title: "React fetch in a loop"
+date: "2023-05-6"
+excerpt: "Fetch data in a loop and render with data"
+draft: false
+---
+
+## Use Case
+
+Let's assume that you need additional information for a list of items in an array. For example, you may have initially loaded a set of users from your API and now want to fetch their metadata through the Gravatar API.
+
+In this case, you will need to loop through the list of users and make individual API calls to the Gravatar API to retrieve their metadata. In this article, we will discuss how to efficiently retrieve this secondary data while keeping the page interactive for the users.
+
+## The worst case
+
+A for loop with an await statement is the least efficient method for fetching data by iterating through a list of items.
+In fact there is an [eslint rule](https://eslint.org/docs/latest/rules/no-await-in-loop) to mitigate this scenario.
+But why it's bad ?
+
+Let's take the following example.
+
+```jsx focus=9:18 mark=11[26:37]
+export default function Worst() {
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const allUsers = [];
+      for (const id of userIDs) {
+        const response = await fetch(
+          `${apiEndpoint}/${id}?mocky-delay=${rndInt()}ms`
+        );
+        const data = response.json();
+        allUsers.push(data);
+      }
+      setUsers(allUsers);
+      setLoading(false);
+    })();
+  }, []);
+
+  //...
+}
+```
+
+The problem lies mainly in the `await fetch` expression, Javascript pause the execution at this line and wait for the promise fulfilment and rejection.
+This creates the so called "waterfall" effect. In other words this expression causes API calls to wait for previous call resolve/reject before making the next call.
+This sequencing effect can be seen in the network panel if you open the browser Developer Console.
+
+![Network Waterfall](/images/posts/fetch_in_react/waterfall.png)
+
+As shown above, The execution will wait at each API call. We will be setting the completed result after iterating through the entier array.
+Since `setUsers` happens after this, Users will preseve an combined latancy of individual API requests.
+
+## Commonly used pattern
+
+To mitigate this issue, We could iterate through the array and invoke the API. Tricky part here is we are not `await`ing here.
+and we collect all the promise objects returned from the fetch API into an array. and then use [`Promise.all` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) API to wait till all of the promises to settle.
+
+```jsx focus=6:13 mark=9[5:15]
+export default function Normal() {
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const promisedUsers = userIDs.map((id) =>
+      fetch(apiEndpoint).then((response) => response.json())
+    );
+    Promise.all(promisedUsers).then((results) => {
+      setLoading(false);
+      timing.current.end = Date.now();
+      setUsers(results);
+    });
+  }, []);
+
+  // . . .
+}
+```
+
+Now API calls ara sent in paralle, and there is no inter-dependency for making the call.
+
+![Network Waterfall](/images/posts/fetch_in_react/slightly_improved.png)
+
+But there is a catch here. The `Promise.all` API will not run the call back until
+
+> all of the input's promises fulfill
+> [~Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+
+So, Even though this aproach has improved the latancy a lot, Still the time to render the data depends on the slowest API call in the pool.
+User will preseve a latancy of the slowest API call.
+
+We could further improve the latancy, Let's see how.
+
+## Render with data
+
+In this approach, we render(update the state) then and there when the data arrive, So users will see the data as soon as they are arrived
+The trick here is, We [chain a suscuss callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining) for each fetch API response promise,
+which will eventually update the state when the callback function is executed.
+
+```jsx focus=6:17 mark=9[9:25]
+export default function Best() {
+  const [users, setUsers] =
+    (useState < null) | ([{ first_name: string }] > null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    userIDs.map((id) =>
+      fetch(apiEndpoint)
+        .then((response) => response.json())
+        .then((data) => {
+          setLoading(false);
+          if (!timing.current.end) {
+            timing.current.end = Date.now();
+          }
+          setUsers((prevUsers) => (prevUsers ? [...prevUsers, data] : [data]));
+        })
+    );
+  }, []);
+
+  // . . .
+}
+```
+
+With this mechanisum, Each API call will inidividually update the state with their data. Other change is using the [React state updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) instead of directly passing the value.
+
+
+![Network Waterfall](/images/posts/fetch_in_react/improved.png)
+
+Want to see the code and a demo?
+
+## Source and demo
+
+# [Source in CodeSandbox](https://codesandbox.io/s/react-parallel-data-handling-v72j3j)
+# [Demo App](https://csb-v72j3j.vercel.app/)

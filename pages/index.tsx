@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
 
-import logo from "../public/images/tmkasun.jpeg";
 import amazon from "../public/images/amazon.png";
 import myAvatar from "../public/images/me.svg";
 import openSource from "../public/images/open_source.svg";
@@ -51,7 +50,7 @@ const LandingPage: React.FC = () => {
       >
         <Avatar
           alt="Kasun Thennakoon"
-          src={logo.src}
+          src="/images/tmkasun.jpeg"
           sx={(theme) => ({
             width: theme.spacing(15),
             height: theme.spacing(15),
