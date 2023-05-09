@@ -84,7 +84,8 @@ Now API calls ara sent in paralle, and there is no inter-dependency for making t
 But there is a catch here. The `Promise.all` API will not run the call back until
 
 > all of the input's promises fulfill
-> [~Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+
+[~Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
 So, Even though this aproach has improved the latancy a lot, Still the time to render the data depends on the slowest API call in the pool.
 User will preseve a latancy of the slowest API call.
