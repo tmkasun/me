@@ -15,6 +15,10 @@ module.exports = withPWA({
         source: '/(resume|cv)',
         destination: '/cv/Kasun_Thennakoon.pdf',
       },
+      {
+        source: '/cvd',
+        destination: '/cv/Kasun_Thennakoon.docx'
+      }
     ]
   },
 })
