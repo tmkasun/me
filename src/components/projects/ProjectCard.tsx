@@ -23,7 +23,7 @@ import Link from "../atomic/Link";
 export interface Project {
     name: string;
     description: string;
-    technologies: Array<string>;
+    technologies: Array<keyof typeof techMap>;
     githubURL?: string;
     websiteURL?: string;
     imageURL?: string;
@@ -92,7 +92,22 @@ export default function ProjectCard({ project }: { project: Project }) {
                 sx={{
                     flexGrow: 1,
                     height: 150,
-                    overflow: "auto",
+                    overflow: "hidden",
+                    '&:hover': {
+                        overflowY: 'auto'
+                    },
+                    '&::-webkit-scrollbar': {
+                        width: '0.35em',
+                        height: '0em'
+                    },
+                    '&::-webkit-scrollbar-track': {
+                        backgroundColor: '#fff'
+
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                        backgroundColor: '#8D91A3',
+                        borderRadius: '5px'
+                    }
                 }}
             >
                 <Typography variant="body1" color="text.secondary">
@@ -112,7 +127,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
                 {websiteURL && (
                     <Link href={websiteURL} target="_blank">
-                        <Tooltip title="Website/Demo">
+                        <Tooltip title="Demo">
                             <IconButton aria-label="Website Link">
                                 <LanguageIcon />
                             </IconButton>
@@ -170,7 +185,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                                     title={technology.name}
                                     src={
                                         technology.name === "aws" &&
-                                        theme.palette.mode === "dark"
+                                            theme.palette.mode === "dark"
                                             ? technology.lightIcon
                                             : technology.icon
                                     }

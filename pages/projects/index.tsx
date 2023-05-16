@@ -18,7 +18,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
             <Grid
                 direction="row"
                 justifyContent="center"
-                alignItems="center"
+                alignItems="baseline"
                 container
                 item
                 sx={{

@@ -72,7 +72,7 @@ export default function Header() {
                             <Grid item>
                                 <Link underline="none" href="/">
                                     <Button aria-label="Home" sx={linkStyle}>
-                                        Home
+                                        About Me
                                     </Button>
                                 </Link>
                             </Grid>
