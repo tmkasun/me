@@ -9,7 +9,7 @@ type ItemSectionProps = {
 const ItemSection: React.FC<ItemSectionProps> = (props) => {
   const { marginTop = 10, icon, title, children } = props;
 
-  const isXS = useMediaQuery("(min-width:600px)"); // when size become xs https://material-ui.com/customization/breakpoints/
+  const isXS = !useMediaQuery("(min-width:600px)"); // when size become xs https://material-ui.com/customization/breakpoints/
   return (
     <Box
       sx={{
@@ -23,7 +23,7 @@ const ItemSection: React.FC<ItemSectionProps> = (props) => {
         alignItems="center"
         spacing={1}
       >
-        <Grid item md={2} sm={2} xs={3}>
+        {!isXS && <Grid item md={2} sm={2} xs={3}>
           <Box
             display="flex"
             alignItems="center"
@@ -31,15 +31,15 @@ const ItemSection: React.FC<ItemSectionProps> = (props) => {
           >
             <Avatar
               sx={{
-                width: !isXS ? "70px" : "100px",
-                height: !isXS ? "70px" : "100px",
+                width: "100px",
+                height: "100px",
               }}
               alt="Kasun Thennakoon"
               src={icon}
             />
           </Box>
-        </Grid>
-        {isXS && <Grid item md={false} sm={1} xs={false} />}
+        </Grid>}
+        {!isXS && <Grid item md={false} sm={1} xs={false} />}
         <Grid item md={8} sm={9} xs={9}>
           <Grid
             container
