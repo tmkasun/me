@@ -56,7 +56,7 @@ export default function Header() {
                         backdropFilter: "blur(4px)",
                         backgroundColor:
                             theme.palette.mode === "light"
-                                ? "#fff4a"
+                                ? `${theme.palette.background.default}4a`
                                 : `${theme.palette.background.default}cf`,
                     })}
                     color="inherit"
