@@ -17,15 +17,16 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="description" content="Kasun's Personal Web" />
           <meta name="keywords" content="personal,web" />
+          <meta name="mobile-web-app-capable" content="yes" />
           <link rel="manifest" href="/manifest.json" />
           <link
-            href="/images/icons/favicon-16x16.png"
+            href="/images/icons/icon-16x16.png"
             rel="icon"
             type="image/png"
             sizes="16x16"
           />
           <link
-            href="/images/icons/favicon-32x32.png"
+            href="/images/icons/icon-32x32.png"
             rel="icon"
             type="image/png"
             sizes="32x32"

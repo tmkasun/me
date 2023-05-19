@@ -21,7 +21,7 @@ import Link from "../src/components/atomic/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
 const WSO2Text = styled("span")({ color: "#ff8300" });
-const AmazonText = styled("span")({ color: "#ff9900" });
+const AmazonText = styled("span")({ color: "#aa6600" }); // Original color #ff9900
 const StyledAWS = styled("img")`
   position: absolute;
   bottom: -7px;
@@ -68,7 +68,7 @@ const LandingPage: React.FC = () => {
           >
             <Box ml={0.7} display="inline" position="relative">
               <AmazonText>AWS</AmazonText>
-              <StyledAWS src={amazon.src} />
+              <StyledAWS alt='Amazon Arrow' src={amazon.src} />
             </Box>
           </Tooltip>
           {/* <br/>Ex-<WSO2Text>WSO2</WSO2Text> */}
