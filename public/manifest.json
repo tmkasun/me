@@ -1,0 +1,9 @@
+{
+    "name": "Kasun's Personal Web",
+    "short_name": "Knnect",
+    "theme_color": "#144f8e",
+    "background_color": "#4490ce",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
+  }
