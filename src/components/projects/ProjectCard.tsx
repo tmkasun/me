@@ -64,11 +64,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 
     return (
         <Card
-            elevation={9}
+            elevation={2}
             sx={{
                 width: 300,
                 display: "flex",
                 flexDirection: "column",
+                borderRadius: '16px'
             }}
         >
             <CardHeader
