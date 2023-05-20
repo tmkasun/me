@@ -9,7 +9,6 @@ import {
   useMediaQuery,
   Zoom,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
 
 import amazon from "../public/images/amazon.png";
 import myAvatar from "../public/images/me.svg";
@@ -21,7 +20,8 @@ import Link from "../src/components/atomic/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
 const WSO2Text = styled("span")({ color: "#ff8300" });
-const AmazonText = styled("span")({ color: "#aa6600" }); // Original color #ff9900
+const AmazonText = styled("span")`
+ color: ${props => props.theme.palette.mode === "light" ? "#aa6700" : "#ff9900"} `;
 const StyledAWS = styled("img")`
   position: absolute;
   bottom: -7px;
