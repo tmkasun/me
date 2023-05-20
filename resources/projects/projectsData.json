@@ -10,16 +10,6 @@
     "createdDate": "2021-06-21"
   },
   {
-    "name": "Personal Website(this)",
-    "description": "This website utilizes Next.js for server-side rendering (SSR) and Material-UI (MUI) as the component library. It employs SandPack for code emulation, Giscus for blog section commenting, and MDX/Remark for code snippet highlighting.",
-    "technologies": ["pwa", "ts", "mui", "react", "vercel", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/me/tree/nextMe",
-    "websiteURL": "https://me.knnect.com/",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "nextJS", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
     "name": "Fuel availability tracker (SriLanka)",
     "description": "Simple web application designed to track fuel availability at gas stations.",
     "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
@@ -97,5 +87,15 @@
     "imageURL": "",
     "tags": ["dashboard", "raspberry"],
     "createdDate": "2012-02-01"
+  },
+  {
+    "name": "Personal Website(this)",
+    "description": "This website utilizes Next.js for server-side rendering (SSR) and Material-UI (MUI) as the component library. It employs SandPack for code emulation, Giscus for blog section commenting, and MDX/Remark for code snippet highlighting.",
+    "technologies": ["pwa", "ts", "mui", "react", "vercel", "nextjs"],
+    "githubURL": "https://github.com/tmkasun/me/tree/nextMe",
+    "websiteURL": "https://me.knnect.com/",
+    "imageURL": "",
+    "tags": ["javascript", "vercel", "nextJS", "React"],
+    "createdDate": "2023-03-01"
   }
 ]
