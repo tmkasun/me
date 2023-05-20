@@ -14,7 +14,7 @@ const lightTheme: ThemeOptions = {
             main: red.A400,
         },
         background: {
-            default: "#fff",
+            default: "#ffffff",
         },
     },
 };
