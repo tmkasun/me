@@ -136,7 +136,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                     </Link>
                 )}
 
-                <Box display="flex" flexGrow={1} justifyContent="flex-end">
+                {/* <Box display="flex" flexGrow={1} justifyContent="flex-end">
                     <Tooltip title="Technologies">
                         <Box display="flex">
                             <ExpandMore
@@ -149,53 +149,51 @@ export default function ProjectCard({ project }: { project: Project }) {
                             </ExpandMore>
                         </Box>
                     </Tooltip>
-                </Box>
+                </Box> */}
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent sx={{ pt: 0 }}>
-                    <Typography
-                        gutterBottom
-                        variant="body2"
-                        color="text.secondary"
-                    >
-                        Technologies
-                    </Typography>
-                    <Box
-                        display="flex"
-                        sx={{
-                            flexDirection: "row",
-                            flexWrap: "wrap",
-                            justifyContent: "space-around",
-                            rowGap: "0.3em",
-                            columnGap: "0.4em",
-                        }}
-                    >
-                        {technologies.map((technologyKey) => {
-                            const technology = techMap[technologyKey];
-                            if (!technology) {
-                                throw new Error(
-                                    `Technology ${technologyKey} not found!\nit must be one of the following: ${Object.keys(
-                                        techMap
-                                    ).join("\n")}`
-                                );
-                            }
-                            return (
-                                <TechnologyIcon
-                                    key={technology.name}
-                                    name={technology.name}
-                                    title={technology.name}
-                                    src={
-                                        technology.name === "aws" &&
-                                            theme.palette.mode === "dark"
-                                            ? technology.lightIcon
-                                            : technology.icon
-                                    }
-                                />
+            <CardContent sx={{ pt: 0 }}>
+                <Typography
+                    gutterBottom
+                    variant="body2"
+                    color="text.secondary"
+                >
+                    Technologies
+                </Typography>
+                <Box
+                    display="flex"
+                    sx={{
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        justifyContent: "flex-start",
+                        rowGap: "0.3em",
+                        columnGap: "1.4em",
+                    }}
+                >
+                    {technologies.map((technologyKey) => {
+                        const technology = techMap[technologyKey];
+                        if (!technology) {
+                            throw new Error(
+                                `Technology ${technologyKey} not found!\nit must be one of the following: ${Object.keys(
+                                    techMap
+                                ).join("\n")}`
                             );
-                        })}
-                    </Box>
-                </CardContent>
-            </Collapse>
+                        }
+                        return (
+                            <TechnologyIcon
+                                key={technology.name}
+                                name={technology.name}
+                                title={technology.name}
+                                src={
+                                    technology.name === "aws" &&
+                                        theme.palette.mode === "dark"
+                                        ? technology.lightIcon
+                                        : technology.icon
+                                }
+                            />
+                        );
+                    })}
+                </Box>
+            </CardContent>
         </Card>
     );
 }

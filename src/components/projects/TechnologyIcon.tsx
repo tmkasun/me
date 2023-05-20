@@ -18,11 +18,11 @@ function TechnologyIcon({ title, name, src }: TechnologyIconProps) {
                     WebkitTransition: "all 0.3s",
                     WebkitTransformOrigin: "50% 100%",
                     "&:hover": {
-                        transform: "scale(1.5)",
+                        transform: "scale(1.1)",
                         position: "static",
                         zIndex: "200",
                         "&.nearby": {
-                            transform: "scale(1.3)",
+                            transform: "scale(1.2)",
                             zIndex: "100",
                         },
                     },

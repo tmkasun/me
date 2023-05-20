@@ -1,24 +1,5 @@
 [
   {
-    "name": "Solar energy monitor",
-    "description": "Monitoring and management system for off-grid hybrid inverters.",
-    "technologies": [
-      "reactq",
-      "python",
-      "react",
-      "ts",
-      "vercel",
-      "mui",
-      "pwa",
-      "flask"
-    ],
-    "githubURL": "https://github.com/tmkasun/solar-hybrid-inverter-monitor",
-    "websiteURL": "https://energy.knnect.com/",
-    "imageURL": "",
-    "tags": ["dashboard", "raspberry"],
-    "createdDate": "2012-02-01"
-  },
-  {
     "name": "PKCE Demo",
     "description": "Web application designed to showcase the OAuth2 Code grant type with PKCE extension.",
     "technologies": ["python", "sql"],
@@ -97,5 +78,24 @@
     "imageURL": "",
     "tags": ["javascript", "vercel", "React"],
     "createdDate": "2023-03-01"
+  },
+  {
+    "name": "Solar energy monitor",
+    "description": "Monitoring and management system for off-grid hybrid inverters.",
+    "technologies": [
+      "reactq",
+      "python",
+      "react",
+      "ts",
+      "vercel",
+      "mui",
+      "pwa",
+      "flask"
+    ],
+    "githubURL": "https://github.com/tmkasun/solar-hybrid-inverter-monitor",
+    "websiteURL": "https://energy.knnect.com/",
+    "imageURL": "",
+    "tags": ["dashboard", "raspberry"],
+    "createdDate": "2012-02-01"
   }
 ]
