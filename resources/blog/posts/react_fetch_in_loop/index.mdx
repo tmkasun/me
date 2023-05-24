@@ -95,7 +95,7 @@ We could further improve the latancy, Let's see how.
 ## Render with data
 
 In this approach, we render(update the state) then and there when the data arrive, So users will see the data as soon as they are arrived
-The trick here is, We [chain a suscuss callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining) for each fetch API response promise,
+The trick here is, We [chain a success callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining) for each fetch API response promise,
 which will eventually update the state when the callback function is executed.
 
 ```jsx focus=6:17 mark=9[9:25]
