@@ -54,6 +54,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         technologies,
         githubURL,
         websiteURL,
+        imageURL
     } = project;
     const [expanded, setExpanded] = React.useState(false);
 
@@ -65,25 +66,29 @@ export default function ProjectCard({ project }: { project: Project }) {
     return (
         <Card
             elevation={2}
-            sx={{
+            sx={(theme) => ({
                 width: 300,
                 display: "flex",
                 flexDirection: "column",
-                borderRadius: '16px'
-            }}
+                borderRadius: '16px',
+                boxShadow: theme.palette.mode === "light" ? null : '0px 0px 5px 2px #5b5d6ec4'
+            })}
         >
             <CardHeader
                 avatar={
                     <Avatar
                         sx={(theme) => ({
+                            padding: imageURL ? '3px' : 'initial',
+                            border: imageURL ? '1px solid #b9c8e9' : '1px solid #051537',
                             bgcolor:
-                                theme.palette.mode === "light"
-                                    ? blue[700]
-                                    : blue[200],
+                                imageURL ? 'white' : theme.palette.mode === "light"
+                                    ? '#051537'
+                                    : 'whitesmoke',
                         })}
                         aria-label="Project title"
+                        src={imageURL}
                     >
-                        {name.charAt(0).toUpperCase()}
+                        {!imageURL && name.charAt(0).toUpperCase()}
                     </Avatar>
                 }
                 title={<Typography variant="h6">{name}</Typography>}

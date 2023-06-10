@@ -1,5 +1,35 @@
 [
   {
+    "name": "Daily Task Manager",
+    "description": "The Daily Tasks Manager is an open-source application that allows users to manage their daily tasks. ",
+    "technologies": ["react", "vercel"],
+    "githubURL": "https://github.com/tmkasun/Daily-Planner",
+    "websiteURL": "https://days.knnect.com/",
+    "imageURL": "https://days.knnect.com/fav.png",
+    "tags": ["sample", "dataset"],
+    "createdDate": "2021-06-21"
+  },
+  {
+    "name": "Canada PR Statistics",
+    "description": "The Canada PR Statistics is a simple web application that allows you to visualize the Canada PR Express Entry draws details",
+    "technologies": ["react", "vercel"],
+    "githubURL": "https://github.com/tmkasun/Canada-PR-statistics",
+    "websiteURL": "https://canpr.knnect.com/",
+    "imageURL": "https://open.canada.ca/GCWeb/assets/favicon.ico",
+    "tags": ["react", "vercel"],
+    "createdDate": "2021-06-21"
+  },
+  {
+    "name": "Ontario approved driving schools",
+    "description": "A user-friendly web application for easily discovering and locating driving schools based on location or name.",
+    "technologies": ["react", "vercel"],
+    "githubURL": "https://github.com/tmkasun/ontario-approved-driving-schools",
+    "websiteURL": "https://candrive.knnect.com/",
+    "imageURL": "https://www.ontario.ca/img/favicon.ico",
+    "tags": ["react", "vercel", "leaflet"],
+    "createdDate": "2021-06-21"
+  },
+  {
     "name": "PKCE Demo",
     "description": "Web application designed to showcase the OAuth2 Code grant type with PKCE extension.",
     "technologies": ["python", "sql"],
@@ -15,7 +45,7 @@
     "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
     "githubURL": "https://github.com/tmkasun/better-fuel-gov.lk",
     "websiteURL": "https://better-fuel-gov-lk.vercel.app/",
-    "imageURL": "",
+    "imageURL": "https://better-fuel-gov-lk.vercel.app/favicon.ico",
     "tags": ["javascript", "vercel", "React"],
     "createdDate": "2023-03-01"
   },
@@ -84,7 +114,7 @@
     ],
     "githubURL": "https://github.com/tmkasun/solar-hybrid-inverter-monitor",
     "websiteURL": "https://energy.knnect.com/",
-    "imageURL": "",
+    "imageURL": "https://energy.knnect.com/favicon.ico",
     "tags": ["dashboard", "raspberry"],
     "createdDate": "2012-02-01"
   },
