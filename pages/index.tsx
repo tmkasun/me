@@ -100,10 +100,11 @@ const LandingPage: React.FC = () => {
           </Link>
           , which gives me a different viewpoint in my work. Besides
           programming, I enjoy music, documentaries, and fun activities like
-          swimming and cycling. Here is my Timeline{" "}
+          swimming and cycling.
+          {/* Here is my Timeline{" "}
           <Link target="_blank" href="https://tmkasun.github.io/">
             Timeline
-          </Link>
+          </Link> */}
         </ItemSection>
 
         <ItemSection icon={projects.src} title="Experience">
