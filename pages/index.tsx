@@ -60,7 +60,7 @@ const LandingPage: React.FC = () => {
       <Grid item md={3} sm={1} xs={false} />
       <Grid item md={6} sm={10} xs={12}>
         <MyTitle title="Kasun Thennakoon">
-          Front-end Engineer at
+          Ex-Front-end Engineer at
           <Tooltip
             placement="bottom-end"
             TransitionComponent={Zoom}
@@ -71,21 +71,16 @@ const LandingPage: React.FC = () => {
               <StyledAWS alt='Amazon Arrow' src={amazon.src} />
             </Box>
           </Tooltip>
-          {/* <br/>Ex-<WSO2Text>WSO2</WSO2Text> */}
-          {/* <Tooltip
-            placement="top-end"
-            TransitionComponent={Zoom}
-            title="API Manager"
-          >
-            <Box
-              sx={(theme) => ({
-                color: theme.palette.mode === "light" ? blue[900] : blue[200],
-              })}
-              display="inline"
+          {/* <br />Ex-Technical Lead at
+          <Box ml={0.3} display='inline'>
+            <Tooltip
+              placement="bottom-end"
+              TransitionComponent={Zoom}
+              title="Web Services Oxygen"
             >
-              API-M
-            </Box>
-          </Tooltip> */}
+              <WSO2Text>WSO2</WSO2Text>
+            </Tooltip>
+          </Box> */}
         </MyTitle>
         <Divider />
         <ItemSection icon={myAvatar.src} title="Me">

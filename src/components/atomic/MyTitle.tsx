@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { blueGrey } from "@mui/material/colors";
+import Animate from "../Animate";
 
 type MyTitleProps = { title?: String; children: React.ReactNode };
 const MyTitle: React.FC<MyTitleProps> = ({ title, children }) => {

@@ -24,15 +24,15 @@ export default function MyRoot(props: MyRootProps) {
       {/* Global site tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=UA-34584055-3"
+        src="https://www.googletagmanager.com/gtag/js?id=G-JPEF8HHMYB"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            gtag('config', 'UA-34584055-3');
+          
+            gtag('config', 'G-JPEF8HHMYB');
             `}
       </Script>
       <CacheProvider value={clientSideEmotionCache}>
