@@ -17,7 +17,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ allPosts }) => {
         >
             <Grid item md={8} sm={10} xs={12}>
                 <Box mb={4}>
-                    <MyTitle>Kasun Thennakoon's personal Blog</MyTitle>
+                    <MyTitle>Kasun Thennakoon&apos;s personal Blog</MyTitle>
                     <Divider />
                 </Box>
                 <Grid

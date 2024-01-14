@@ -145,7 +145,7 @@ const LandingPage: React.FC = () => {
                     are incomplete, and should be seen as prototypes rather than
                     practical implementations. In fact, some projects have been
                     known to instantly crash my computer (due to overwhelming
-                    awesomeness), so I've temporarily taken them offline until I
+                    awesomeness), so I&apos;ve temporarily taken them offline until I
                     have the time to debug them.
                 </ItemSection>
                 <ItemSection icon={blog.src} title="Blog">

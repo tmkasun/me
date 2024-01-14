@@ -65,7 +65,7 @@ const Post = ({ mdxSource, post }: Props) => {
             alignItems="stretch"
         >
             <Head>
-                <title>{title} | Kasun Thennakoon's Blog space</title>
+                <title>{title} | Kasun Thennakoon&apos;s Blog space</title>
             </Head>
             <Grid xs={12} item>
                 <Box position="fixed">
