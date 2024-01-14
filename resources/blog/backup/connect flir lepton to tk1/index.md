@@ -5,40 +5,50 @@ draft: false
 ---
 
 # Introduction
+
 In this post, I will discuss how to connect FLIR [Lepton](https://learn.sparkfun.com/tutorials/flir-lepton-hookup-guide) module with NVIDIA Jetson TK1.If you are new to Jetson TK1 and struggling on how to kick off the development with that , you can refer to my previous [post](http://me.knnect.com/blog/getting-started-with-nvidia-jetson-tk1) to get to know about how to get started with NVIDIA Jetson TK1.In this post I assume, you have already installed Operating system(Ubuntu 14.04) using Jetpack or any other way.
 There is an excellent [guide](http://neurorobotictech.com/Community/Blog/tabid/184/ID/13/Using-the-Jetson-TK1-SPI--Part-3-Configuring-SPI-in-the-device-tree.aspx) on how to enable SPI with Jetson TK1 and connect to Arduino Due, It helped me a lot understanding  the hardware capabilities of Jetson TK1 to enable SPI communication , and how kernel device drivers and device tree helps to allow communication with SPI hardware in TK1 with programmers in Operating system level.It is better to first to go through that article up to <a href="http://neurorobotictech.com/Community/Blog/tabid/184/ID/13/Using-the-Jetson-TK1-SPI--Part-3-Configuring-SPI-in-the-device-tree.aspx">part 3</a>.My Jetson TK1 setup is Ubuntu 14.04 installed with Jetpack R21.5 and update the kernel with Grinch 21.3.4 for Jetson TK1.If you have already installed jetpack and running the OS following topic will cover how to install Grinch 21.3.4 kernel, and configure to use SPI.
 
 # Update Kernel
 
 I actually wanted to connect Lepton with Jetson without doing any Kernal modification , so I tried building official kernel enabling the SPI module but It didn't work and ended up with hanging the OS after few seconds of booting. So re-flash the Jetson and tried with latest Grinch kernel.As the steps mention <a href="https://devtalk.nvidia.com/default/topic/906018/jetson-tk1/-customkernel-the-grinch-21-3-4-for-jetson-tk1-developed/">here</a> updating the stock kernel with Grinch kernel is easy.If you have fresh Jetpack installation(In my case Jetpack 21.5). Then run the following commands to update the kernel.
+
 1. Download required firmware,kernel modules and boot zimage files
+
 ```
 wget http://www.jarzebski.pl/files/jetsontk1/grinch-21.3.4/zImage
 wget http://www.jarzebski.pl/files/jetsontk1/grinch-21.3.4/jetson-tk1-grinch-21.3.4-modules.tar.bz2
 wget http://www.jarzebski.pl/files/jetsontk1/grinch-21.3.4/jetson-tk1-grinch-21.3.4-firmware.tar.bz2
 ```
+
 2. Make sure you check the MD5 hash with following (It sometimes download 135K junk file, nothing in it)
+
 ```bash
 a4a4ea10f2fe74fbb6b10eb2a3ad5409  zImage
 3f84d425a13930af681cc463ad4cf3e6  jetson-tk1-grinch-21.3.4-modules.tar.bz2
 f80d37ca6ae31d03e86707ce0943eb7f  jetson-tk1-grinch-21.3.4-firmware.tar.bz2
 ```
+
 3. Then extract and copy the files to system
+
 ```shell
 sudo tar -C /lib/modules -vxjf jetson-tk1-grinch-21.3.4-modules.tar.bz2
 sudo tar -C /lib -vxjf jetson-tk1-grinch-21.3.4-firmware.tar.bz2
 sudo cp zImage /boot/zImage
 ```
+
 4. If you are following original NVIDIA dev post sofa , <strong>stop</strong> here and the coping DTB file into <strong>/boot</strong> directory, Because we have to make some changes before copying the device tree blob file into /boot
-<ul>
- 	<li>The reason is , we need to change the frequency of the SPI clock or reduce the default Jetson touch SPI CLK frequency to comfortable range to work with Lepton, For that we will decompile the .dtb file and generate the .dts(Device tree source file) and do the modification to the .dts file and the compile the source code using dtc(Device Tree Compiler) and copy the modified device tree blob(.dtb) file to /boot directory</li>
-</ul>
-So for doing the above task first we need the <strong>dtc </strong>tool, The source code for the dtc comes with the kernel it self in the <strong>kernel/scripts/dtc/</strong> you can compile it and use.Else I have <a href="https://drive.google.com/open?id=0B41dAZxfrYZ0Ylktc3F6WTRMV1U">uploaded</a> here the pre-compiled dtc tool for Jetson TK1 , you can use that if you don't want to do any kernel builds.
-<ol>
- 	<li>One you have the dtc tool , go to the directory where you have downloaded the <strong>tegra124-jetson_tk1-pm375-000-c00-00.dtb </strong>file and run the following command
+ <ul>
+  	<li>The reason is , we need to change the frequency of the SPI clock or reduce the default Jetson touch SPI CLK frequency to comfortable range to work with Lepton, For that we will decompile the .dtb file and generate the .dts(Device tree source file) and do the modification to the .dts file and the compile the source code using dtc(Device Tree Compiler) and copy the modified device tree blob(.dtb) file to /boot directory</li>
+ </ul>
+ So for doing the above task first we need the <strong>dtc </strong>tool, The source code for the dtc comes with the kernel it self in the <strong>kernel/scripts/dtc/</strong> you can compile it and use.Else I have <a href="https://drive.google.com/open?id=0B41dAZxfrYZ0Ylktc3F6WTRMV1U">uploaded</a> here the pre-compiled dtc tool for Jetson TK1 , you can use that if you don't want to do any kernel builds.
+ <ol>
+  	<li>One you have the dtc tool , go to the directory where you have downloaded the <strong>tegra124-jetson_tk1-pm375-000-c00-00.dtb </strong>file and run the following command
+
 ```shell
 ./dtc -I dtb -O dts -o tegra124-jetson_tk1-pm375-000-c00-00.dts tegra124-jetson_tk1-pm375-000-c00-00.dtb
 ```
+
 </li>
  	<li>Then open the *.dts file from your favourite text editor and locate the section <em><strong>spi@7000d400 </strong></em>and change the below highlighted lines,
 ```

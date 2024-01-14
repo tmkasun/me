@@ -1,131 +1,131 @@
 [
-  {
-    "name": "Daily Task Manager",
-    "description": "The Daily Tasks Manager is an open-source application that allows users to manage their daily tasks. ",
-    "technologies": ["react", "vercel"],
-    "githubURL": "https://github.com/tmkasun/Daily-Planner",
-    "websiteURL": "https://days.knnect.com/",
-    "imageURL": "https://days.knnect.com/fav.png",
-    "tags": ["sample", "dataset"],
-    "createdDate": "2021-06-21"
-  },
-  {
-    "name": "Canada PR Statistics",
-    "description": "The Canada PR Statistics is a simple web application that allows you to visualize the Canada PR Express Entry draws details",
-    "technologies": ["react", "vercel"],
-    "githubURL": "https://github.com/tmkasun/Canada-PR-statistics",
-    "websiteURL": "https://canpr.knnect.com/",
-    "imageURL": "https://open.canada.ca/GCWeb/assets/favicon.ico",
-    "tags": ["react", "vercel"],
-    "createdDate": "2021-06-21"
-  },
-  {
-    "name": "Ontario approved driving schools",
-    "description": "A user-friendly web application for easily discovering and locating driving schools based on location or name.",
-    "technologies": ["react", "vercel"],
-    "githubURL": "https://github.com/tmkasun/ontario-approved-driving-schools",
-    "websiteURL": "https://candrive.knnect.com/",
-    "imageURL": "https://www.ontario.ca/img/favicon.ico",
-    "tags": ["react", "vercel", "leaflet"],
-    "createdDate": "2021-06-21"
-  },
-  {
-    "name": "PKCE Demo",
-    "description": "Web application designed to showcase the OAuth2 Code grant type with PKCE extension.",
-    "technologies": ["python", "sql"],
-    "githubURL": "https://github.com/tmkasun/pkce",
-    "websiteURL": "https://pkce.netlify.app",
-    "imageURL": "",
-    "tags": ["sample", "dataset"],
-    "createdDate": "2021-06-21"
-  },
-  {
-    "name": "Fuel availability tracker (SriLanka)",
-    "description": "Simple web application designed to track fuel availability at gas stations.",
-    "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/better-fuel-gov.lk",
-    "websiteURL": "https://better-fuel-gov-lk.vercel.app/",
-    "imageURL": "https://better-fuel-gov-lk.vercel.app/favicon.ico",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Experimenting web workers with React",
-    "description": "Experimental web app for utilizing web worker threads in React. This app is designed to test asynchronous message passing between a worker thread and a React application running in the main event loop. It utilizes the onmessage event with a React hook",
-    "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/react-worker",
-    "websiteURL": "https://me.knnect.com",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Streaming Graph partitioner",
-    "description": "A slightly modified version of the Fennel algorithm and the Linear Deterministic Greedy (LDG) partitioning algorithm to effectively process a continuous stream of edges, which consists of a pair of vertices.",
-    "technologies": ["cpp", "ts", "mui", "react", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/streaming_graph_partitioning",
-    "websiteURL": "",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Simple Tic Tac Toe Game",
-    "description": "Simple Tic Tac Toe game to try out React basics",
-    "technologies": ["ts", "mui", "react", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/tic-tac-toe",
-    "websiteURL": "https://tic-tac-toe-sv8h.vercel.app/",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Automatically translate React-intl locale files",
-    "description": "Automatically translate language files using Google or Yandex Translator.",
-    "technologies": ["ts", "mui", "react", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/react-intl-auto-translate",
-    "websiteURL": "",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Micro-frontend with Webpack",
-    "description": "Showcase React dynamic module loading with Suspense and Webpack 5 Module Federation feature",
-    "technologies": ["react"],
-    "githubURL": "https://github.com/tmkasun/webpack-module-federation-with-React",
-    "websiteURL": "https://knnect-mf-app1.netlify.app/",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "React"],
-    "createdDate": "2023-03-01"
-  },
-  {
-    "name": "Solar energy monitor",
-    "description": "Monitoring and management system for off-grid hybrid inverters.",
-    "technologies": [
-      "reactq",
-      "python",
-      "react",
-      "ts",
-      "vercel",
-      "mui",
-      "pwa",
-      "flask"
-    ],
-    "githubURL": "https://github.com/tmkasun/solar-hybrid-inverter-monitor",
-    "websiteURL": "https://energy.knnect.com/",
-    "imageURL": "https://energy.knnect.com/favicon.ico",
-    "tags": ["dashboard", "raspberry"],
-    "createdDate": "2012-02-01"
-  },
-  {
-    "name": "Personal Website(this)",
-    "description": "This website utilizes Next.js for server-side rendering (SSR) and Material-UI (MUI) as the component library. It employs SandPack for code emulation, Giscus for blog section commenting, and MDX/Remark for code snippet highlighting.",
-    "technologies": ["pwa", "ts", "mui", "react", "vercel", "nextjs"],
-    "githubURL": "https://github.com/tmkasun/me/tree/nextMe",
-    "websiteURL": "https://me.knnect.com/",
-    "imageURL": "",
-    "tags": ["javascript", "vercel", "nextJS", "React"],
-    "createdDate": "2023-03-01"
-  }
+    {
+        "name": "Daily Task Manager",
+        "description": "The Daily Tasks Manager is an open-source application that allows users to manage their daily tasks. ",
+        "technologies": ["react", "vercel"],
+        "githubURL": "https://github.com/tmkasun/Daily-Planner",
+        "websiteURL": "https://days.knnect.com/",
+        "imageURL": "https://days.knnect.com/fav.png",
+        "tags": ["sample", "dataset"],
+        "createdDate": "2021-06-21"
+    },
+    {
+        "name": "Canada PR Statistics",
+        "description": "The Canada PR Statistics is a simple web application that allows you to visualize the Canada PR Express Entry draws details",
+        "technologies": ["react", "vercel"],
+        "githubURL": "https://github.com/tmkasun/Canada-PR-statistics",
+        "websiteURL": "https://canpr.knnect.com/",
+        "imageURL": "https://open.canada.ca/GCWeb/assets/favicon.ico",
+        "tags": ["react", "vercel"],
+        "createdDate": "2021-06-21"
+    },
+    {
+        "name": "Ontario approved driving schools",
+        "description": "A user-friendly web application for easily discovering and locating driving schools based on location or name.",
+        "technologies": ["react", "vercel"],
+        "githubURL": "https://github.com/tmkasun/ontario-approved-driving-schools",
+        "websiteURL": "https://candrive.knnect.com/",
+        "imageURL": "https://www.ontario.ca/img/favicon.ico",
+        "tags": ["react", "vercel", "leaflet"],
+        "createdDate": "2021-06-21"
+    },
+    {
+        "name": "PKCE Demo",
+        "description": "Web application designed to showcase the OAuth2 Code grant type with PKCE extension.",
+        "technologies": ["python", "sql"],
+        "githubURL": "https://github.com/tmkasun/pkce",
+        "websiteURL": "https://pkce.netlify.app",
+        "imageURL": "",
+        "tags": ["sample", "dataset"],
+        "createdDate": "2021-06-21"
+    },
+    {
+        "name": "Fuel availability tracker (SriLanka)",
+        "description": "Simple web application designed to track fuel availability at gas stations.",
+        "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/better-fuel-gov.lk",
+        "websiteURL": "https://better-fuel-gov-lk.vercel.app/",
+        "imageURL": "https://better-fuel-gov-lk.vercel.app/favicon.ico",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Experimenting web workers with React",
+        "description": "Experimental web app for utilizing web worker threads in React. This app is designed to test asynchronous message passing between a worker thread and a React application running in the main event loop. It utilizes the onmessage event with a React hook",
+        "technologies": ["pwa", "ts", "mui", "react", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/react-worker",
+        "websiteURL": "https://me.knnect.com",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Streaming Graph partitioner",
+        "description": "A slightly modified version of the Fennel algorithm and the Linear Deterministic Greedy (LDG) partitioning algorithm to effectively process a continuous stream of edges, which consists of a pair of vertices.",
+        "technologies": ["cpp", "ts", "mui", "react", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/streaming_graph_partitioning",
+        "websiteURL": "",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Simple Tic Tac Toe Game",
+        "description": "Simple Tic Tac Toe game to try out React basics",
+        "technologies": ["ts", "mui", "react", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/tic-tac-toe",
+        "websiteURL": "https://tic-tac-toe-sv8h.vercel.app/",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Automatically translate React-intl locale files",
+        "description": "Automatically translate language files using Google or Yandex Translator.",
+        "technologies": ["ts", "mui", "react", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/react-intl-auto-translate",
+        "websiteURL": "",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Micro-frontend with Webpack",
+        "description": "Showcase React dynamic module loading with Suspense and Webpack 5 Module Federation feature",
+        "technologies": ["react"],
+        "githubURL": "https://github.com/tmkasun/webpack-module-federation-with-React",
+        "websiteURL": "https://knnect-mf-app1.netlify.app/",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "React"],
+        "createdDate": "2023-03-01"
+    },
+    {
+        "name": "Solar energy monitor",
+        "description": "Monitoring and management system for off-grid hybrid inverters.",
+        "technologies": [
+            "reactq",
+            "python",
+            "react",
+            "ts",
+            "vercel",
+            "mui",
+            "pwa",
+            "flask"
+        ],
+        "githubURL": "https://github.com/tmkasun/solar-hybrid-inverter-monitor",
+        "websiteURL": "https://energy.knnect.com/",
+        "imageURL": "https://energy.knnect.com/favicon.ico",
+        "tags": ["dashboard", "raspberry"],
+        "createdDate": "2012-02-01"
+    },
+    {
+        "name": "Personal Website(this)",
+        "description": "This website utilizes Next.js for server-side rendering (SSR) and Material-UI (MUI) as the component library. It employs SandPack for code emulation, Giscus for blog section commenting, and MDX/Remark for code snippet highlighting.",
+        "technologies": ["pwa", "ts", "mui", "react", "vercel", "nextjs"],
+        "githubURL": "https://github.com/tmkasun/me/tree/nextMe",
+        "websiteURL": "https://me.knnect.com/",
+        "imageURL": "",
+        "tags": ["javascript", "vercel", "nextJS", "React"],
+        "createdDate": "2023-03-01"
+    }
 ]

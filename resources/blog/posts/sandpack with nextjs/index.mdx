@@ -13,6 +13,7 @@ In this post, I will explain how to use the Sandpack editor with MDX files in Ne
 
 I'm using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to render `MDX` files and [@codesandbox/sandpack-react](https://github.com/codesandbox/sandpack) package to add `Sandpack` editor.
 To install them run
+
 ```
 npm i next-mdx-remote @codesandbox/sandpack-react
 ```
@@ -77,15 +78,11 @@ Use the `<Sandpack>` element in MDX
 Finally, You can use the `Sandpack` custom component in MDX content as below
 
 ```mdx
-
 <Spack filename="/App.js">
-    {
-    `export default function App() {
+    {`export default function App() {
         return <h1>Hello Sandpack from Knnect</h1>
-        }`
-    }
+        }`}
 </Spack>
-
 ```
 
 ## Result
@@ -95,8 +92,7 @@ Finally, You can use the `Sandpack` custom component in MDX content as below
 <i>Try out Dark vs Light modes</i>
 
 <Spack filename="/App.js">
-  {
-`export default function App() {
+    {`export default function App() {
   return <h1>Hello Sandpack from Knnect</h1>
 }
 `}

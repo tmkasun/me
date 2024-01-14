@@ -119,11 +119,18 @@ const Post = ({ mdxSource, post }: Props) => {
                         fontFamily: "Roboto",
                         fontSize: "1.5em",
                         fontWeight: "100",
-                        'p::selection, h1::selection, h2::selection, ul::selection': {
-                            background: theme.palette.mode === 'light' ? '#65fbd7e3' : '#288972',
-                        },
-                        'a::selection': {
-                            background: theme.palette.mode === 'light' ? '#639cf9cf' : '#1e69e7',
+                        "p::selection, h1::selection, h2::selection, ul::selection":
+                            {
+                                background:
+                                    theme.palette.mode === "light"
+                                        ? "#65fbd7e3"
+                                        : "#288972",
+                            },
+                        "a::selection": {
+                            background:
+                                theme.palette.mode === "light"
+                                    ? "#639cf9cf"
+                                    : "#1e69e7",
                         },
                     }}
                 >
@@ -176,7 +183,12 @@ export async function getStaticProps({ params }: Params) {
             remarkPlugins: [
                 [
                     remarkCodeHike,
-                    { showCopyButton: true, autoImport: false, theme, lineNumbers: false, },
+                    {
+                        showCopyButton: true,
+                        autoImport: false,
+                        theme,
+                        lineNumbers: false,
+                    },
                 ],
             ],
             rehypePlugins: [],

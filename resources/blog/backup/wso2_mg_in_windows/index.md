@@ -132,7 +132,6 @@ If you want to start the micro-gateway server as Windows Service, use the <a hr
 
 ![](./2018/07/java_system_home.png)
 
-
 or use the current user as the user who starts the windows service.
 
 ![](./2018/07/run_as_service.gif)

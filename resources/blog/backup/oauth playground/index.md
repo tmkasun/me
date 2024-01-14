@@ -3,6 +3,7 @@ title: "OAuth Playground"
 date: "2016-10-12"
 draft: false
 ---
+
 In this article, I will demonstrate how to use WSO2 API Manager REST APIs for create new client application and generate an access token and access secured API using the generated access token.
 
 This article is to be completed If you are interested in playing with the code, <a href="https://github.com/tmkasun/wso2-apim-oauth">Here</a> you can find the code on GitHub.

@@ -3,6 +3,7 @@ title: "Visualizing FLIR Lepton Thermal data for statistical analysis"
 date: "2021-04-19"
 draft: true
 ---
+
 <h2>Introduction</h2>
 This post would be a continuation of my previous post on <a href="http://me.knnect.com/blog/getting-started-with-nvidia-jetson-tk1/">getting started with NVIDIA Jetson TK1</a> for machine learning and image analysis works and <a href="http://me.knnect.com/blog/how-to-connect-flir-lepton-module-to-nvidia-jetson-tk1/">connecting FLIR Lepton camera to Jetson</a> TK1.In this post, I will discuss analyzing and visualizing the thermal data which is fetched from FLIR Lepton IR camera. In my last post, about connecting lepton camera to NVIDIA Jetson board, I have concluded the discussion by providing some sample camera data frames and images generated from Lepton module.In this post, I will discuss the tools and technics which I have used for analyzing and visualizing the data.This post will mostly cover the areas of preprocessing the data before applying any statistical learning methods on the sample data.Since we need to have a good understanding of the data and its behaviors before we jump into machine learning or playing with the data.Unless we don't have a good understanding of the data which we are dealing with in all dimensions, It would be unfair to expect something magic done by machine on behalf of us.So all this is about understanding our data.
 
@@ -20,7 +21,9 @@ and also FLIR has announced the Lepton 3.0 `<a href="http://www.flir.com/home/ne
 `<a href="http://me.knnect.com/blog/wp-content/uploads/2017/04/flir-lepton-3.jpg"><img className="aligncenter wp-image-478" src="http://me.knnect.com/blog/wp-content/uploads/2017/04/flir-lepton-3.jpg" alt="flir lepton 3" width="530" height="264" />``</a>`
 
 #FLIR Lepton camera
- 
+
+
+
 <h2>Lepton Thermal Data Capturing and Processing</h2>
 As I discussed in my previous <a href="http://me.knnect.com/blog/how-to-connect-flir-lepton-module-to-nvidia-jetson-tk1/">post</a> I'm using <a href="https://github.com/groupgets/pylepton">PyLepton</a> library to capture data frames from lepton camera.To start exploring the data captured from Lepton camera, Since at this stage, we don't use any learning task or CPU/GPU intensive task, I wrote a data service client using python to simply transfer the lepton data frames from Jetson TK1 to the desktop computer.
 
@@ -45,11 +48,7 @@ We can use the Matplotlib library to plot the 3D and 2D graph from the lepton da
 <h2><a href="http://me.knnect.com/blog/wp-content/uploads/2017/04/flir_matplotlib.png"><img className="aligncenter size-full wp-image-488" src="http://me.knnect.com/blog/wp-content/uploads/2017/04/flir_matplotlib.png" alt="flir_matplotlib" width="1470" height="818" /></a>Conclusion</h2>
 In this post, I simply want to discuss about the tools and techniques which we can use to see the data in different angle and get more in-depth idea of the thermal data which we getting from lepton camera, And also after looking at the data in this way, it seems that even though Lepton having very fewer pixel count(60x80) compared to sophisticated visible range cameras we have today, It have a very large pixel depth giving even slightest changes in temperature variation in its field of view.So we could use this highly detailed information to identify the objects around us.In an upcoming blog post, I will be discussing such methods of identifying heat emitting objects such as movements of humans from the data captured from lepton camera.
 
-
-
-
 ## [![flir_matplotlib](http://me.knnect.com/blog/wp-content/uploads/2017/04/flir_matplotlib.png)](http://me.knnect.com/blog/wp-content/uploads/2017/04/flir_matplotlib.png)Conclusion
-
 
 In this post, I simply want to discuss about the tools and techniques which we can use to see the data in different angle and get more in-depth idea of the thermal data which we getting from lepton camera, And also after looking at the data in this way, it seems that even though Lepton having very fewer pixel count(60x80) compared to sophisticated visible range cameras we have today, It have a very large pixel depth giving even slightest changes in temperature variation in its field of view.So we could use this highly detailed information to identify the objects around us.In an upcoming blog post, I will be discussing such methods of identifying heat emitting objects such as movements of humans from the data captured from lepton camera.You can find the source codes from all the above plotting algorithms in this `<a href="https://github.com/tmkasun/PyLepton_With_Jetson">`GitHub repo`</a>`.
 

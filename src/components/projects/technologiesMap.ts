@@ -15,7 +15,7 @@ const flaskIcon = "/images/projects/icons/flask.png";
 const sql = "/images/projects/icons/sql.png";
 const awsIcon = "/images/projects/icons/aws.webp";
 
-import  { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 
 const techMap: {
     [key: string]: {
@@ -104,6 +104,6 @@ const techMap: {
         name: "SQL",
         icon: sql,
         description: "SQL is a relational database management system",
-    }
+    },
 };
 export default techMap;

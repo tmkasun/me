@@ -21,25 +21,25 @@ Let's take the following example.
 
 ```jsx focus=9:18 mark=11[26:37]
 export default function Worst() {
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(true);
+    const [users, setUsers] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      const allUsers = [];
-      for (const id of userIDs) {
-        const response = await fetch(
-          `${apiEndpoint}/${id}?mocky-delay=${rndInt()}ms`
-        );
-        const data = response.json();
-        allUsers.push(data);
-      }
-      setUsers(allUsers);
-      setLoading(false);
-    })();
-  }, []);
+    useEffect(() => {
+        (async () => {
+            const allUsers = [];
+            for (const id of userIDs) {
+                const response = await fetch(
+                    `${apiEndpoint}/${id}?mocky-delay=${rndInt()}ms`
+                );
+                const data = response.json();
+                allUsers.push(data);
+            }
+            setUsers(allUsers);
+            setLoading(false);
+        })();
+    }, []);
 
-  //...
+    //...
 }
 ```
 
@@ -59,21 +59,21 @@ and we collect all the promise objects returned from the fetch API into an array
 
 ```jsx focus=6:13 mark=9[5:15]
 export default function Normal() {
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(true);
+    const [users, setUsers] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const promisedUsers = userIDs.map((id) =>
-      fetch(apiEndpoint).then((response) => response.json())
-    );
-    Promise.all(promisedUsers).then((results) => {
-      setLoading(false);
-      timing.current.end = Date.now();
-      setUsers(results);
-    });
-  }, []);
+    useEffect(() => {
+        const promisedUsers = userIDs.map((id) =>
+            fetch(apiEndpoint).then((response) => response.json())
+        );
+        Promise.all(promisedUsers).then((results) => {
+            setLoading(false);
+            timing.current.end = Date.now();
+            setUsers(results);
+        });
+    }, []);
 
-  // . . .
+    // . . .
 }
 ```
 
@@ -100,30 +100,31 @@ which will eventually update the state when the callback function is executed.
 
 ```jsx focus=6:17 mark=9[9:25]
 export default function Best() {
-  const [users, setUsers] =
-    (useState < null) | ([{ first_name: string }] > null);
-  const [loading, setLoading] = useState(true);
+    const [users, setUsers] =
+        (useState < null) | ([{ first_name: string }] > null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    userIDs.map((id) =>
-      fetch(apiEndpoint)
-        .then((response) => response.json())
-        .then((data) => {
-          setLoading(false);
-          if (!timing.current.end) {
-            timing.current.end = Date.now();
-          }
-          setUsers((prevUsers) => (prevUsers ? [...prevUsers, data] : [data]));
-        })
-    );
-  }, []);
+    useEffect(() => {
+        userIDs.map((id) =>
+            fetch(apiEndpoint)
+                .then((response) => response.json())
+                .then((data) => {
+                    setLoading(false);
+                    if (!timing.current.end) {
+                        timing.current.end = Date.now();
+                    }
+                    setUsers((prevUsers) =>
+                        prevUsers ? [...prevUsers, data] : [data]
+                    );
+                })
+        );
+    }, []);
 
-  // . . .
+    // . . .
 }
 ```
 
 With this mechanisum, Each API call will inidividually update the state with their data. Other change is using the [React state updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) instead of directly passing the value.
-
 
 ![Network Waterfall](/images/posts/fetch_in_react/improved.png)
 
@@ -132,4 +133,5 @@ Want to see the code and a demo?
 ## Source and demo
 
 # [Source in CodeSandbox](https://codesandbox.io/s/react-parallel-data-handling-v72j3j)
+
 # [Demo App](https://csb-v72j3j.vercel.app/)
