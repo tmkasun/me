@@ -1,5 +1,15 @@
 [
     {
+        "name": "My Timeline",
+        "description": "Career and Education Timeline React App",
+        "technologies": ["react", "vercel"],
+        "githubURL": "https://github.com/tmkasun/timeline",
+        "websiteURL": "https://timeline.knnect.com/",
+        "imageURL": "https://open.canada.ca/GCWeb/assets/favicon.ico",
+        "tags": ["sample", "dataset"],
+        "createdDate": "2023-10-21"
+    },
+    {
         "name": "Canada LMIA Stats",
         "description": "Explore Canada's Labor Market Impact Assessment (LMIA) data both negative and positive",
         "technologies": ["react", "vercel", "mongo"],
