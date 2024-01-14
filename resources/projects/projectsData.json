@@ -1,5 +1,15 @@
 [
     {
+        "name": "Canada LMIA Stats",
+        "description": "Explore Canada's Labor Market Impact Assessment (LMIA) data both negative and positive",
+        "technologies": ["react", "vercel", "mongo"],
+        "githubURL": "https://github.com/tmkasun/LMIA-stats",
+        "websiteURL": "https://lmia.knnect.com/",
+        "imageURL": "https://open.canada.ca/GCWeb/assets/favicon.ico",
+        "tags": ["sample", "dataset"],
+        "createdDate": "2023-10-21"
+    },
+    {
         "name": "Daily Task Manager",
         "description": "The Daily Tasks Manager is an open-source application that allows users to manage their daily tasks. ",
         "technologies": ["react", "vercel"],

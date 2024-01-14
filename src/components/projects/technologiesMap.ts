@@ -14,6 +14,7 @@ const pwaIcon = "/images/projects/icons/pwa.svg";
 const flaskIcon = "/images/projects/icons/flask.png";
 const sql = "/images/projects/icons/sql.png";
 const awsIcon = "/images/projects/icons/aws.webp";
+const mongoIcon = "/images/projects/icons/mongodb.svg";
 
 import { StaticImageData } from "next/image";
 
@@ -47,6 +48,13 @@ const techMap: {
         lightIcon: aws2Icon,
         description:
             "AWS is a cloud computing platform that provides computing, storage, and other services",
+    },
+    mongo: {
+        name: "MongoDB",
+        icon: mongoIcon,
+        lightIcon: mongoIcon,
+        description:
+            "An open-source NoSQL database system that stores data in flexible, JSON-like documents. It's schema-free, scalable, and suitable for handling large amounts of unstructured data",
     },
     azure: {
         name: "Azure",
