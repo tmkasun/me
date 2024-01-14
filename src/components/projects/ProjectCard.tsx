@@ -86,8 +86,8 @@ export default function ProjectCard({ project }: { project: Project }) {
                             bgcolor: imageURL
                                 ? "white"
                                 : theme.palette.mode === "light"
-                                  ? "#051537"
-                                  : "whitesmoke",
+                                ? "#051537"
+                                : "whitesmoke",
                         })}
                         aria-label="Project title"
                         src={imageURL}
@@ -124,27 +124,25 @@ export default function ProjectCard({ project }: { project: Project }) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                {githubURL && (
-                    <Link href={githubURL} target="_blank">
-                        <Tooltip title="Github repository">
-                            <IconButton aria-label="Github Link">
-                                <GitHubIcon />
-                            </IconButton>
-                        </Tooltip>
-                    </Link>
-                )}
-
-                {websiteURL && (
-                    <Link href={websiteURL} target="_blank">
-                        <Tooltip title="Demo">
-                            <IconButton aria-label="Website Link">
-                                <LanguageIcon />
-                            </IconButton>
-                        </Tooltip>
-                    </Link>
-                )}
-                <ButtonGroup variant="text" aria-label="text button group">
-                    <Button>Source</Button>
+                <ButtonGroup
+                    size="small"
+                    disableFocusRipple
+                    disableRipple
+                    variant="text"
+                    aria-label="text button group"
+                >
+                    {githubURL && (
+                        <Button
+                            sx={{
+                                textTransform: "none",
+                            }}
+                            href={githubURL}
+                            target="_blank"
+                            startIcon={<GitHubIcon />}
+                        >
+                            Source
+                        </Button>
+                    )}
                     {websiteURL && (
                         <Button
                             href={websiteURL}
