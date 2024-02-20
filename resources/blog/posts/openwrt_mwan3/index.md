@@ -5,7 +5,7 @@ excerpt: "This article will describe multiple OpenWRT configurations that i have
 draft: false
 ---
 
-![Linksys WRT 1900 AC V2](/images/linksys_wrt1900AC_v2.jpg)
+![Linksys WRT 1900 AC V2](/images/posts/openwrt_mwan3/linksys_wrt1900AC_v2.jpg)
 
 # Network plan
 
@@ -15,7 +15,7 @@ Second requirement was to monitor and collect stats about my home local network 
 
 Below is my network setup:
 
-![Network Setup](images/network_draw.png)
+![Network Setup](/images/posts/openwrt_mwan3/network_draw.png)
 
 Diagram sources: [lucid](https://lucid.app/lucidchart/invitations/accept/98104790-f585-4b6c-8e90-58e513880562) & [excalidraw](https://excalidraw.com/#room=587b683f2467ed94de73,rXcfIg77oPYxdlxKc32nvw)
 
@@ -128,7 +128,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     In my case default `dnsmasq` tool coming with the OpenWRT installation does not worked and I had to uninstall the pre-installed `dnsmasq` and install `dnsmasq-full` to get this work!
 
 3.  Now IP sets are ready, So final thing is to configure the `mwan3`
-    ![image](images/mwan3.png)
+    ![image](/images/posts/openwrt_mwan3/mwan3.png)
 
     If you are new to `mwan3` there is a really good [documentation in OpenWRT](https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3) docs,covering all the aspects.
 
@@ -176,7 +176,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     option ipset: Is the IP set name created with `ipset -N {name}` and the `ipset={domain}/{name}` in the config file
     option use_policy: is the policy name which have the WAN as a member that you want to forward the request match with the above ipset (i:e facebook.com requests go to Dialog 4G WAN)
     Change the above config accordingly and put it in the `mwan3` config at the top (will get the priority from configs in top to bottom)
-    ![image](images/rules.png)
+    ![image](/images/posts/openwrt_mwan3/rules.png)
     Finally restart the `mwan3` service
 
     ```shell
@@ -190,7 +190,7 @@ To configure dynamic hostname base WAN routing you need to do 3 things
     ```
 
     or check the status from the web UI
-    ![image](images/mwan3state.png)
+    ![image](/images/posts/openwrt_mwan3/mwan3state.png)
     it should show the above added new rul in `Active ipv4 user rules:` section
 
 # Verifying the changes
@@ -233,7 +233,7 @@ execute the above command and check from which WAN connection or hope the reques
 
 This is about monitoring the home network traffic using the OpenWRT, This is a different topic than the above discussed topic.
 
-![image](images/statsgraph.png)
+![image](/images/posts/openwrt_mwan3/statsgraph.png)
 
 I have used [luci_app_statistics](https://openwrt.org/docs/guide-user/luci/luci_app_statistics) package in OpenWRT, It provide good coverage of parameters, from Network interfaces, to memory & CPU usages and there are lot more supported in `collectd`. This package gives more similar graph outputs this is available in [LERAN traffic graphs](https://lnms.learn.ac.lk/traffic/int.php). So i believe this `luci_app_statistics` package give more professional looking stats in OpenWRT routers.
 

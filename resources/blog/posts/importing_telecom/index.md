@@ -15,7 +15,7 @@ draft: true
 
 Harmonized System Codes or HS codes is simply an identification code for goods or items. HS codes is a standardize numerical method and widely used in my countries to categorize and identify goods in export ot import process. If not for such identification system, It's literally impressible to identify goods by their name.
 
-![HS Code](images/hscode.svg)
+![HS Code](/images/posts/importing_telecom/hscode.svg)
 
 It's important to know the HS code of the good that you planing to import beforehand, So that you can estimate the tax, and know whether it requires any licence or even it's prohibited item.
 
@@ -62,14 +62,14 @@ For more information call `0112326774`,This is the general number of the [Depart
 
 ## Why all this hassle
 
-![Narcotics](images/Customs-seizes-narcotics-hidden-as-dried-leaves-Newsradio.png)
+![Narcotics](/images/posts/importing_telecom/Customs-seizes-narcotics-hidden-as-dried-leaves-Newsradio.png)
 
 > Source : [News Radio](https://www.newsradio.lk/local/customs-seizes-narcotics-hidden-as-dried-leaves/)
 
 All these regulatory bodies and authorities are there to protect the civilian's rights and ensure the well being of all the people in the society, So it's our responsibility to adhere to these guidelines and laws and support.
 But at the same time there is a lot to improve on these process to make it smooth for actual buyers.
 
-![Johnny-FD](images/Johnny-FD-Posts-Facebook.png)
+![Johnny-FD](/images/posts/importing_telecom/Johnny-FD-Posts-Facebook.png)
 
 > Source : [Facebook](https://www.facebook.com/JohnnyFDK/posts/2902701656625133)
 
