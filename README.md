@@ -1,5 +1,7 @@
 # What is this ?
 
+## Azure test 2
+
 This is my [personal web site](https://me.knnect.com) deployed in Netlify and testing using CircleCI
 
 - REST API implementation for Smart 🏠  Operations : [Link](https://github.com/tmkasun/me_api)
@@ -35,3 +37,5 @@ This is my [personal web site](https://me.knnect.com) deployed in Netlify and te
   - Illustrations https://iradesign.io/illustrations/backgrounds
   - IP REST API http://ip-api.com/json
   - 
+
+sample edit 2 3 4 5 6 7 8 9
