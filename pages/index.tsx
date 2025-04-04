@@ -20,9 +20,16 @@ import Link from "../src/components/atomic/Link";
 import ItemSection from "../src/components/home/ItemSection";
 
 const WSO2Text = styled("span")({ color: "#ff8300" });
+const DeelText = styled("span")({ color: "#154197", fontWeight: 600 });
+const DeelDot = styled("span")({
+    fontSize: "xx-large",
+    color: "#2872f0",
+    fontWeight: 700,
+    lineHeight: "1rem",
+});
 const AmazonText = styled("span")`
     color: ${(props) =>
-        props.theme.palette.mode === "light" ? "#aa6700" : "#ff9900"};
+        props.theme.palette.mode === "light" ? "#d6662a" : "#fd9831"};
 `;
 const StyledAWS = styled("img")`
     position: absolute;
@@ -67,7 +74,19 @@ const LandingPage: React.FC = () => {
             <Grid item md={3} sm={1} xs={false} />
             <Grid item md={6} sm={10} xs={12}>
                 <MyTitle title="Kasun Thennakoon">
-                    Ex-Front-end Engineer at
+                    Ex-Technical Lead at
+                    <Box ml={0.3} mr={0.3} display="inline">
+                        <Tooltip
+                            placement="bottom-end"
+                            TransitionComponent={Zoom}
+                            title="Web Services Oxygen"
+                        >
+                            <WSO2Text>
+                                WSO<sub>2</sub>
+                            </WSO2Text>
+                        </Tooltip>
+                    </Box>{" "}
+                    | Ex-Frontend Engineer at
                     <Tooltip
                         placement="bottom-end"
                         TransitionComponent={Zoom}
@@ -77,20 +96,15 @@ const LandingPage: React.FC = () => {
                             <AmazonText>AWS</AmazonText>
                             <StyledAWS alt="Amazon Arrow" src={amazon.src} />
                         </Box>
-                    </Tooltip>
-                    {/* <br />Ex-Technical Lead at
-          <Box ml={0.3} display='inline'>
-            <Tooltip
-              placement="bottom-end"
-              TransitionComponent={Zoom}
-              title="Web Services Oxygen"
-            >
-              <WSO2Text>WSO2</WSO2Text>
-            </Tooltip>
-          </Box> */}
+                    </Tooltip>{" "}
+                    | Now @{" "}
+                    <Box ml={0.3} mr={0.3} display="inline">
+                        <DeelText>deel</DeelText>
+                        <DeelDot>.</DeelDot>
+                    </Box>
                 </MyTitle>
                 <Divider />
-                <ItemSection icon={myAvatar.src} title="Me">
+                <ItemSection marginTop={4} icon={myAvatar.src} title="Me">
                     I am{" "}
                     <Link
                         target="_blank"
@@ -145,8 +159,8 @@ const LandingPage: React.FC = () => {
                     are incomplete, and should be seen as prototypes rather than
                     practical implementations. In fact, some projects have been
                     known to instantly crash my computer (due to overwhelming
-                    awesomeness), so I&apos;ve temporarily taken them offline until I
-                    have the time to debug them.
+                    awesomeness), so I&apos;ve temporarily taken them offline
+                    until I have the time to debug them.
                 </ItemSection>
                 <ItemSection icon={blog.src} title="Blog">
                     My primary area of interest lies in web technologies,
