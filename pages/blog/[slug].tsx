@@ -22,11 +22,16 @@ import { CH } from "@code-hike/mdx/components";
 import "@code-hike/mdx/dist/index.css";
 import theme from "shiki/themes/solarized-dark.json";
 
-const StyledImage = styled("span")({
+const StyledImageContainer = styled("span")({
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+});
+
+const StyledImage = styled("img")({
+    display: "flex",
+    justifySelf: "center",
 });
 
 const components: any = {
@@ -34,9 +39,9 @@ const components: any = {
     CH,
     img: ({ src, height, width, ...rest }: any) => (
         // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
-        <StyledImage>
-            <img width="90%" src={src} {...rest} />
-        </StyledImage>
+        <StyledImageContainer>
+            <StyledImage {...rest} width={width || "90%"} src={src} />
+        </StyledImageContainer>
     ),
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.

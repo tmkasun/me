@@ -1,0 +1,73 @@
+---
+title: "React State initializer function"
+date: "2025-01-09"
+excerpt: ""
+draft: false
+---
+
+
+<img src="/images/posts/react-state-init/thumb.png/" width="400px"/>
+
+# State initializer function
+
+One of the most commonly used React hooks is `useState`. However, it's not widely known that `useState` can accept a function as an initializer. This initializer function is called only once, when the React component initially mounts.
+
+
+```jsx focus=9:18 mark=11[26:37]
+const initializer = () => {
+  console.log("Initializer function called");
+  let initialCount = 0;
+  for (let i = 0; i < 10 ** 3; i++) {
+    initialCount += 1;
+  }
+  return initialCount;
+};
+export default function App() {
+  const [count, setCount] = useState(initializer);
+
+  return (
+    <div>
+      <h1>Hello Initializer Function!</h1>
+      <h3>Count: {count}</h3>
+      <button onClick={() => setCount(count + 1)}>Re-Render</button>
+    </div>
+  );
+}
+```
+The initializer function must be pure, meaning it should not cause any side effects and should always return the same value for the same input. Additionally, the initializer function cannot return a promise; it must return the initial state value synchronously.
+
+# Benefits of using initializer function
+
+Main benefit is performance optimization. If your initialization logic is computation expensive, Moving it to an initializer function will help to improve the performance.
+
+# Demo
+
+[CodeSandbox](https://codesandbox.io/p/sandbox/react-state-initialization-hvtzv5?file=%2Fsrc%2FApp.tsx%3A12%2C1-13%2C1)
+
+
+
+<Spack filename="/App.js">
+{`
+import React, { useState } from "react";
+
+const initializer = () => {
+  console.log("Initializer function called");
+  let initialCount = 0;
+  for (let i = 0; i < 10 ** 3; i++) {
+    initialCount += 1;
+  }
+  return initialCount;
+};
+export default function App() {
+  const [count, setCount] = useState(initializer);
+
+  return (
+    <div>
+      <h1>Hello Initializer Function!</h1>
+      <h3>Count: {count}</h3>
+      <button onClick={() => setCount(count + 1)}>Re-Render</button>
+    </div>
+  );
+}
+`}
+</Spack>
