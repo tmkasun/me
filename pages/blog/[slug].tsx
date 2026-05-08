@@ -19,7 +19,6 @@ import Giscus from "@giscus/react";
 import { remarkCodeHike } from "@code-hike/mdx";
 // @ts-ignore
 import { CH } from "@code-hike/mdx/components";
-import "@code-hike/mdx/dist/index.css";
 import theme from "shiki/themes/solarized-dark.json";
 
 const StyledImageContainer = styled("span")({
