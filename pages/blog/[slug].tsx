@@ -47,7 +47,9 @@ const components: any = {
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
     Spack: dynamic(import("../../src/components/blog/CustomSandpack")),
+    NetworkAnimation: dynamic(import("../../src/components/blog/resources/NetworkAnimation")),
     Head,
+    ColorModeImg: dynamic(import("../../src/components/blog/resources/ColorModeImg")),
 };
 
 type Props = {
@@ -70,7 +72,7 @@ const Post = ({ mdxSource, post }: Props) => {
             alignItems="stretch"
         >
             <Head>
-                <title>{title} | Kasun Thennakoon&apos;s Blog space</title>
+                <title>{`${title} | Kasun Thennakoon's Blog space`}</title>
             </Head>
             <Grid xs={12} item>
                 <Box position="fixed">

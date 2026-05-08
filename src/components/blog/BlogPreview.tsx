@@ -25,15 +25,6 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
             alignItems="flex-start"
             spacing={0}
         >
-            <Divider
-                sx={(theme) => ({
-                    width: 2,
-                    backgroundColor:
-                        theme.palette.mode === "light" ? blue[300] : blue[700],
-                })}
-                orientation="vertical"
-                flexItem
-            />
 
             <Grid item md={7} sm={8} xs={9}>
                 <Grid
@@ -50,7 +41,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
                                     const underlineBackgroundColor =
                                         theme.palette.mode === "light"
                                             ? "#fbff00ab"
-                                            : "#72c5ee36";
+                                            : "#607492bb";
                                     return {
                                         flex: 1,
                                         borderRadius: 8,
@@ -64,7 +55,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
                                         backgroundImage: `linear-gradient(to right, ${underlineBackgroundColor} 0, ${underlineBackgroundColor} 100%)`,
                                         backgroundSize: "0 100%",
                                         backgroundRepeat: "no-repeat",
-                                        transition: "background .5s",
+                                        // transition: "background .5s",
                                         "&:hover": {
                                             backgroundSize: "100% 100%",
                                         },

@@ -1,0 +1,38 @@
+---
+title: "From Google Photos ☁ to Immich🖼️"
+date: "2026-05-07"
+excerpt: "A guide on migrating from Google Photos to Immich, a self-hosted photo management solution."
+draft: false
+---
+
+<ColorModeImg
+    lightSrc="/images/posts/immich/overview.png"
+    alt="Google Photos"
+/>
+
+# Introduction
+
+This blog explains why and how i transfer ~1TB of data from all clould services to local photo server. My requirement is to quickly sync data direcftly from mobile devices and fast access to them when needed mostly at home.
+
+# Why
+
+1. Access speed: Most of the time looking at the media at home, and my requirement is to access it fast with the highest quality
+2. Privacy: I don't want to share my media with a third party, and I want to have full control over it. Assuming you can take care of the security.
+
+## Drawbacks
+
+- Tech complexity : Unless you enjoy building it, the tech complexity is higher than simply uploading to cloud. While long term running cost could be lower, if initial 600$ for the hardware could be run for 5-6 years plus the electricity cost. and higher the storage higher the cost efficeint is compared to cloud.
+- Loss of data: unless have a good backup plan like [3-2-1 backup](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/), you have to take the risk of losing your media.
+
+# How
+
+- WiFi security: WPA 3
+- Router: Linksys
+- Cloudflare tunnel: to access it from outside the home network, and to have a secure connection.
+- Nginx Password and always use valid HTTPS
+- Immich: self-hosted photo management solution, with a nice UI and features like face recognition, duplicate detection, and more. It also has a mobile app for easy access to your media
+- Immich machine learning container running on personal laptop 5060 mobile GPU
+
+<h2>Immich</h2>
+
+<NetworkAnimation />

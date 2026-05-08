@@ -31,7 +31,7 @@ const darkTheme: ThemeOptions = {
             main: red.A400,
         },
         background: {
-            default: "#252631",
+            default: "#080f1d",
         },
     },
 };

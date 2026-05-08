@@ -25,7 +25,8 @@
         "gray-matter": "^4.0.3",
         "next": "latest",
         "next-mdx-remote": "^5.0.0",
-        "next-pwa": "^5.5.4",
+        "next-pwa": "^5.6.0",
+        "nextjs": "^0.0.3",
         "react": "latest",
         "react-dom": "latest",
         "reading-time": "^1.5.0",
@@ -39,6 +40,6 @@
         "eslint": "latest",
         "eslint-config-next": "latest",
         "eslint-config-prettier": "^9.1.0",
-        "typescript": "latest"
+        "typescript": "^6.0.3"
     }
 }
