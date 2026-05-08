@@ -472,7 +472,7 @@ export default function HomeNetworkAnimation() {
   );
 }
 
-function DeviceLabel({ children, isDark }) {
+function DeviceLabel({ children, isDark }: { children: React.ReactNode; isDark: boolean }) {
   return (
     <Box
       sx={{
