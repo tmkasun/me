@@ -12,7 +12,7 @@ const CustomSandpack = (props: CustomSandpackProps) => {
     return (
         <Sandpack
             template="react-ts"
-            theme={theme.palette.mode}
+            theme={theme.palette.mode === "dark" ? "dark" : "light"}
             files={{
                 [filename]: { code: children, active: true },
             }}

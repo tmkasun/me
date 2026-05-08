@@ -16,10 +16,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { styled, useTheme } from "@mui/material";
 import Giscus from "@giscus/react";
-import { remarkCodeHike } from "@code-hike/mdx";
-// @ts-ignore
-import { CH } from "@code-hike/mdx/components";
-import theme from "shiki/themes/solarized-dark.json";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const StyledImageContainer = styled("span")({
     width: "100%",
@@ -35,7 +32,7 @@ const StyledImage = styled("img")({
 
 const components: any = {
     a: Link as any,
-    CH,
+    // CH,
     img: ({ src, height, width, ...rest }: any) => (
         // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
         <StyledImageContainer>
@@ -45,7 +42,9 @@ const components: any = {
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
-    Spack: dynamic(import("../../src/components/blog/CustomSandpack")),
+    Spack: dynamic(() => import("../../src/components/blog/CustomSandpack"), {
+        ssr: false,
+    }),
     NetworkAnimation: dynamic(import("../../src/components/blog/resources/NetworkAnimation")),
     Head,
     ColorModeImg: dynamic(import("../../src/components/blog/resources/ColorModeImg")),
@@ -126,12 +125,12 @@ const Post = ({ mdxSource, post }: Props) => {
                         fontSize: "1.5em",
                         fontWeight: "100",
                         "p::selection, h1::selection, h2::selection, ul::selection":
-                            {
-                                background:
-                                    theme.palette.mode === "light"
-                                        ? "#65fbd7e3"
-                                        : "#288972",
-                            },
+                        {
+                            background:
+                                theme.palette.mode === "light"
+                                    ? "#65fbd7e3"
+                                    : "#288972",
+                        },
                         "a::selection": {
                             background:
                                 theme.palette.mode === "light"
@@ -145,7 +144,7 @@ const Post = ({ mdxSource, post }: Props) => {
                         dangerouslySetInnerHTML={{ __html: htmlContent }}
                     /> */}
                     {/* <ReactMarkdown children={content} components={renderers} /> */}
-                    <MDXRemote {...mdxSource} components={components} />
+                    {mdxSource && <MDXRemote {...mdxSource} components={components} />}
                 </Grid>
                 <Grid item md={7} sm={9} xs={11}>
                     <Box mb={3} mt={4}>
@@ -182,22 +181,15 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
     const post = getPostBySlug(params.slug);
+    if (!post?.content || typeof post.content !== "string") {
+        return { notFound: true };
+    }
     const mdxSource = await serialize(post.content, {
-        // Optionally pass remark/rehype plugins
-        // https://codehike.org/docs/configuration
         mdxOptions: {
-            remarkPlugins: [
-                [
-                    remarkCodeHike,
-                    {
-                        showCopyButton: true,
-                        autoImport: false,
-                        theme,
-                        lineNumbers: false,
-                    },
-                ],
-            ],
-            rehypePlugins: [],
+            rehypePlugins: [[rehypePrettyCode, {
+                theme: "one-dark-pro",
+
+            }]],
             useDynamicImport: true,
         },
     });

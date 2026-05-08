@@ -6,8 +6,6 @@ import createEmotionCache from "../src/createEmotionCache";
 import Header from "../src/components/layouts/Header";
 import { Box } from "@mui/material";
 import Script from "next/script";
-// @ts-ignore: importing CSS side-effect without type declarations
-import "@code-hike/mdx/dist/index.css";
 
 import Footer from "../src/components/layouts/Footer";
 import ThemeProvider from "../src/components/layouts/ThemeProvider";
