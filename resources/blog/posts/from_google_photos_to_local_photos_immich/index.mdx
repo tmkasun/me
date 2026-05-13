@@ -1,7 +1,7 @@
 ---
-title: "From Google Photos ☁ to Immich🖼️"
+title: "From Google Photos ☁ to Immich 🖼️"
 date: "2026-05-07"
-excerpt: "A guide on migrating from Google Photos to Immich, a self-hosted photo management solution."
+excerpt: "Why I moved from cloud photo storage to Immich, and how I set up a local photo server at home."
 draft: false
 ---
 
@@ -12,27 +12,52 @@ draft: false
 
 # Introduction
 
-This blog explains why and how i transfer ~1TB of data from all clould services to local photo server. My requirement is to quickly sync data direcftly from mobile devices and fast access to them when needed mostly at home.
+This post explains why and how I moved about 1TB of photos and videos from cloud services to a local photo server. My main requirement was simple: sync media directly from mobile devices and access the original files quickly, especially when I am at home.
 
-# Why
+# Overview
 
-1. Access speed: Most of the time looking at the media at home, and my requirement is to access it fast with the highest quality
-2. Privacy: I don't want to share my media with a third party, and I want to have full control over it. Assuming you can take care of the security.
+### Pros
 
-## Drawbacks
+1. Access speed: Most of the time, I browse my media at home. A local server lets me access photos and videos quickly at full quality.
+2. Privacy and control: I do not want to depend on a third party for my personal media. With a local setup, I control where the data lives and how it is accessed, assuming the setup is secured properly.
 
-- Tech complexity : Unless you enjoy building it, the tech complexity is higher than simply uploading to cloud. While long term running cost could be lower, if initial 600$ for the hardware could be run for 5-6 years plus the electricity cost. and higher the storage higher the cost efficeint is compared to cloud.
-- Loss of data: unless have a good backup plan like [3-2-1 backup](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/), you have to take the risk of losing your media.
+### Cons
 
-# How
+- Technical complexity: Unless you enjoy building and maintaining your own services, this is more complex than uploading everything to cloud storage. The long-term cost can be lower if the hardware runs for five or six years, but there is still an upfront cost and ongoing electricity usage to consider.
+- Risk of data loss: Without a good backup plan, such as the [3-2-1 backup strategy](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/), you are responsible for the risk of losing your media.
 
-- WiFi security: WPA 3
-- Router: Linksys
-- Cloudflare tunnel: to access it from outside the home network, and to have a secure connection.
-- Nginx Password and always use valid HTTPS
-- Immich: self-hosted photo management solution, with a nice UI and features like face recognition, duplicate detection, and more. It also has a mobile app for easy access to your media
-- Immich machine learning container running on personal laptop 5060 mobile GPU
+# How it works
 
-<h2>Immich</h2>
+### Hardware
 
 <NetworkAnimation />
+
+I had an old WD external HDD with most of my older photos and videos backed up, so I plugged it into a Lenovo Tiny PC with 8GB of RAM and an 8th-generation i5 processor. Initially, this was just for experimenting with Immich features.
+
+For networking, I use a Linksys MR5500 router with OpenWRT firmware and a Cloudflare Tunnel to access the server from outside my home network.
+
+The Lenovo Tiny PC does not have a GPU, so I use my personal laptop with a 5060 mobile GPU to run the Immich machine learning container for face recognition and other GPU-accelerated features.
+
+### Software
+
+The core setup is Immich running in Docker, with Nginx in front of it for HTTPS and password protection. The Immich machine learning container runs separately on my laptop and connects back to the server.
+
+### Setting up the server
+
+I installed the Immich server on the Lenovo Tiny PC with Docker and configured it to use a folder on the external HDD as an external media library.
+
+I configured Nginx to enforce HTTPS and password protection when accessing Immich through the Cloudflare Tunnel.
+
+Finally, I updated the Immich Docker Compose file to use the machine learning container running on my personal laptop.
+
+### Security
+
+I use WPA3 for WiFi security and keep the router firmware up to date. I also use strong passwords for Nginx authentication and Cloudflare Tunnel access.
+
+There is no port forwarding, no public IP exposure, and no plain HTTP access to the server.
+
+<img
+  src="/images/posts/immich/immich.png"
+  alt="Immich"
+  width="50px"
+/>
